@@ -3,7 +3,6 @@
 ## 2025-09-08
 - fix(extreme_poverty): guard against empty dataset.
 
-
 ## 2025-09-03
 - data(extreme_poverty): activate pipeline; add UA header.
 

@@ -1,258 +1,254 @@
 [
   {
     "year": 1960,
-    "value": 50.94
+    "value": 52.6
   },
   {
     "year": 1961,
-    "value": 52.8
+    "value": 52.93
   },
   {
     "year": 1962,
-    "value": 55.29
+    "value": 53.25
   },
   {
     "year": 1963,
-    "value": 55.65
+    "value": 53.58
   },
   {
     "year": 1964,
-    "value": 56.1
+    "value": 53.91
   },
   {
     "year": 1965,
-    "value": 55.93
+    "value": 54.24
   },
   {
     "year": 1966,
-    "value": 56.45
+    "value": 54.56
   },
   {
     "year": 1967,
-    "value": 56.9
+    "value": 54.89
   },
   {
     "year": 1968,
-    "value": 57.34
+    "value": 55.22
   },
   {
     "year": 1969,
-    "value": 57.68
+    "value": 55.55
   },
   {
     "year": 1970,
-    "value": 57.94
+    "value": 55.87
   },
   {
     "year": 1971,
-    "value": 58.02
+    "value": 56.2
   },
   {
     "year": 1972,
-    "value": 58.84
+    "value": 56.53
   },
   {
     "year": 1973,
-    "value": 59.3
+    "value": 56.86
   },
   {
     "year": 1974,
-    "value": 59.7
+    "value": 57.18
   },
   {
     "year": 1975,
-    "value": 60.13
+    "value": 57.51
   },
   {
     "year": 1976,
-    "value": 60.45
+    "value": 57.84
   },
   {
     "year": 1977,
-    "value": 61.04
+    "value": 58.17
   },
   {
     "year": 1978,
-    "value": 61.39
+    "value": 58.49
   },
   {
     "year": 1979,
-    "value": 61.84
+    "value": 58.82
   },
   {
     "year": 1980,
-    "value": 62.15
+    "value": 59.15
   },
   {
     "year": 1981,
-    "value": 62.52
+    "value": 59.48
   },
   {
     "year": 1982,
-    "value": 62.87
+    "value": 59.8
   },
   {
     "year": 1983,
-    "value": 63.13
+    "value": 60.13
   },
   {
     "year": 1984,
-    "value": 63.44
+    "value": 60.46
   },
   {
     "year": 1985,
-    "value": 63.72
+    "value": 60.79
   },
   {
     "year": 1986,
-    "value": 64.12
+    "value": 61.11
   },
   {
     "year": 1987,
-    "value": 64.46
+    "value": 61.44
   },
   {
     "year": 1988,
-    "value": 64.67
+    "value": 61.77
   },
   {
     "year": 1989,
-    "value": 64.96
+    "value": 62.1
   },
   {
     "year": 1990,
-    "value": 65.11
+    "value": 62.42
   },
   {
     "year": 1991,
-    "value": 65.3
+    "value": 62.75
   },
   {
     "year": 1992,
-    "value": 65.55
+    "value": 63.08
   },
   {
     "year": 1993,
-    "value": 65.74
+    "value": 63.4
   },
   {
     "year": 1994,
-    "value": 65.96
+    "value": 63.73
   },
   {
     "year": 1995,
-    "value": 66.2
+    "value": 64.06
   },
   {
     "year": 1996,
-    "value": 66.51
+    "value": 64.39
   },
   {
     "year": 1997,
-    "value": 66.83
+    "value": 64.71
   },
   {
     "year": 1998,
-    "value": 67.07
+    "value": 65.04
   },
   {
     "year": 1999,
-    "value": 67.31
+    "value": 65.37
   },
   {
     "year": 2000,
-    "value": 67.65
+    "value": 65.7
   },
   {
     "year": 2001,
-    "value": 67.94
+    "value": 66.02
   },
   {
     "year": 2002,
-    "value": 68.23
+    "value": 66.35
   },
   {
     "year": 2003,
-    "value": 68.51
+    "value": 66.68
   },
   {
     "year": 2004,
-    "value": 68.77
+    "value": 67.01
   },
   {
     "year": 2005,
-    "value": 69.11
+    "value": 67.33
   },
   {
     "year": 2006,
-    "value": 69.47
+    "value": 67.66
   },
   {
     "year": 2007,
-    "value": 69.8
+    "value": 67.99
   },
   {
     "year": 2008,
-    "value": 70
+    "value": 68.32
   },
   {
     "year": 2009,
-    "value": 70.38
+    "value": 68.64
   },
   {
     "year": 2010,
-    "value": 70.68
+    "value": 68.97
   },
   {
     "year": 2011,
-    "value": 70.97
+    "value": 69.3
   },
   {
     "year": 2012,
-    "value": 71.26
+    "value": 69.63
   },
   {
     "year": 2013,
-    "value": 71.53
+    "value": 69.95
   },
   {
     "year": 2014,
-    "value": 71.78
+    "value": 70.28
   },
   {
     "year": 2015,
-    "value": 71.96
+    "value": 70.61
   },
   {
     "year": 2016,
-    "value": 72.18
+    "value": 70.94
   },
   {
     "year": 2017,
-    "value": 72.37
+    "value": 71.26
   },
   {
     "year": 2018,
-    "value": 72.64
+    "value": 71.59
   },
   {
     "year": 2019,
-    "value": 72.87
+    "value": 71.92
   },
   {
     "year": 2020,
-    "value": 72.18
+    "value": 72.25
   },
   {
     "year": 2021,
-    "value": 71.22
+    "value": 72.57
   },
   {
     "year": 2022,
-    "value": 72.97
-  },
-  {
-    "year": 2023,
-    "value": 73.33
+    "value": 72.9
   }
 ]

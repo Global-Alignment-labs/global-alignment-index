@@ -14,32 +14,45 @@ If capability outpaces alignment, the trajectory is **unsustainable**. The dashb
 
 ## Core Alignment — 4 Directional Goals
 
-**Voice & Inclusion**  
-*We are building a world where everyone affected can be heard or represented.*
+These four goals form the **minimal foundation for sustainable world growth, harm reduction, and flourishing**.  
+Without them, growth in power or capability becomes unstable and harmful:
 
-**Truth & Clarity**  
-*We are building a world where important choices are based on information that can be checked and trusted.*
+### Safety & Care
+> “We are building a world where harm is prevented as much as possible, and when it happens, people and planet are cared for and repaired.”
 
-**Safety & Care**  
-*We are building a world where harm is prevented as much as possible, and when it happens, people and planet are cared for and repaired.*
+Protects life and wellbeing, ensuring that progress does not come at the cost of widespread harm.
 
-**Responsibility & Learning**  
-*We are building a world where those who cause harm are held accountable, and where mistakes become lessons for better futures.*
+### Responsibility & Learning
+> “We are building a world where those who cause harm are held accountable, and where mistakes become lessons for better futures.”
 
-Clear insight into **where alignment is rising or decaying** helps steer action and resources toward better futures — **preventing harm and promoting flourishing**.
+Creates accountability for harm and enables mistakes to become lessons, not cycles of repeated damage.
+
+### Truth & Clarity
+> “We are building a world where important choices are based on information that can be checked and trusted.”
+
+Provides a shared factual basis so choices can be checked, trusted, and coordinated.
+
+### Voice & Inclusion
+> “We are building a world where everyone affected can be heard or represented.”
+
+Ensures that those affected can participate, preventing decisions from being imposed on silenced populations.
+
+**Together, these four goals are the irreducible set:**  
+If even one is missing, societies may grow in capability but collapse or self-terminate through misalignment. With all four, alignment can rise sustainably alongside power, shaping a trajectory of growth that reduces harm and expands flourishing.
 
 ---
 
 ## What the dashboard shows
 
-- **Global view + country view.** World series first; country drill-downs roll out as data lands.
-- **Raw metric graphs** (original, factual series).
+- **Global view + country view.** World series first; country drill-downs roll out as data lands.  
+- **Raw metric graphs** (original, factual series).  
 - **Relative alignment graphs (0–100%)** to make direction obvious:  
   - **Up is better** (e.g., literacy): 0% at reference min, 100% at reference max or target.  
-  - **Down is better** (e.g., mortality): 100% at the target (e.g., 0), 0% at the reference max.
+  - **Down is better** (e.g., mortality): 100% at the target (e.g., 0), 0% at the reference max.  
 - A **Whole Alignment Trend (aggregate)** will follow once weighting & robustness policies are finalized.
 
-> **Weights:** will be **fine-tuned**. Likely factors include **population relevance** (how many people affected) and **measurement reliability** (source quality & coverage). We keep this transparent in `/docs/METHODS.md`.
+> **Weights (raw v1):** Safety & Care = 40%, Responsibility & Learning = 20%, Truth & Clarity = 20%, Voice & Inclusion = 20%.  
+> Within each domain, metrics are further weighted by factors such as **population relevance** (how many people are affected) and **measurement reliability** (source quality & coverage). Refinement will continue over time.
 
 ---
 
@@ -58,26 +71,52 @@ The dashboard **never** rewards military deployments or proxy-war involvement; w
 
 ## Tier-1 (v1) metric set — initial focus
 
-*(Global line first; per-country follows.)*
+*(Global line first; per-country follows. ICA = Inner-country Alignment, CCA = Cross-country Alignment)*
 
 ### Safety & Care
-- **Under-5 mortality (↓)** — UN IGME / World Bank (WDI) — **live**
-- **Intentional homicide per 100k (↓)** — UNODC (via WDI) — *in progress*
-- **DTP3 immunization coverage % (↑)** — WHO/UNICEF (WUENIC)
-- **Disaster mortality (↓)** — EM-DAT (winsorized 3-yr MA)
-- **Road traffic deaths per 100k (↓)** — WHO / WDI
 
-### Voice & Inclusion
-- **Youth literacy 15–24 % (↑)** — UNESCO / WDI
-- **Out-of-school (primary-age) % (↓)** — UNESCO / WDI
+**ICA**
+- Under-5 mortality (↓) — UN IGME / World Bank (WDI)  
+- Intentional homicide per 100k (↓) — UNODC (via WDI)  
+- DTP3 immunization coverage % (↑) — WHO/UNICEF (WUENIC)  
+- Disaster mortality (↓) — EM-DAT (winsorized 3-yr MA)  
+- Road traffic deaths per 100k (↓) — WHO / WDI  
+- Child stunting % (↓) — UNICEF–WHO–World Bank (JME)  
+- Extreme poverty % (<$2.15, 2017 PPP) (↓) — World Bank Povcal / WDI  
 
-### Economics & Poverty (alignment—not capability)
-- **Extreme poverty % (<$2.15, 2017 PPP) (↓)** — World Bank Povcal / WDI
-- **Child stunting % (↓)** — UNICEF-WHO-WB JME
+**CCA**
+- Battle-related deaths per 100k (↓) — UCDP / PRIO  
+
+---
+
+### Responsibility & Learning
+
+**ICA**
+- IMF Data Standards adoption (↑) — IMF (e-GDDS / SDDS / SDDS+)  
+
+**CCA**
+- Peace agreement persistence (↑) — UCDP / PA-X  
+
+---
 
 ### Truth & Clarity
-- **Death registration completeness with cause-of-death (↑)** — WHO / UNDESA (where open)
-- **IMF Data Standards adoption (↑)** — IMF (e-GDDS/SDDS/SDDS+)
+
+**ICA**
+- Death registration completeness with cause-of-death (↑) — WHO / UNDESA  
+
+**CCA**
+- Student mobility residual (↑) — UNESCO / OECD (knowledge exchange)  
+
+---
+
+### Voice & Inclusion
+
+**ICA**
+- Youth literacy 15–24 % (↑) — UNESCO / WDI  
+- Out-of-school (primary-age) % (↓) — UNESCO / WDI  
+
+**CCA**
+- Student mobility residual (↑) — UNESCO / OECD (participation across borders)  
 
 *(More metrics — including Tier-2/3 candidates like PM2.5, maternal mortality, turnout+integrity, etc. — are listed in `/docs/METHODS.md` and will phase in as Tier-1 stabilizes.)*
 
@@ -85,15 +124,16 @@ The dashboard **never** rewards military deployments or proxy-war involvement; w
 
 ## Inner-country & cross-country
 
-GAI measures both **inner-country alignment** (within each nation) and **cross-country resonance** (how countries support or hinder alignment across borders). Initial releases focus on robust **global** and **country** series; dyadic cross-country views will follow.
+GAI measures both **inner-country alignment** (within each nation) and **cross-country resonance** (how countries support or hinder alignment across borders).  
+Initial releases focus on robust **global** and **country** series; dyadic cross-country views will follow.
 
 ---
 
 ## Data sources & transparency
 
-- **Authoritative open sources** (World Bank, WHO/UNICEF, UNHCR/IDMC, EM-DAT, UNESCO, NOAA/NASA, etc.).
-- Each metric’s method & provenance is documented in `/docs/METHODS.md` and tracked in `/public/data/sources.json`.
-- Data files are versioned in Git under `/public/data/<metric>.json`. The site reads these JSONs directly.
+- **Authoritative open sources** (World Bank, WHO/UNICEF, UNHCR/IDMC, EM-DAT, UNESCO, NOAA/NASA, UCDP, etc.).  
+- Each metric’s method & provenance is documented in `/docs/METHODS.md` and tracked in `/public/data/sources.json`.  
+- Data files are versioned in Git under `/public/data/<metric>.json`. The site reads these JSONs directly.  
 
 **Relative (0–100%)** uses per-metric `reference_min`, `reference_max`, and optional `target` from `/public/data/metrics_registry.json`.
 

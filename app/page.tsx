@@ -6,7 +6,7 @@ import { computeRelative } from '@/lib/relative'
 import SourcesFooter from '@/components/SourcesFooter'
 
 type Pt = { year: number; value: number }
-const version = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
+const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
 function unitFor(id: string): string {
   switch (id) {
     case 'internet_use':
@@ -27,7 +27,7 @@ function formatValue(id: string, v: number): string {
   return String(Number(v.toFixed(2)))
 }
 async function load(id: string): Promise<Pt[]> {
-  const url = `/data/${id}.json?v=${version}`
+  const url = `/data/${id}.json?version=${fetchVersion}`
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) return []
   return res.json()

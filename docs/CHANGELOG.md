@@ -1,7 +1,7 @@
 # Changelog
 
 ## 2025-09-08
-- fix(extreme_poverty): guard against empty dataset.
+- fix(extreme_poverty): guard against empty dataset; log population rows.
 
 ## 2025-09-03
 - data(extreme_poverty): activate pipeline; add UA header.

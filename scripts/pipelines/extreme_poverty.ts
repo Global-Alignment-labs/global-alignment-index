@@ -72,7 +72,7 @@ export async function run() {
     throw new Error('[extreme_poverty] computed points = 0; nothing written.');
   }
 
-  console.log(`[extreme_poverty] raw rows: ${povRows.length} / pop rows: ${popRows.length} / ISO3 count: ${isoSet.size} / years count: ${Object.keys(totals).length} / computed points: ${data.length}`);
+  console.log(`[extreme_poverty] raw rows: ${povRows.length} / population rows: ${popRows.length} / ISO3 count: ${isoSet.size} / years count: ${Object.keys(totals).length} / computed points: ${data.length}`);
 
   await writeJson('public/data/extreme_poverty.json', data);
   await upsertSource('extreme_poverty', {

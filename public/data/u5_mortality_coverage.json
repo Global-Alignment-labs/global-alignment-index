@@ -1,392 +1,392 @@
 [
   {
     "year": 1960,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.398,
+    "n_iso": 98,
     "n_pop": 246
   },
   {
     "year": 1961,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.411,
+    "n_iso": 101,
     "n_pop": 246
   },
   {
     "year": 1962,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.419,
+    "n_iso": 103,
     "n_pop": 246
   },
   {
     "year": 1963,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.431,
+    "n_iso": 106,
     "n_pop": 246
   },
   {
     "year": 1964,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.439,
+    "n_iso": 108,
     "n_pop": 246
   },
   {
     "year": 1965,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.447,
+    "n_iso": 110,
     "n_pop": 246
   },
   {
     "year": 1966,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.459,
+    "n_iso": 113,
     "n_pop": 246
   },
   {
     "year": 1967,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.467,
+    "n_iso": 115,
     "n_pop": 246
   },
   {
     "year": 1968,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.476,
+    "n_iso": 117,
     "n_pop": 246
   },
   {
     "year": 1969,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.488,
+    "n_iso": 120,
     "n_pop": 246
   },
   {
     "year": 1970,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.496,
+    "n_iso": 122,
     "n_pop": 246
   },
   {
     "year": 1971,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.508,
+    "n_iso": 125,
     "n_pop": 246
   },
   {
     "year": 1972,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.516,
+    "n_iso": 127,
     "n_pop": 246
   },
   {
     "year": 1973,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.524,
+    "n_iso": 129,
     "n_pop": 246
   },
   {
     "year": 1974,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.537,
+    "n_iso": 132,
     "n_pop": 246
   },
   {
     "year": 1975,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.545,
+    "n_iso": 134,
     "n_pop": 246
   },
   {
     "year": 1976,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.553,
+    "n_iso": 136,
     "n_pop": 246
   },
   {
     "year": 1977,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.565,
+    "n_iso": 139,
     "n_pop": 246
   },
   {
     "year": 1978,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.573,
+    "n_iso": 141,
     "n_pop": 246
   },
   {
     "year": 1979,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.585,
+    "n_iso": 144,
     "n_pop": 246
   },
   {
     "year": 1980,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.593,
+    "n_iso": 146,
     "n_pop": 246
   },
   {
     "year": 1981,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.602,
+    "n_iso": 148,
     "n_pop": 246
   },
   {
     "year": 1982,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.614,
+    "n_iso": 151,
     "n_pop": 246
   },
   {
     "year": 1983,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.622,
+    "n_iso": 153,
     "n_pop": 246
   },
   {
     "year": 1984,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.63,
+    "n_iso": 155,
     "n_pop": 246
   },
   {
     "year": 1985,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.642,
+    "n_iso": 158,
     "n_pop": 246
   },
   {
     "year": 1986,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.65,
+    "n_iso": 160,
     "n_pop": 246
   },
   {
     "year": 1987,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.663,
+    "n_iso": 163,
     "n_pop": 246
   },
   {
     "year": 1988,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.671,
+    "n_iso": 165,
     "n_pop": 246
   },
   {
     "year": 1989,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.679,
+    "n_iso": 167,
     "n_pop": 246
   },
   {
     "year": 1990,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.711,
+    "n_iso": 175,
     "n_pop": 246
   },
   {
     "year": 1991,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.72,
+    "n_iso": 177,
     "n_pop": 246
   },
   {
     "year": 1992,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.728,
+    "n_iso": 179,
     "n_pop": 246
   },
   {
     "year": 1993,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.732,
+    "n_iso": 180,
     "n_pop": 246
   },
   {
     "year": 1994,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.74,
+    "n_iso": 182,
     "n_pop": 246
   },
   {
     "year": 1995,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.748,
+    "n_iso": 184,
     "n_pop": 246
   },
   {
     "year": 1996,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.756,
+    "n_iso": 186,
     "n_pop": 246
   },
   {
     "year": 1997,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.764,
+    "n_iso": 188,
     "n_pop": 246
   },
   {
     "year": 1998,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.772,
+    "n_iso": 190,
     "n_pop": 246
   },
   {
     "year": 1999,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.78,
+    "n_iso": 192,
     "n_pop": 246
   },
   {
     "year": 2000,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.789,
+    "n_iso": 194,
     "n_pop": 246
   },
   {
     "year": 2001,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.797,
+    "n_iso": 196,
     "n_pop": 246
   },
   {
     "year": 2002,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.805,
+    "n_iso": 198,
     "n_pop": 246
   },
   {
     "year": 2003,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.813,
+    "n_iso": 200,
     "n_pop": 246
   },
   {
     "year": 2004,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.821,
+    "n_iso": 202,
     "n_pop": 246
   },
   {
     "year": 2005,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.829,
+    "n_iso": 204,
     "n_pop": 246
   },
   {
     "year": 2006,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.837,
+    "n_iso": 206,
     "n_pop": 246
   },
   {
     "year": 2007,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.846,
+    "n_iso": 208,
     "n_pop": 246
   },
   {
     "year": 2008,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.854,
+    "n_iso": 210,
     "n_pop": 246
   },
   {
     "year": 2009,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.858,
+    "n_iso": 211,
     "n_pop": 246
   },
   {
     "year": 2010,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.866,
+    "n_iso": 213,
     "n_pop": 246
   },
   {
     "year": 2011,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.874,
+    "n_iso": 215,
     "n_pop": 246
   },
   {
     "year": 2012,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.882,
+    "n_iso": 217,
     "n_pop": 246
   },
   {
     "year": 2013,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.89,
+    "n_iso": 219,
     "n_pop": 246
   },
   {
     "year": 2014,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.898,
+    "n_iso": 221,
     "n_pop": 246
   },
   {
     "year": 2015,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.907,
+    "n_iso": 223,
     "n_pop": 246
   },
   {
     "year": 2016,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.915,
+    "n_iso": 225,
     "n_pop": 246
   },
   {
     "year": 2017,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.923,
+    "n_iso": 227,
     "n_pop": 246
   },
   {
     "year": 2018,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.931,
+    "n_iso": 229,
     "n_pop": 246
   },
   {
     "year": 2019,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.939,
+    "n_iso": 231,
     "n_pop": 246
   },
   {
     "year": 2020,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.947,
+    "n_iso": 233,
     "n_pop": 246
   },
   {
     "year": 2021,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.955,
+    "n_iso": 235,
     "n_pop": 246
   },
   {
     "year": 2022,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.963,
+    "n_iso": 237,
     "n_pop": 246
   },
   {
     "year": 2023,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.972,
+    "n_iso": 239,
     "n_pop": 246
   },
   {
     "year": 2024,
-    "coverage": 1,
-    "n_iso": 246,
+    "coverage": 0.451,
+    "n_iso": 111,
     "n_pop": 246
   }
 ]

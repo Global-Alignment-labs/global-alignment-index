@@ -122,7 +122,12 @@ export default function Home() {
       <section className="grid md:grid-cols-2 gap-6">
         {Object.keys(data).map((k, i) => (
           <div key={k} className="card p-4 shadow-sm">
-            <h3 className="text-lg font-medium">{METRICS.find(m=>m.id===k)?.name}</h3>
+            {(() => {
+              const m = METRICS.find(m => m.id === k)
+              const base = m?.name ?? k
+              const titled = k === 'u5_mortality' ? `${base} (per 1,000 live births)` : base
+              return <h3 className="text-lg font-medium">{titled}</h3>
+            })()}
             <div className="w-full h-56 mt-2">
               <ResponsiveContainer width="100%" height="100%">
                 {(() => {

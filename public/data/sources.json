@@ -39,7 +39,7 @@
     "license": "CC BY 4.0",
     "cadence": "annual",
     "method": "Population-weighted global mean of national SH.DYN.MORT using SP.POP.TOTL; exclude aggregates; round to 2 decimals.",
-    "updated_at": "2025-08-29",
+    "updated_at": "2025-09-10",
     "data_start_year": 1960
   }
 }

@@ -27,7 +27,7 @@ function formatValue(id: string, v: number): string {
   return String(Number(v.toFixed(2)))
 }
 async function load(id: string): Promise<Pt[]> {
-  const url = `/data/${id}.json?version=${fetchVersion}`
+  const url = `/data/${id}.json?v=${fetchVersion}`
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) return []
   return res.json()

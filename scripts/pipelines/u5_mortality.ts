@@ -108,43 +108,62 @@ export async function run() {
   if (!Object.keys(pop).length) throw new Error("u5: population fetch empty");
 
   const years = new Set<number>();
-  for (const iso in mort) {
-    for (const y in mort[iso]) {
-      const yy = Number(y);
-      if (pop[iso]?.[yy] != null) years.add(yy);
-    }
+  for (const iso in pop) {
+    for (const y in pop[iso]) years.add(Number(y));
   }
   const ys = Array.from(years).sort((a, b) => a - b);
-  console.log("[u5] years count:", years.size, ys.length ? `range ${ys[0]}–${ys[ys.length-1]}` : '');
+  console.log(
+    "[u5] years count:",
+    years.size,
+    ys.length ? `range ${ys[0]}–${ys[ys.length - 1]}` : "",
+  );
 
-  const data = Array.from(years)
-    .map((year) => {
-      let totalPop = 0;
-      let weighted = 0;
-      for (const iso in mort) {
-        const u = mort[iso][year];
-        const p = pop[iso]?.[year];
-        if (u != null && p != null && !isNaN(u) && !isNaN(p)) {
+  const data: { year: number; value: number }[] = [];
+  const coverageRows: { year: number; coverage: number; n_iso: number; n_pop: number }[] = [];
+  let dropLogged = 0;
+  for (const year of ys) {
+    let totalPop = 0;
+    let weighted = 0;
+    let n_pop = 0;
+    let n_both = 0;
+    for (const iso in pop) {
+      const p = pop[iso]?.[year];
+      if (p != null && !isNaN(p)) {
+        n_pop++;
+        const u = mort[iso]?.[year];
+        if (u != null && !isNaN(u)) {
+          n_both++;
           weighted += u * p;
           totalPop += p;
         }
       }
-      if (totalPop > 0) {
-        return { year, value: Math.round((weighted / totalPop) * 100) / 100 };
-      }
-      return undefined;
-    })
-    .filter(Boolean)
-    .sort((a: any, b: any) => a.year - b.year) as {
-    year: number;
-    value: number;
-  }[];
-  console.log('[u5] computed points:', data.length);
+    }
+    const coverage = n_pop ? n_both / n_pop : 0;
+    coverageRows.push({
+      year,
+      coverage: Math.round(coverage * 1000) / 1000,
+      n_iso: n_both,
+      n_pop,
+    });
+    if (coverage >= 0.7 && totalPop > 0) {
+      data.push({ year, value: Math.round((weighted / totalPop) * 100) / 100 });
+      console.log(
+        `[u5] kept ${year} coverage=${(coverage * 100).toFixed(1)}% n_iso=${n_both}/${n_pop}`,
+      );
+    } else if (dropLogged < 3) {
+      console.log(
+        `[u5] drop ${year} coverage=${(coverage * 100).toFixed(1)}% n_iso=${n_both}/${n_pop}`,
+      );
+      dropLogged++;
+    }
+  }
+  console.log("[u5] computed points:", data.length);
   if (!Array.isArray(data) || data.length === 0) {
     throw new Error("u5_mortality: no data fetched — skipping write");
   }
 
   await writeJson("public/data/u5_mortality.json", data);
+  await writeJson("public/data/u5_mortality_coverage.json", coverageRows);
   await upsertSource("u5_mortality", {
     name: "Under-5 mortality",
     domain: "Health & Wellbeing",

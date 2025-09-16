@@ -6,6 +6,7 @@ import { computeRelative } from '@/lib/relative'
 import SourcesFooter from '@/components/SourcesFooter'
 
 type Pt = { year: number; value: number }
+const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
 function unitFor(id: string): string {
   switch (id) {
     case 'internet_use':
@@ -26,9 +27,31 @@ function formatValue(id: string, v: number): string {
   return String(Number(v.toFixed(2)))
 }
 async function load(id: string): Promise<Pt[]> {
-  const res = await fetch(`/data/${id}.json`, { cache: 'no-store' })
+  const url = `/data/${id}.json?v=${fetchVersion}`
+  const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) return []
   return res.json()
+}
+
+type PtMaybe = { year: number; value: number | null | undefined }
+
+function prepSeriesForPlot(series: PtMaybe[]): PtMaybe[] {
+  return [...series]
+    .sort((a, b) => a.year - b.year)
+    .map(p => {
+      const v = p?.value as number | null | undefined
+      return Number.isFinite(v) && (v as number) > 0
+        ? { year: p.year, value: v as number }
+        : { year: p.year, value: null }
+    })
+}
+
+function getLatestNonMissingPoint(series: PtMaybe[]): PtMaybe | null {
+  for (let i = series.length - 1; i >= 0; i--) {
+    const v = series[i]?.value
+    if (Number.isFinite(v) && (v as number) > 0) return series[i]
+  }
+  return null
 }
 
 export default function Home() {
@@ -99,11 +122,17 @@ export default function Home() {
       <section className="grid md:grid-cols-2 gap-6">
         {Object.keys(data).map((k, i) => (
           <div key={k} className="card p-4 shadow-sm">
-            <h3 className="text-lg font-medium">{METRICS.find(m=>m.id===k)?.name}</h3>
+            {(() => {
+              const m = METRICS.find(m => m.id === k)
+              const base = m?.name ?? k
+              const titled = k === 'u5_mortality' ? `${base} (per 1,000 live births)` : base
+              return <h3 className="text-lg font-medium">{titled}</h3>
+            })()}
             <div className="w-full h-56 mt-2">
               <ResponsiveContainer width="100%" height="100%">
                 {(() => {
-                  const series = data[k].map(p => ({ year: p.year, [k]: p.value }))
+                  const raw = data[k] || []
+                  const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
                   const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
                   const mid = metricIds.length === 1 ? metricIds[0] : undefined
                   return (
@@ -137,18 +166,26 @@ export default function Home() {
             <p className="text-sm opacity-70 mt-2">{METRICS.find(m=>m.id===k)?.domain}</p>
             {(() => {
               const reg = registry[k]
-              const series = data[k]
-              const latest = series && series[series.length - 1]
-              if (reg && latest) {
-                const rel = computeRelative(latest.value, {
+              const raw = data[k] || []
+              const latest = getLatestNonMissingPoint(raw)
+              const latestValue = latest?.value
+              const latestYear = latest?.year
+              const canShowLatest = Number.isFinite(latestValue)
+              if (reg && canShowLatest && latestYear !== undefined) {
+                const rel = computeRelative(latestValue as number, {
                   direction: reg.direction,
                   reference_min: reg.reference_min,
                   reference_max: reg.reference_max,
                   target: reg.target,
                 })
                 return (
-                  <p className="text-sm mt-1">Latest: {formatValue(k, latest.value)} · Relative: {Math.round(rel)}%</p>
+                  <p className="text-sm mt-1">
+                    Latest ({latestYear}): {formatValue(k, latestValue as number)} · Relative: {Math.round(rel)}%
+                  </p>
                 )
+              }
+              if (reg && !canShowLatest) {
+                return <p className="text-sm mt-1">Latest: No recent data</p>
               }
               return null
             })()}

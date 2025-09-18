@@ -1,5 +1,8 @@
 # Changelog
 
+## 2025-09-18
+- data(extreme_poverty): add WDI SI.POV.DDAY × SP.POP.TOTL pipeline; registry, sources, and METHODS updated.
+
 ## 2025-08-29
 - data(u5_mortality): add WDI pipeline; METHODS updated.
 

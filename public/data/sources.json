@@ -8,7 +8,7 @@
     "license": "CC BY 4.0",
     "cadence": "annual",
     "method": "Use World Bank annual series as provided; include only numeric values; round to 2 decimals.",
-    "updated_at": "2025-08-29",
+    "updated_at": "2025-09-18",
     "data_start_year": 1960
   },
   "internet_use": {
@@ -27,7 +27,9 @@
     "source_url": "https://data.worldbank.org/indicator/SI.POV.DDAY",
     "license": "CC BY 4.0",
     "cadence": "annual",
-    "method": "Pop-weighted global mean from national SI.POV.DDAY using SP.POP.TOTL; exclude aggregates; round 2 decimals; WDI may include modeled/nowcasted values."
+    "method": "Pop-weighted global mean from national SI.POV.DDAY using SP.POP.TOTL; exclude aggregates; round 2 decimals; WDI may include modeled/nowcasted values.",
+    "updated_at": "2025-09-18",
+    "data_start_year": 1963
   },
   "co2_ppm": {
     "name": "CO₂ (Global)",
@@ -37,7 +39,7 @@
     "source_url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_gl.csv",
     "license": "Public domain / no known restrictions",
     "method": "Annual mean of monthly averages, exclude -99.99; round to 2 decimals.",
-    "updated_at": "2025-08-29",
+    "updated_at": "2025-09-18",
     "data_start_year": 1979
   },
   "u5_mortality": {
@@ -49,8 +51,8 @@
     "license": "CC BY 4.0",
     "cadence": "annual",
     "method": "Population-weighted global mean of national SH.DYN.MORT using SP.POP.TOTL; exclude aggregates; round to 2 decimals.",
-    "updated_at": "2025-09-16",
-    "data_start_year": 1990
+    "updated_at": "2025-09-18",
+    "data_start_year": 1960
   },
   "u5_mortality_coverage": {
     "name": "U5MR coverage (per-year n_iso / n_pop)",

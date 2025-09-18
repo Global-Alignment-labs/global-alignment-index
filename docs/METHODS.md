@@ -28,3 +28,9 @@
 - Unit: per 1,000 live births
 - Cadence: annual
 - Method: Population-weighted global mean of national SH.DYN.MORT using SP.POP.TOTL; exclude aggregates; round to 2 decimals.
+
+**Extreme poverty (% of population below $2.15/day) — Global (World Bank)**
+- Source: World Bank WDI (SI.POV.DDAY with SP.POP.TOTL)
+- Unit: % of population
+- Cadence: annual
+- Method: Pop-weighted global mean from national SI.POV.DDAY using SP.POP.TOTL; exclude aggregates; round to 2 decimals; WDI may include modeled/nowcasted values.

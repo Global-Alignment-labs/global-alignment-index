@@ -97,11 +97,16 @@ function roundTwo(value: number): number {
   return Math.round(value * 100) / 100;
 }
 
-async function fetchText(url: string, label: string): Promise<string> {
+async function fetchText(
+  url: string,
+  label: string,
+  expected: "csv" | "json" = "csv",
+): Promise<string> {
+  const accept = expected === "json" ? "application/json" : "text/csv";
   const response = await fetch(url, {
     headers: {
       "User-Agent": "GAI-battle-deaths-pipeline/1.0",
-      Accept: "text/csv",
+      Accept: accept,
     },
   });
   if (!response.ok) {
@@ -112,17 +117,27 @@ async function fetchText(url: string, label: string): Promise<string> {
   }
   const ct = response.headers.get("content-type") ?? "";
   const text = await response.text();
-  if (!ct.toLowerCase().includes("text/csv")) {
-    const snippet = text.slice(0, 200);
-    throw new Error(
-      `[battle-deaths] expected CSV, got ${ct || "unknown"}: ${snippet}`,
-    );
+  const lowered = ct.toLowerCase();
+  if (expected === "csv") {
+    if (!lowered.includes("text/csv")) {
+      const snippet = text.slice(0, 200);
+      throw new Error(
+        `[battle-deaths] expected CSV, got ${ct || "unknown"}: ${snippet}`,
+      );
+    }
+  } else {
+    if (!lowered.includes("application/json")) {
+      const snippet = text.slice(0, 200);
+      throw new Error(
+        `[battle-deaths] expected JSON, got ${ct || "unknown"}: ${snippet}`,
+      );
+    }
   }
   return text;
 }
 
 async function loadPopulation(): Promise<Map<number, number>> {
-  const text = await fetchText(POPULATION_URL, "population");
+  const text = await fetchText(POPULATION_URL, "population", "json");
   const json = JSON.parse(text);
   if (!Array.isArray(json) || json.length < 2 || !Array.isArray(json[1])) {
     throw new Error("[battle-deaths] population payload missing rows");
@@ -179,7 +194,7 @@ async function loadUcdpCsv(): Promise<string> {
     return readFile(LOCAL_UCDP_PATH, "utf8");
   }
   console.log("[battle-deaths] fetch UCDP CSV", UCDP_URL);
-  return fetchText(UCDP_URL, "ucdp");
+  return fetchText(UCDP_URL, "ucdp", "csv");
 }
 
 async function run(): Promise<void> {

@@ -1,9 +1,14 @@
+import { existsSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+
 import { writeJson } from "./lib/io.ts";
 import { upsertSource } from "./lib/manifest.ts";
 
 const UCDP_URL =
   "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-241.csv";
 // Source pinned: UCDP Battle-Related Deaths Dataset v24.1 (released 2024-06-25)
+const LOCAL_UCDP_PATH = resolve(process.cwd(), "data/raw/ucdp-brd-conflict-241.csv");
 const POPULATION_URL =
   "https://api.worldbank.org/v2/country/WLD/indicator/SP.POP.TOTL?format=json&per_page=600";
 // Population: World Bank WDI SP.POP.TOTL (global population, CC BY 4.0)
@@ -96,6 +101,7 @@ async function fetchText(url: string, label: string): Promise<string> {
   const response = await fetch(url, {
     headers: {
       "User-Agent": "GAI-battle-deaths-pipeline/1.0",
+      Accept: "text/csv",
     },
   });
   if (!response.ok) {
@@ -104,7 +110,15 @@ async function fetchText(url: string, label: string): Promise<string> {
       `[battle-deaths] ${label} fetch failed ${response.status} ${response.statusText}: ${snippet.slice(0, 200)}`,
     );
   }
-  return response.text();
+  const ct = response.headers.get("content-type") ?? "";
+  const text = await response.text();
+  if (!ct.toLowerCase().includes("text/csv")) {
+    const snippet = text.slice(0, 200);
+    throw new Error(
+      `[battle-deaths] expected CSV, got ${ct || "unknown"}: ${snippet}`,
+    );
+  }
+  return text;
 }
 
 async function loadPopulation(): Promise<Map<number, number>> {
@@ -129,18 +143,47 @@ async function loadPopulation(): Promise<Map<number, number>> {
 }
 
 function selectDeathColumn(headers: string[]): string {
-  const candidates = ["best_estimate", "best"];
+  const lowerHeaders = headers.map((header) => header.toLowerCase());
+  const findHeader = (key: string): string | undefined => {
+    const idx = lowerHeaders.indexOf(key);
+    return idx === -1 ? undefined : headers[idx];
+  };
+
+  const candidates = [
+    "best",
+    "best_estimate",
+    "deaths_b",
+    "deaths_best",
+    "fatality_best",
+  ];
   for (const key of candidates) {
-    if (headers.includes(key)) return key;
+    const header = findHeader(key);
+    if (header) return header;
   }
+
+  const triplet = ["deaths_a", "deaths_b", "deaths_c"]; // fallback set
+  if (triplet.every((key) => findHeader(key))) {
+    const header = findHeader("deaths_b");
+    if (header) return header;
+  }
+
+  console.error("[battle-deaths] headers", headers);
   throw new Error(
     `[battle-deaths] missing death column; expected one of ${candidates.join(", ")}`,
   );
 }
 
-async function run(): Promise<void> {
+async function loadUcdpCsv(): Promise<string> {
+  if (existsSync(LOCAL_UCDP_PATH)) {
+    console.log(`[battle-deaths] using local CSV ${LOCAL_UCDP_PATH}`);
+    return readFile(LOCAL_UCDP_PATH, "utf8");
+  }
   console.log("[battle-deaths] fetch UCDP CSV", UCDP_URL);
-  const csvText = await fetchText(UCDP_URL, "ucdp");
+  return fetchText(UCDP_URL, "ucdp");
+}
+
+async function run(): Promise<void> {
+  const csvText = await loadUcdpCsv();
   const { headers, rows } = parseCsv(csvText);
   console.log("[battle-deaths] rows fetched", rows.length);
   if (!rows.length) {

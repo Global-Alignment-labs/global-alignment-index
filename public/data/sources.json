@@ -19,6 +19,16 @@
     "source_url": "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
     "license": "CC BY 4.0"
   },
+  "extreme_poverty": {
+    "name": "Extreme poverty ($2.15)",
+    "domain": "Economics & Poverty",
+    "unit": "% of population",
+    "source_org": "World Bank (PovcalNet via WDI)",
+    "source_url": "https://data.worldbank.org/indicator/SI.POV.DDAY",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Pop-weighted global mean from national SI.POV.DDAY using SP.POP.TOTL; exclude aggregates; round 2 decimals; WDI may include modeled/nowcasted values."
+  },
   "co2_ppm": {
     "name": "CO₂ (Global)",
     "domain": "Climate & Environment",

@@ -51,5 +51,57 @@
     "cadence": "annual",
     "method": "Per-year coverage: (#ISO with SH.DYN.MORT & SP.POP.TOTL) / (#ISO with SP.POP.TOTL).",
     "updated_at": "2025-09-16"
+  },
+  "ucdp_battle_deaths": {
+    "name": "Battle-related deaths (global)",
+    "domain": "Safety & Conflict",
+    "unit": "deaths per 100k people",
+    "source_org": "Uppsala Conflict Data Program (UCDP)",
+    "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-241.csv",
+    "license": "© UCDP, academic & non-commercial use permitted",
+    "cadence": "annual",
+    "method": "Aggregate battle-related deaths by conflict type (1→interstate, 2→intrastate, 3→internationalized, 4→extrasystemic) using best_estimate/best, join World Bank SP.POP.TOTL population, compute per 100k, enforce 1990→latest continuous coverage.",
+    "updated_at": "2025-09-18",
+    "data_start_year": 1990,
+    "notes": "Pipeline also emits total + by-type breakdowns for future UI toggles. Population source: World Bank WDI SP.POP.TOTL (CC BY 4.0)."
+  },
+  "battle_deaths_total": {
+    "name": "Battle-related deaths (total)",
+    "domain": "Safety & Conflict",
+    "unit": "deaths per 100k people",
+    "source_org": "Uppsala Conflict Data Program (UCDP)",
+    "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-241.csv",
+    "license": "© UCDP, academic & non-commercial use permitted",
+    "cadence": "annual",
+    "method": "Sum all conflict types from UCDP battle-related deaths (best_estimate/best) and divide by global population (World Bank WDI SP.POP.TOTL).",
+    "updated_at": "2025-09-18",
+    "data_start_year": 1990,
+    "notes": "Per 100k rounding to 2 decimals; shared pipeline with battle_deaths_by_type." 
+  },
+  "battle_deaths_by_type": {
+    "name": "Battle-related deaths (by type)",
+    "domain": "Safety & Conflict",
+    "unit": "deaths per 100k people",
+    "source_org": "Uppsala Conflict Data Program (UCDP)",
+    "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-241.csv",
+    "license": "© UCDP, academic & non-commercial use permitted",
+    "cadence": "annual",
+    "method": "Per conflict type (1→interstate, 2→intrastate, 3→internationalized, 4→extrasystemic) deaths per 100k using World Bank SP.POP.TOTL; round to 2 decimals.",
+    "updated_at": "2025-09-18",
+    "data_start_year": 1990,
+    "notes": "Types listed: interstate, intrastate, internationalized_intrastate, extrasystemic."
+  },
+  "battle_deaths_interstate": {
+    "name": "Battle-related deaths (interstate)",
+    "domain": "Safety & Conflict",
+    "unit": "deaths per 100k people",
+    "source_org": "Uppsala Conflict Data Program (UCDP)",
+    "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-241.csv",
+    "license": "© UCDP, academic & non-commercial use permitted",
+    "cadence": "annual",
+    "method": "Filter by conflict type code 1 (interstate) from UCDP battle-related deaths, join World Bank SP.POP.TOTL, round to 2 decimals.",
+    "updated_at": "2025-09-18",
+    "data_start_year": 1990,
+    "notes": "Tier-1 alignment metric; subset of battle_deaths_by_type output."
   }
 }

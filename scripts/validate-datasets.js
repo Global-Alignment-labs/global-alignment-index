@@ -45,6 +45,36 @@ for (const f of files) {
         if (d.year <= prevYear) throw new Error(`item ${i} year not ascending`)
         prevYear = d.year
       })
+    } else if (f.endsWith('_by_type.json')) {
+      const ORDER = new Map([
+        ['interstate', 0],
+        ['intrastate', 1],
+        ['internationalized_intrastate', 2],
+        ['extrasystemic', 3],
+      ])
+      let prevYear = -Infinity
+      let prevTypeIdx = -1
+      data.forEach((d, i) => {
+        if (typeof d !== 'object' || d === null) throw new Error(`item ${i} not object`)
+        const keys = Object.keys(d)
+        if (keys.length !== 3 || !('year' in d) || !('type' in d) || !('value' in d))
+          throw new Error(`item ${i} invalid keys`)
+        if (!Number.isInteger(d.year)) throw new Error(`item ${i} year not integer`)
+        if (typeof d.type !== 'string' || !d.type)
+          throw new Error(`item ${i} type invalid`)
+        const idx = ORDER.has(d.type) ? ORDER.get(d.type) : null
+        if (idx == null) throw new Error(`item ${i} type ${d.type} unexpected`)
+        if (typeof d.value !== 'number' || Number.isNaN(d.value))
+          throw new Error(`item ${i} value not number`)
+        if (d.year < prevYear) throw new Error(`item ${i} year not ascending`)
+        if (d.year !== prevYear) {
+          prevTypeIdx = -1
+        } else if (idx < prevTypeIdx) {
+          throw new Error(`item ${i} type order invalid`)
+        }
+        prevYear = d.year
+        prevTypeIdx = idx
+      })
     } else {
       let prevYear = -Infinity
       data.forEach((d, i) => {

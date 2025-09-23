@@ -28,3 +28,9 @@
 - Unit: per 1,000 live births
 - Cadence: annual
 - Method: Population-weighted global mean of national SH.DYN.MORT using SP.POP.TOTL; exclude aggregates; round to 2 decimals.
+
+**Interstate battle-deaths (deaths per 100k) — Global (UCDP v24.1)**
+- Source & License: UCDP Battle-Related Deaths Dataset v24.1 (released 2024-06-25, academic & non-commercial use permitted); population denominator from World Bank WDI SP.POP.TOTL (CC BY 4.0).
+- Conflict-type mapping enforced in code: `1 → interstate`, `2 → intrastate`, `3 → internationalized_intrastate`, `4 → extrasystemic`; unknown codes fail fast.
+- Method: fetch the UCDP conflict-level CSV, resolve deaths column preference (`best_estimate` then `best`), aggregate deaths per year & conflict type, inner-join with global population for the continuous 1990 → latest overlapping year range, drop/ warn on extra years, compute deaths per 100,000 people, and round to two decimals.
+- Outputs: Tier-1 interstate series plus total and by-type (interstate, intrastate, internationalized intrastate, extrasystemic) JSON exports for future UI toggles; all outputs validated for non-negativity, continuity, and per-type sum ≈ total (≤0.02 tolerance).

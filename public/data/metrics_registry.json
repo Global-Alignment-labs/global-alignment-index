@@ -50,5 +50,21 @@
     "cadence": "annual",
     "source_url": "https://data.worldbank.org/indicator/SH.DYN.MORT",
     "notes": "Population-weighted global mean of national SH.DYN.MORT using SP.POP.TOTL; exclude aggregates; round to 2 decimals."
+  },
+  {
+    "id": "battle_deaths",
+    "domain": "Safety & Conflict",
+    "unit": "deaths per 100k",
+    "alignment_or_capability": "alignment",
+    "direction": "down",
+    "reference_min": null,
+    "reference_max": null,
+    "target": 0,
+    "cadence": "annual",
+    "tier": 1,
+    "layer": "CR",
+    "source_id": "ucdp_battle_deaths",
+    "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-241.csv",
+    "notes": "Interstate battle-related deaths per 100k (UCDP BRD v24.1, population denominator World Bank SP.POP.TOTL)."
   }
 ]

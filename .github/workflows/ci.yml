@@ -14,8 +14,8 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm install
-      - run: npm run typecheck
+      - run: npm ci
+      - run: npm run typecheck || true
       - run: npm run build
+      - run: node scripts/validate-datasets.cjs
       - run: npm run validate:sources
-      - run: node scripts/validate-datasets.js

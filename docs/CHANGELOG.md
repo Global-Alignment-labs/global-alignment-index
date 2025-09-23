@@ -1,3 +1,6 @@
+# 2025-09-18
+- data(battle_deaths): add UCDP battle-related deaths pipeline (total/by-type/interstate outputs) and register Tier-1 interstate metric; METHODS updated with source, mapping, and license notes.
+
 # Changelog
 
 ## 2025-08-29

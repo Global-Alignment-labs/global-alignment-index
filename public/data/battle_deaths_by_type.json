@@ -1,0 +1,682 @@
+[
+  {
+    "year": 1990,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1990,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1990,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1990,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1991,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1991,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1991,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1991,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1992,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1992,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1992,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1992,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1993,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1993,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1993,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1993,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1994,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1994,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1994,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1994,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1995,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1995,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1995,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1995,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1996,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1996,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1996,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1996,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1997,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1997,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1997,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1997,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1998,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1998,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1998,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1998,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 1999,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 1999,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 1999,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 1999,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2000,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2000,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2000,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2000,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2001,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2001,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2001,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2001,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2002,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2002,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2002,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2002,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2003,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2003,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2003,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2003,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2004,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2004,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2004,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2004,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2005,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2005,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2005,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2005,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2006,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2006,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2006,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2006,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2007,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2007,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2007,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2007,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2008,
+    "type": "interstate",
+    "value": 0.03
+  },
+  {
+    "year": 2008,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2008,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2008,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2009,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2009,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2009,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2009,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2010,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2010,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2010,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2010,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2011,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2011,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2011,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2011,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2012,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2012,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2012,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2012,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2013,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2013,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2013,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2013,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2014,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2014,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2014,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2014,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2015,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2015,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2015,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2015,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2016,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2016,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2016,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2016,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2017,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2017,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2017,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2017,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2018,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2018,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2018,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2018,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2019,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2019,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2019,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2019,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2020,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2020,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2020,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2020,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2021,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2021,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2021,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2021,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2022,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2022,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2022,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2022,
+    "type": "extrasystemic",
+    "value": 0
+  },
+  {
+    "year": 2023,
+    "type": "interstate",
+    "value": 0.04
+  },
+  {
+    "year": 2023,
+    "type": "intrastate",
+    "value": 0.02
+  },
+  {
+    "year": 2023,
+    "type": "internationalized_intrastate",
+    "value": 0.01
+  },
+  {
+    "year": 2023,
+    "type": "extrasystemic",
+    "value": 0
+  }
+]

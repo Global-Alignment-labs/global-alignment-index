@@ -5,6 +5,8 @@ import { METRICS } from '@/lib/metrics'
 import { computeRelative } from '@/lib/relative'
 import SourcesFooter from '@/components/SourcesFooter'
 
+const DISPLAY_METRICS = METRICS.filter(m => m.id !== 'internet_use')
+
 type Pt = { year: number; value: number }
 const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
 function unitFor(id: string): string {
@@ -58,7 +60,7 @@ export default function Home() {
   const [data, setData] = useState<Record<string, Pt[]>>({})
   const [registry, setRegistry] = useState<Record<string, any>>({})
   useEffect(() => {
-    METRICS.forEach(async m => {
+    DISPLAY_METRICS.forEach(async m => {
       const series = await load(m.id)
       setData(prev => ({ ...prev, [m.id]: series }))
     })
@@ -120,77 +122,78 @@ export default function Home() {
       </section>
 
       <section className="grid md:grid-cols-2 gap-6">
-        {Object.keys(data).map((k, i) => (
-          <div key={k} className="card p-4 shadow-sm">
-            {(() => {
-              const m = METRICS.find(m => m.id === k)
-              const base = m?.name ?? k
-              const titled = k === 'u5_mortality' ? `${base} (per 1,000 live births)` : base
-              return <h3 className="text-lg font-medium">{titled}</h3>
-            })()}
-            <div className="w-full h-56 mt-2">
-              <ResponsiveContainer width="100%" height="100%">
-                {(() => {
-                  const raw = data[k] || []
-                  const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
-                  const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
-                  const mid = metricIds.length === 1 ? metricIds[0] : undefined
+        {DISPLAY_METRICS.map(m => {
+          const k = m.id
+          const raw = data[k] || []
+          return (
+            <div key={k} className="card p-4 shadow-sm">
+              {(() => {
+                const base = m.name ?? k
+                const titled = k === 'u5_mortality' ? `${base} (per 1,000 live births)` : base
+                return <h3 className="text-lg font-medium">{titled}</h3>
+              })()}
+              <div className="w-full h-56 mt-2">
+                <ResponsiveContainer width="100%" height="100%">
+                  {(() => {
+                    const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
+                    const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
+                    const mid = metricIds.length === 1 ? metricIds[0] : undefined
+                    return (
+                      <LineChart data={series}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="year" />
+                        {mid === 'internet_use' ? (
+                          <YAxis domain={[0,100]} tickFormatter={v => formatValue(mid, v)} />
+                        ) : mid ? (
+                          <YAxis tickFormatter={v => formatValue(mid, v)} />
+                        ) : (
+                          <YAxis />
+                        )}
+                        {mid ? (
+                          <Tooltip formatter={(val:any) => formatValue(mid, Number(val))} />
+                        ) : (
+                          <Tooltip />
+                        )}
+                        {mid ? (
+                          <Line type="monotone" dataKey={mid} dot={false} />
+                        ) : (
+                          metricIds.map(id => (
+                            <Line key={id} type="monotone" dataKey={id} dot={false} />
+                          ))
+                        )}
+                      </LineChart>
+                    )
+                  })()}
+                </ResponsiveContainer>
+              </div>
+              <p className="text-sm opacity-70 mt-2">{m.domain}</p>
+              {(() => {
+                const reg = registry[k]
+                const latest = getLatestNonMissingPoint(raw)
+                const latestValue = latest?.value
+                const latestYear = latest?.year
+                const canShowLatest = Number.isFinite(latestValue)
+                if (reg && canShowLatest && latestYear !== undefined) {
+                  const rel = computeRelative(latestValue as number, {
+                    direction: reg.direction,
+                    reference_min: reg.reference_min,
+                    reference_max: reg.reference_max,
+                    target: reg.target,
+                  })
                   return (
-                    <LineChart data={series}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="year" />
-                      {mid === 'internet_use' ? (
-                        <YAxis domain={[0,100]} tickFormatter={v => formatValue(mid, v)} />
-                      ) : mid ? (
-                        <YAxis tickFormatter={v => formatValue(mid, v)} />
-                      ) : (
-                        <YAxis />
-                      )}
-                      {mid ? (
-                        <Tooltip formatter={(val:any) => formatValue(mid, Number(val))} />
-                      ) : (
-                        <Tooltip />
-                      )}
-                      {mid ? (
-                        <Line type="monotone" dataKey={mid} dot={false} />
-                      ) : (
-                        metricIds.map(id => (
-                          <Line key={id} type="monotone" dataKey={id} dot={false} />
-                        ))
-                      )}
-                    </LineChart>
+                    <p className="text-sm mt-1">
+                      Latest ({latestYear}): {formatValue(k, latestValue as number)} · Relative: {Math.round(rel)}%
+                    </p>
                   )
-                })()}
-              </ResponsiveContainer>
+                }
+                if (reg && !canShowLatest) {
+                  return <p className="text-sm mt-1">Latest: No recent data</p>
+                }
+                return null
+              })()}
             </div>
-            <p className="text-sm opacity-70 mt-2">{METRICS.find(m=>m.id===k)?.domain}</p>
-            {(() => {
-              const reg = registry[k]
-              const raw = data[k] || []
-              const latest = getLatestNonMissingPoint(raw)
-              const latestValue = latest?.value
-              const latestYear = latest?.year
-              const canShowLatest = Number.isFinite(latestValue)
-              if (reg && canShowLatest && latestYear !== undefined) {
-                const rel = computeRelative(latestValue as number, {
-                  direction: reg.direction,
-                  reference_min: reg.reference_min,
-                  reference_max: reg.reference_max,
-                  target: reg.target,
-                })
-                return (
-                  <p className="text-sm mt-1">
-                    Latest ({latestYear}): {formatValue(k, latestValue as number)} · Relative: {Math.round(rel)}%
-                  </p>
-                )
-              }
-              if (reg && !canShowLatest) {
-                return <p className="text-sm mt-1">Latest: No recent data</p>
-              }
-              return null
-            })()}
-          </div>
-        ))}
+          )
+        })}
       </section>
 
       <footer className="text-sm opacity-70 py-10">

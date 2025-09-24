@@ -1,5 +1,10 @@
 # Changelog
 
+## 2025-09-18
+- data(u5_mortality): add ≥80% pop-coverage guard to remove early-year spike.
+- data(extreme_poverty): enforce 1981+ and ≥80% pop-coverage guard.
+- data(extreme_poverty): add WDI SI.POV.DDAY × SP.POP.TOTL pipeline; registry, sources, and METHODS updated.
+
 ## 2025-08-29
 - data(u5_mortality): add WDI pipeline; METHODS updated.
 

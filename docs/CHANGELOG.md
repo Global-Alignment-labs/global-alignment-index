@@ -1,5 +1,6 @@
 # 2025-09-18
 - data(battle_deaths): add UCDP battle-related deaths pipeline (total/by-type/interstate outputs) and register Tier-1 interstate metric; METHODS updated with source, mapping, and license notes.
+- docs(README): document the consent-gated UCDP download flow and local `data/raw` placement required before running the battle-deaths fetcher.
 
 # Changelog
 

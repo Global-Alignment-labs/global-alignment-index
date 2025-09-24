@@ -4,6 +4,7 @@ import { upsertSource } from "../lib/manifest.ts";
 
 const INDICATOR = "SH.DYN.MORT";
 const POP = "SP.POP.TOTL";
+const COVERAGE_MIN = 0.8;
 const EXCLUDE = new Set([
   "WLD",
   "HIC",
@@ -119,34 +120,39 @@ export async function run() {
   );
 
   const data: { year: number; value: number }[] = [];
-  const coverageRows: { year: number; coverage: number; n_iso: number; n_pop: number }[] = [];
+  const coverageRows: {
+    year: number;
+    coverage: number;
+    n_iso: number;
+    n_pop: number;
+  }[] = [];
   let dropLogged = 0;
   for (const year of ys) {
-    let totalPop = 0;
+    let totalPopulation = 0;
+    let usedPopulation = 0;
     let weighted = 0;
     let n_pop = 0;
     let n_both = 0;
     for (const iso in pop) {
-      const p = pop[iso]?.[year];
-      if (p != null && !isNaN(p)) {
-        n_pop++;
-        const u = mort[iso]?.[year];
-        if (u != null && !isNaN(u)) {
-          n_both++;
-          weighted += u * p;
-          totalPop += p;
-        }
-      }
+      const popVal = pop[iso]?.[year];
+      if (popVal == null || isNaN(popVal)) continue;
+      n_pop++;
+      totalPopulation += popVal;
+      const mortVal = mort[iso]?.[year];
+      if (mortVal == null || isNaN(mortVal)) continue;
+      n_both++;
+      usedPopulation += popVal;
+      weighted += mortVal * popVal;
     }
-    const coverage = n_pop ? n_both / n_pop : 0;
+    const coverage = totalPopulation > 0 ? usedPopulation / totalPopulation : 0;
     coverageRows.push({
       year,
       coverage: Math.round(coverage * 1000) / 1000,
       n_iso: n_both,
       n_pop,
     });
-    if (coverage >= 0.7 && totalPop > 0) {
-      data.push({ year, value: Math.round((weighted / totalPop) * 100) / 100 });
+    if (coverage >= COVERAGE_MIN && usedPopulation > 0) {
+      data.push({ year, value: Math.round((weighted / usedPopulation) * 100) / 100 });
       console.log(
         `[u5] kept ${year} coverage=${(coverage * 100).toFixed(1)}% n_iso=${n_both}/${n_pop}`,
       );
@@ -157,10 +163,15 @@ export async function run() {
       dropLogged++;
     }
   }
-  console.log("[u5] computed points:", data.length);
   if (!Array.isArray(data) || data.length === 0) {
     throw new Error("u5_mortality: no data fetched — skipping write");
   }
+
+  const firstYear = data[0].year;
+  const lastYear = data[data.length - 1].year;
+  console.log(
+    `[u5] raw U5MR rows: ${Array.isArray(mortRows) ? mortRows.length : 0} / population rows: ${Array.isArray(popRows) ? popRows.length : 0} / ISO3 mort: ${Object.keys(mort).length} / ISO3 pop: ${Object.keys(pop).length} / computed points: ${data.length} / coverage_min: ${COVERAGE_MIN} / kept: ${firstYear}-${lastYear}`,
+  );
 
   await writeJson("public/data/u5_mortality.json", data);
   await writeJson("public/data/u5_mortality_coverage.json", coverageRows);

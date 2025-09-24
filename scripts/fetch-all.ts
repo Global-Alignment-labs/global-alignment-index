@@ -1,11 +1,13 @@
 import { run as co2 } from './pipelines/co2.ts';
 import { run as life_expectancy } from './pipelines/life_expectancy.ts';
+import { run as extreme_poverty } from './pipelines/extreme_poverty.ts';
 import { run as u5_mortality } from './pipelines/u5_mortality.ts';
 
 export async function runAll() {
   const pipelines = [
     { name: 'co2_ppm', run: co2 },
     { name: 'life_expectancy', run: life_expectancy },
+    { name: 'extreme_poverty', run: extreme_poverty },
     // Under-5 mortality from WDI
     { name: 'u5_mortality', run: u5_mortality },
   ];

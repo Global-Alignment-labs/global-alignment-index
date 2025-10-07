@@ -65,6 +65,6 @@
     "layer": "CR",
     "source_id": "ucdp_battle_deaths",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
-    "notes": "Interstate battle-related deaths per 100k (UCDP BRD v25.1, population denominator World Bank SP.POP.TOTL). Uses local consent-gated CSV v25.1."
+    "notes": "Global battle-related deaths per 100k (total; UCDP BRD v25.1, population denominator World Bank SP.POP.TOTL). Uses local consent-gated CSV v25.1."
   }
 ]

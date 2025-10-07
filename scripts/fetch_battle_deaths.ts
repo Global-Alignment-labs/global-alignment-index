@@ -382,7 +382,7 @@ async function run(): Promise<void> {
   await writeJson("public/data/battle_deaths_total.json", totalSeries);
   await writeJson("public/data/battle_deaths_by_type.json", byTypeSeries);
   await writeJson("public/data/battle_deaths_interstate.json", interstateSeries);
-  await writeJson("public/data/battle_deaths.json", interstateSeries);
+  await writeJson("public/data/battle_deaths.json", totalSeries);
 
   const gaSummary = (series: SeriesPoint[]) => {
     const values = series.map((d) => d.value);

@@ -14,5 +14,5 @@ export const METRICS: Metric[] = [
   { id: 'life_expectancy', name: 'Life expectancy', domain: 'Health & Wellbeing', unit: 'years', direction: 'up_is_better', source: 'WHO/World Bank' },
   { id: 'internet_use', name: 'Individuals using the internet', domain: 'Education & Digital', unit: '%', direction: 'up_is_better', source: 'ITU' },
   { id: 'u5_mortality', name: 'Under-5 mortality', domain: 'Health & Wellbeing', unit: 'per 1,000 live births', direction: 'down_is_better', source: 'UN IGME / World Bank' },
-  { id: 'battle_deaths', name: 'Interstate battle-deaths', domain: 'Safety & Conflict', unit: 'deaths per 100k', direction: 'down_is_better', source: 'UCDP' },
+  { id: 'battle_deaths', name: 'Battle-related deaths', domain: 'Safety & Conflict', unit: 'deaths per 100k', direction: 'down_is_better', source: 'UCDP' },
 ]

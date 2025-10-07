@@ -8,23 +8,21 @@ import SourcesFooter from '@/components/SourcesFooter'
 type Pt = { year: number; value: number }
 const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
 function unitFor(id: string): string {
-  switch (id) {
-    case 'internet_use':
-      return '%'
-    case 'co2_ppm':
-      return 'ppm'
-    case 'life_expectancy':
-      return 'years'
-    default:
-      return ''
-  }
+  const metric = METRICS.find(m => m.id === id)
+  return metric?.unit ?? ''
+}
+
+function precisionForUnit(unit: string): number {
+  if (unit === 'deaths per 100k') return 3
+  return 2
 }
 
 function formatValue(id: string, v: number): string {
   const u = unitFor(id)
   if (id === 'internet_use') return `${Math.round(v)}%`
-  if (u) return `${Number(v.toFixed(2))} ${u}`
-  return String(Number(v.toFixed(2)))
+  const decimals = precisionForUnit(u)
+  const formatted = Number(v.toFixed(decimals))
+  return u ? `${formatted} ${u}` : String(formatted)
 }
 async function load(id: string): Promise<Pt[]> {
   const url = `/data/${id}.json?v=${fetchVersion}`

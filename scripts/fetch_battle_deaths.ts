@@ -93,8 +93,9 @@ function parseCsv(text: string): { headers: string[]; rows: CsvRow[] } {
   return { headers, rows };
 }
 
-function roundTwo(value: number): number {
-  return Math.round(value * 100) / 100;
+function roundN(value: number, decimals: number): number {
+  const factor = 10 ** decimals;
+  return Math.round(value * factor) / factor;
 }
 
 async function fetchText(
@@ -319,11 +320,11 @@ async function run(): Promise<void> {
         throw new Error(`[battle-deaths] negative deaths encountered for ${year} ${type}`);
       }
       totalDeaths += deaths;
-      const value = roundTwo((deaths / pop) * 100_000);
+      const value = roundN((deaths / pop) * 100_000, 3);
       if (value < 0) {
         throw new Error(`[battle-deaths] negative per-capita value for ${year} ${type}`);
       }
-      sumRounded += value;
+      sumRounded = roundN(sumRounded + value, 3);
       const point = { year, type, value } as const;
       byTypeSeries.push(point);
       if (type === "interstate") {
@@ -331,7 +332,7 @@ async function run(): Promise<void> {
       }
     }
 
-    const totalValue = roundTwo((totalDeaths / pop) * 100_000);
+    const totalValue = roundN((totalDeaths / pop) * 100_000, 3);
     if (totalValue < 0) {
       throw new Error(`[battle-deaths] negative total per-capita value for ${year}`);
     }
@@ -340,7 +341,7 @@ async function run(): Promise<void> {
     const diff = Math.abs(sumRounded - totalValue);
     if (diff > TOLERANCE + 1e-9) {
       throw new Error(
-        `[battle-deaths] tolerance check failed for ${year}: |${sumRounded.toFixed(2)} - ${totalValue.toFixed(2)}| = ${diff.toFixed(
+        `[battle-deaths] tolerance check failed for ${year}: |${sumRounded.toFixed(3)} - ${totalValue.toFixed(3)}| = ${diff.toFixed(
           3,
         )}`,
       );
@@ -380,8 +381,8 @@ async function run(): Promise<void> {
 
   console.log(
     `GAISUM battle_deaths_total {rows:${totalSeries.length}, min_year:${years[0]}, max_year:${years[years.length - 1]}, min:${totalSummary.min.toFixed(
-      2,
-    )}, max:${totalSummary.max.toFixed(2)}}`,
+      3,
+    )}, max:${totalSummary.max.toFixed(3)}}`,
   );
   console.log(
     `GAISUM battle_deaths_by_type {rows:${byTypeSeries.length}, min_year:${years[0]}, max_year:${years[years.length - 1]}, types:[${TYPE_ORDER.join(
@@ -390,8 +391,8 @@ async function run(): Promise<void> {
   );
   console.log(
     `GAISUM battle_deaths_interstate {rows:${interstateSeries.length}, min_year:${years[0]}, max_year:${years[years.length - 1]}, min:${interstateSummary.min.toFixed(
-      2,
-    )}, max:${interstateSummary.max.toFixed(2)}}`,
+      3,
+    )}, max:${interstateSummary.max.toFixed(3)}}`,
   );
 
   const first3 = (arr: any[]) => JSON.stringify(arr.slice(0, 3), null, 2);

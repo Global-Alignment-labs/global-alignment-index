@@ -168,3 +168,11 @@ npm run dev
 
 # (Optional) Run data pipelines (requires internet)
 npm run fetch:all
+
+# Battle-deaths consent flow
+# ---------------------------
+# The UCDP battle-related deaths CSV is consent-gated.
+# Download `ucdp-brd-conflict-251.csv` from https://ucdp.uu.se/downloads/battle-related-deaths/
+# and save it locally as `data/raw/ucdp-brd-conflict-251.csv` before running:
+npm run fetch:battle-deaths
+```

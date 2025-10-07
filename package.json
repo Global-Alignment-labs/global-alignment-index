@@ -2,6 +2,7 @@
   "name": "global-alignment-index",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +13,8 @@
     "fetch:co2": "tsx scripts/pipelines/co2.ts",
     "fetch:life": "tsx scripts/pipelines/life_expectancy.ts",
     "fetch:u5": "tsx scripts/pipelines/u5_mortality.ts",
-    "validate:sources": "node scripts/validate-sources.js"
+    "fetch:battle-deaths": "ts-node scripts/fetch_battle_deaths.ts",
+    "validate:sources": "node scripts/validate-sources.cjs"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -25,6 +27,7 @@
     "autoprefixer": "10.4.19",
     "postcss": "8.4.39",
     "tailwindcss": "3.4.10",
+    "ts-node": "10.9.2",
     "typescript": "5.5.4",
     "@types/node": "20.14.10",
     "@types/react": "18.3.3",

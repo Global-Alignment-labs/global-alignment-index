@@ -1,0 +1,8 @@
+{
+  "metric": "firearm_stock_per_100",
+  "rows": 29,
+  "min_year": 1990,
+  "max_year": 2018,
+  "min_value": 8.73,
+  "max_value": 12.6
+}

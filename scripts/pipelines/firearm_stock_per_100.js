@@ -25,6 +25,22 @@ async function run() {
       return o;
     });
   };
+  const ensureContinuity = (series) => {
+    const years = series.map(d => d.year);
+    for (let i = 1; i < years.length; i += 1) {
+      const gap = years[i] - years[i - 1];
+      if (gap > 5) {
+        throw new Error(`gap of ${gap} years detected between ${years[i - 1]} and ${years[i]}`);
+      }
+    }
+  };
+  const ensureRange = (series) => {
+    for (const row of series) {
+      if (row.value < 0 || row.value > 120) {
+        throw new Error(`value out of expected range (0-120) for year ${row.year}: ${row.value}`);
+      }
+    }
+  };
 
   const sasRows = parse(await csv('sas_civilian_firearms.csv'));
   const wdiRows = parse(await csv('wdi_population.csv'));
@@ -35,6 +51,9 @@ async function run() {
   const wdi = wdiRows.map(r => ({ iso3: (r.iso3||'').toUpperCase(), year:+r.year, population:+r.population }))
     .filter(r => r.iso3 && Number.isInteger(r.year) && r.population>0);
 
+  console.log(`[firearm_stock_per_100.js] SAS rows: ${sas.length}`);
+  console.log(`[firearm_stock_per_100.js] WDI rows: ${wdi.length}`);
+
   // join
   const pop = new Map(wdi.map(r => [`${r.iso3}:${r.year}`, r.population]));
   const joined = sas.map(r => {
@@ -42,6 +61,14 @@ async function run() {
     if (!P) return null;
     return { year:r.year, per100: (r.civilian_firearms*100)/P, population:P };
   }).filter(Boolean);
+
+  console.log(`[firearm_stock_per_100.js] joined rows: ${joined.length}`);
+
+  const totalPopulationByYear = new Map();
+  for (const row of wdi) {
+    const prev = totalPopulationByYear.get(row.year) || 0;
+    totalPopulationByYear.set(row.year, prev + row.population);
+  }
 
   // aggregate by year (weighted)
   const byY = new Map();
@@ -51,9 +78,36 @@ async function run() {
     a.den += r.population;
     byY.set(r.year, a);
   }
-  const series = [...byY.entries()]
-    .map(([y,a]) => ({ year:+y, value: Math.round((a.num/a.den)*1000)/1000 }))
+  const aggregated = [...byY.entries()].map(([y, a]) => {
+    const denom = a.den;
+    const value = denom > 0 ? a.num / denom : NaN;
+    const totalPop = totalPopulationByYear.get(+y) || denom;
+    const coverage = totalPop > 0 ? denom / totalPop : 0;
+    return { year: +y, value, coverage };
+  }).sort((a,b)=>a.year-b.year);
+
+  const filtered = aggregated.filter(row => {
+    if (!Number.isFinite(row.value) || row.value <= 0) {
+      console.warn(`[firearm_stock_per_100.js] skip year ${row.year} due to invalid value`);
+      return false;
+    }
+    if (!Number.isFinite(row.coverage) || row.coverage <= 0) {
+      console.warn(`[firearm_stock_per_100.js] skip year ${row.year} due to zero coverage`);
+      return false;
+    }
+    if (row.coverage < 0.3) {
+      console.warn(`[firearm_stock_per_100.js] skip year ${row.year} (coverage ${row.coverage.toFixed(3)})`);
+      return false;
+    }
+    return true;
+  });
+
+  const series = filtered
+    .map(row => ({ year: row.year, value: Math.round(row.value*1000)/1000 }))
     .sort((a,b)=>a.year-b.year);
+
+  ensureContinuity(series);
+  ensureRange(series);
 
   await mkdir(path.dirname(OUTPUT_JSON), { recursive:true });
   await writeFile(OUTPUT_JSON, JSON.stringify(series, null, 2)+'\n', 'utf8');

@@ -1,6 +1,7 @@
 import { run as co2 } from './pipelines/co2.ts';
 import { run as life_expectancy } from './pipelines/life_expectancy.ts';
 import { run as u5_mortality } from './pipelines/u5_mortality.ts';
+import { run as battle_deaths } from './fetch_battle_deaths.ts';
 
 export async function runAll() {
   const pipelines = [
@@ -8,6 +9,7 @@ export async function runAll() {
     { name: 'life_expectancy', run: life_expectancy },
     // Under-5 mortality from WDI
     { name: 'u5_mortality', run: u5_mortality },
+    { name: 'battle_deaths', run: battle_deaths },
   ];
   for (const p of pipelines) {
     console.log(`[fetch-all] start ${p.name}`);

@@ -11,6 +11,7 @@ const UCDP_URL =
 const LOCAL_UCDP_PATH = resolve(process.cwd(), "data/raw/ucdp-brd-conflict-241.csv");
 const POPULATION_URL =
   "https://api.worldbank.org/v2/country/WLD/indicator/SP.POP.TOTL?format=json&per_page=600";
+const LOCAL_POP_PATH = resolve(process.cwd(), "data/raw/wld_population.json");
 // Population: World Bank WDI SP.POP.TOTL (global population, CC BY 4.0)
 
 const START_YEAR = 1990;
@@ -138,6 +139,27 @@ async function fetchText(
 }
 
 async function loadPopulation(): Promise<Map<number, number>> {
+  if (existsSync(LOCAL_POP_PATH)) {
+    console.log(`[battle-deaths] using local population ${LOCAL_POP_PATH}`);
+    const text = await readFile(LOCAL_POP_PATH, "utf8");
+    const parsed = JSON.parse(text);
+    if (!Array.isArray(parsed)) {
+      throw new Error("[battle-deaths] local population file must be an array");
+    }
+    const map = new Map<number, number>();
+    for (const entry of parsed as Array<{ year?: unknown; pop?: unknown }>) {
+      const year = Number(entry?.year);
+      const pop = Number(entry?.pop);
+      if (!Number.isInteger(year) || year < YEAR_MIN || year > YEAR_MAX) continue;
+      if (!Number.isFinite(pop) || pop <= 0) continue;
+      map.set(year, pop);
+    }
+    if (map.size > 0) {
+      return map;
+    }
+    console.warn("[battle-deaths] WARN local population file had no usable rows; falling back to API");
+  }
+
   const text = await fetchText(POPULATION_URL, "population", "json");
   const json = JSON.parse(text);
   if (!Array.isArray(json) || json.length < 2 || !Array.isArray(json[1])) {

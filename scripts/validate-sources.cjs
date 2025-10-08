@@ -1,5 +1,5 @@
-import { readdir, readFile } from 'node:fs/promises'
-import { join, extname, basename } from 'node:path'
+const { readdir, readFile } = require('node:fs/promises')
+const { join, extname, basename } = require('node:path')
 
 async function run() {
   const dataDir = 'public/data'
@@ -8,7 +8,6 @@ async function run() {
     .filter(f => extname(f) === '.json')
     .filter(f => !['sources.json', 'metrics_registry.json'].includes(f))
 
-  // Read sources manifest
   let manifest = {}
   try {
     const text = await readFile(join(dataDir, 'sources.json'), 'utf8')

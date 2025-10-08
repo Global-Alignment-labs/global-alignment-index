@@ -78,6 +78,7 @@
     "target": null,
     "cadence": "annual",
     "tier": 1,
+    "source_id": "firearm_stock_per_100",
     "source_url": "https://www.smallarmssurvey.org/database/global-firearms-holdings",
     "notes": "Population-weighted global mean of civilian firearm stock per 100 residents using SAS holdings + WDI SP.POP.TOTL; round to 3 decimals.",
     "precision": 3

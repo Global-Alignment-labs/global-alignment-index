@@ -103,6 +103,8 @@ async function run() {
     return true;
   });
 
+  const coverageValues = filtered.map(row => row.coverage);
+
   const series = filtered
     .map(row => ({ year: row.year, value: Math.round(row.value*1000)/1000 }))
     .sort((a,b)=>a.year-b.year);
@@ -122,11 +124,21 @@ async function run() {
     max_year: Math.max(...yrs),
     min_value: Math.min(...vals),
     max_value: Math.max(...vals),
+    coverage_min: coverageValues.length ? Math.min(...coverageValues) : null,
+    coverage_max: coverageValues.length ? Math.max(...coverageValues) : null,
+    coverage_mean: coverageValues.length
+      ? coverageValues.reduce((acc, val) => acc + val, 0) / coverageValues.length
+      : null,
   };
   await mkdir(path.dirname(GAISUM_LOG), { recursive:true });
   await writeFile(GAISUM_LOG, JSON.stringify(gaisum, null, 2)+'\n', 'utf8');
 
-  console.log(`GAISUM firearm_stock_per_100 → ${series.length} rows (${gaisum.min_year}-${gaisum.max_year}), range [${gaisum.min_value.toFixed(3)} – ${gaisum.max_value.toFixed(3)}]`);
+  const coverageSummary =
+    gaisum.coverage_min !== null && gaisum.coverage_max !== null
+      ? `, coverage [${gaisum.coverage_min.toFixed(3)} – ${gaisum.coverage_max.toFixed(3)}]`
+      : '';
+
+  console.log(`GAISUM firearm_stock_per_100 → ${series.length} rows (${gaisum.min_year}-${gaisum.max_year}), range [${gaisum.min_value.toFixed(3)} – ${gaisum.max_value.toFixed(3)}]${coverageSummary}`);
   return series;
 }
 

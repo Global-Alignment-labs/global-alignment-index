@@ -1,5 +1,8 @@
 # Changelog
 
+## 2025-08-31
+- data(firearm_stock_per_100): add SAS + WDI pipeline with offline cache and GAISUM logging.
+
 ## 2025-08-29
 - data(u5_mortality): add WDI pipeline; METHODS updated.
 

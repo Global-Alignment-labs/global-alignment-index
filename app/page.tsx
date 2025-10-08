@@ -17,6 +17,8 @@ function unitFor(id: string): string {
       return 'ppm'
     case 'life_expectancy':
       return 'years'
+    case 'firearm_stock_per_100':
+      return 'firearms per 100 residents'
     default:
       return ''
   }
@@ -25,8 +27,12 @@ function unitFor(id: string): string {
 function formatValue(id: string, v: number): string {
   const u = unitFor(id)
   if (id === 'internet_use') return `${Math.round(v)}%`
-  if (u) return `${Number(v.toFixed(2))} ${u}`
-  return String(Number(v.toFixed(2)))
+  const precisionOverrides: Record<string, number> = {
+    firearm_stock_per_100: 3,
+  }
+  const precision = precisionOverrides[id] ?? 2
+  if (u) return `${Number(v.toFixed(precision))} ${u}`
+  return String(Number(v.toFixed(precision)))
 }
 async function load(id: string): Promise<Pt[]> {
   const url = `/data/${id}.json?v=${fetchVersion}`

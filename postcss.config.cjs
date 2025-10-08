@@ -1,1 +1,7 @@
-module.exports = { plugins: { tailwindcss: {}, autoprefixer: {} } }
+// PostCSS must be CommonJS under "type": "module"
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};

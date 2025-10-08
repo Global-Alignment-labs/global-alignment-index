@@ -12,6 +12,7 @@ async function run() {
   // keep this in sync with TS pipeline (minus types)
   const OUTPUT_JSON = path.join(root, 'public', 'data', 'firearm_stock_per_100.json');
   const GAISUM_LOG = path.join(root, 'scripts', 'logs', 'firearm_stock_per_100.gaisum.json');
+  // Offline-first assumption: cached SAS + WDI CSV snapshots live in scripts/data.
   const DATA_DIR = path.join(root, 'scripts', 'data');
 
   const csv = async (name) => readFile(path.join(DATA_DIR, name), 'utf8');

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, '..', '..');
 
+// Offline-first assumption: cached SAS + WDI CSV snapshots live in scripts/data.
 const DATA_DIR = path.join(projectRoot, 'scripts', 'data');
 const OUTPUT_JSON = path.join(projectRoot, 'public', 'data', 'firearm_stock_per_100.json');
 const GAISUM_LOG = path.join(projectRoot, 'scripts', 'logs', 'firearm_stock_per_100.gaisum.json');

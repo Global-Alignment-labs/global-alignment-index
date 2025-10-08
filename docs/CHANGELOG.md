@@ -1,5 +1,8 @@
 # Changelog
 
+## 2025-10-10
+- data(firearm_stock_per_100): capture coverage diagnostics in GAISUM logging for pipeline and JS mirror.
+
 ## 2025-08-31
 - data(firearm_stock_per_100): add SAS + WDI pipeline with offline cache and GAISUM logging.
 

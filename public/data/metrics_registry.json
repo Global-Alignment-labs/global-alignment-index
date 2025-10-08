@@ -10,7 +10,7 @@
     "target": null,
     "cadence": "annual",
     "source_url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_gl.csv",
-    "notes": "Global atmospheric CO₂ concentration"
+    "notes": "Global atmospheric CO\u2082 concentration"
   },
   {
     "id": "life_expectancy",
@@ -66,5 +66,24 @@
     "source_id": "ucdp_battle_deaths",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
     "notes": "Global battle-related deaths per 100k (total; UCDP BRD v25.1, population denominator World Bank SP.POP.TOTL). Uses local consent-gated CSV v25.1."
+  },
+  {
+    "id": "homicide_rate",
+    "name": "Intentional homicide rate per 100 000",
+    "unit": "per 100,000 people",
+    "alignment_or_capability": "alignment",
+    "direction": "down",
+    "tier": 1,
+    "layer": "national",
+    "domain": "safety_and_care",
+    "precision": 3,
+    "source_ids": [
+      "unodc",
+      "who_gho"
+    ],
+    "source_url": "https://data.worldbank.org/indicator/VC.IHR.PSRC.P5",
+    "cadence": "annual",
+    "target": 0,
+    "notes": "Population-weighted global mean of national rates. Offline snapshot; see scripts/fetch_homicide_rate.ts."
   }
 ]

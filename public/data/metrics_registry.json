@@ -52,6 +52,22 @@
     "notes": "Population-weighted global mean of national SH.DYN.MORT using SP.POP.TOTL; exclude aggregates; round to 2 decimals."
   },
   {
+    "id": "battle_deaths",
+    "domain": "Safety & Conflict",
+    "unit": "deaths per 100k",
+    "alignment_or_capability": "alignment",
+    "direction": "down",
+    "reference_min": null,
+    "reference_max": null,
+    "target": 0,
+    "cadence": "annual",
+    "tier": 1,
+    "layer": "CR",
+    "source_id": "ucdp_battle_deaths",
+    "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
+    "notes": "Global battle-related deaths per 100k (total; UCDP BRD v25.1, population denominator World Bank SP.POP.TOTL). Uses local consent-gated CSV v25.1."
+  },
+  {
     "id": "firearm_stock_per_100",
     "domain": "Safety & Care",
     "unit": "firearms per 100 residents",
@@ -61,6 +77,7 @@
     "reference_max": 120,
     "target": null,
     "cadence": "annual",
+    "tier": 1,
     "source_url": "https://www.smallarmssurvey.org/database/global-firearms-holdings",
     "notes": "Population-weighted global mean of civilian firearm stock per 100 residents using SAS holdings + WDI SP.POP.TOTL; round to 3 decimals.",
     "precision": 3

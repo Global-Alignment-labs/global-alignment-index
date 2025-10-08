@@ -26,13 +26,13 @@ function unitFor(id: string): string {
 
 function formatValue(id: string, v: number): string {
   const u = unitFor(id)
-  if (id === 'internet_use') return `${Math.round(v)}%`
   const precisionOverrides: Record<string, number> = {
     firearm_stock_per_100: 3,
   }
+  if (id === 'internet_use') return `${Math.round(v)}%`
   const precision = precisionOverrides[id] ?? 2
-  if (u) return `${Number(v.toFixed(precision))} ${u}`
-  return String(Number(v.toFixed(precision)))
+  const formatted = v.toFixed(precision)
+  return u ? `${formatted} ${u}` : formatted
 }
 async function load(id: string): Promise<Pt[]> {
   const url = `/data/${id}.json?v=${fetchVersion}`

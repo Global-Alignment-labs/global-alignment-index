@@ -12,6 +12,7 @@
     "fetch:co2": "tsx scripts/pipelines/co2.ts",
     "fetch:life": "tsx scripts/pipelines/life_expectancy.ts",
     "fetch:u5": "tsx scripts/pipelines/u5_mortality.ts",
+    "fetch:battle-deaths": "ts-node scripts/fetch_battle_deaths.ts",
     "pipelines:firearm_stock_per_100": "node scripts/pipelines/firearm_stock_per_100.js",
     "validate:sources": "node scripts/validate-sources.js"
   },

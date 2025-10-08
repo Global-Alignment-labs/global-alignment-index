@@ -52,6 +52,18 @@
     "method": "Per-year coverage: (#ISO with SH.DYN.MORT & SP.POP.TOTL) / (#ISO with SP.POP.TOTL).",
     "updated_at": "2025-09-16"
   },
+  "firearm_stock_per_100": {
+    "name": "Firearm stock per 100 residents",
+    "domain": "Safety & Care",
+    "unit": "firearms per 100 residents",
+    "source_org": "Small Arms Survey; World Bank",
+    "source_url": "https://www.smallarmssurvey.org/database/global-firearms-holdings",
+    "license": "SAS © Small Arms Survey (research use); World Bank data CC BY 4.0",
+    "cadence": "annual",
+    "method": "Join SAS civilian firearm stock with WDI SP.POP.TOTL; population-weight global per-100 mean; skip coverage <30%; round to 3 decimals.",
+    "updated_at": "2025-08-31",
+    "data_start_year": 1990
+  },
   "ucdp_battle_deaths": {
     "name": "Battle-related deaths (global)",
     "domain": "Safety & Conflict",
@@ -112,7 +124,7 @@
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
     "license": "© UCDP, academic & non-commercial use permitted",
     "cadence": "annual",
-    "method": "Sum all UCDP battle-related deaths (codes 1-4) and divide by global population (World Bank SP.POP.TOTL); round to 3 decimals.",
+    "method": "Sum all UCDP battle-related deaths (codes 1-4) and divide by global population (World Bank WDI SP.POP.TOTL); round to 3 decimals.",
     "updated_at": "2025-10-07",
     "data_start_year": 1990,
     "notes": "Tier-1 alignment metric; uses battle_deaths_total.json (global total). CSV v25.1 is consent-gated; local copy used."

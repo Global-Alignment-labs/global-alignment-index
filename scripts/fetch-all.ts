@@ -2,6 +2,7 @@ import { run as co2 } from './pipelines/co2.ts';
 import { run as life_expectancy } from './pipelines/life_expectancy.ts';
 import { run as u5_mortality } from './pipelines/u5_mortality.ts';
 import { run as battle_deaths } from './fetch_battle_deaths.ts';
+import { run as firearm_stock_per_100 } from './pipelines/firearm_stock_per_100.ts';
 
 export async function runAll() {
   const pipelines = [
@@ -10,7 +11,9 @@ export async function runAll() {
     // Under-5 mortality from WDI
     { name: 'u5_mortality', run: u5_mortality },
     { name: 'battle_deaths', run: battle_deaths },
+    { name: 'firearm_stock_per_100', run: firearm_stock_per_100 },
   ];
+
   for (const p of pipelines) {
     console.log(`[fetch-all] start ${p.name}`);
     const data = await p.run();

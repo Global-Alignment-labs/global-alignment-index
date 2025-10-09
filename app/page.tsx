@@ -5,7 +5,9 @@ import { METRICS } from '@/lib/metrics'
 import { computeRelative } from '@/lib/relative'
 import SourcesFooter from '@/components/SourcesFooter'
 
-const DISPLAY_METRICS = METRICS.filter(m => m.id !== 'internet_use')
+// Temporarily hide metrics that are not part of the MVP dashboard view.
+const HIDDEN_METRIC_IDS = new Set(['internet_use'])
+const DISPLAY_METRICS = METRICS.filter(m => !HIDDEN_METRIC_IDS.has(m.id))
 
 type Pt = { year: number; value: number }
 const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()

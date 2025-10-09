@@ -99,5 +99,19 @@
     "cadence": "annual",
     "source_id": "sipri_milex",
     "notes": "Population-weighted SIPRI military expenditure (current USD) using World Bank SP.POP.TOTL; round to 1 decimal."
+  },
+  {
+    "id": "military_expenditure_percent_gdp",
+    "name": "Military expenditure (% of GDP)",
+    "unit": "% of GDP",
+    "alignment_or_capability": "capability",
+    "direction": "up",
+    "tier": 1,
+    "layer": "international",
+    "domain": "safety_and_care",
+    "precision": 2,
+    "cadence": "annual",
+    "source_id": "sipri_milex",
+    "notes": "GDP-weighted SIPRI military expenditure share (indicator MS.MIL.XPND.GD.ZS) using current-price GDP; round to 2 decimals."
   }
 ]

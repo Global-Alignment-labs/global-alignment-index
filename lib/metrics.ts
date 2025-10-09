@@ -23,5 +23,13 @@ export const METRICS: Metric[] = [
     direction: 'up_is_better',
     source: 'SIPRI',
   },
+  {
+    id: 'military_expenditure_percent_gdp',
+    name: 'Military expenditure (% of GDP)',
+    domain: 'Safety & Care',
+    unit: '% of GDP',
+    direction: 'up_is_better',
+    source: 'SIPRI',
+  },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
 ]

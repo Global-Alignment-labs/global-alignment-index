@@ -6,6 +6,10 @@ import { upsertSource } from "./lib/manifest.ts";
 
 const MILEX_PATH = resolve(process.cwd(), "data/raw/sipri_milex.csv");
 const POP_PATH = resolve(process.cwd(), "data/raw/pop_by_country.csv");
+const PERCENT_GDP_PATH = resolve(
+  process.cwd(),
+  "data/raw/sipri_milex_percent_gdp.csv",
+);
 
 const OUTPUT_GLOBAL = resolve(
   process.cwd(),
@@ -15,11 +19,20 @@ const OUTPUT_BY_COUNTRY = resolve(
   process.cwd(),
   "public/data/military_expenditure_per_capita.by_country.json",
 );
+const OUTPUT_PERCENT_GLOBAL = resolve(
+  process.cwd(),
+  "public/data/military_expenditure_percent_gdp.json",
+);
+const OUTPUT_PERCENT_BY_COUNTRY = resolve(
+  process.cwd(),
+  "public/data/military_expenditure_percent_gdp.by_country.json",
+);
 
 const START_YEAR = 1990;
 const WARN_MIN = 50;
 const WARN_MAX = 3000;
 const DECIMALS = 1;
+const PERCENT_DECIMALS = 2;
 const RETRIEVED_ON = "2025-10-08";
 
 const AGGREGATE_ISO3 = new Set([
@@ -86,6 +99,14 @@ type PopulationYear = {
   iso3: string;
   year: number;
   population: number;
+};
+
+type PercentGdpYear = {
+  iso3: string;
+  country: string;
+  year: number;
+  percentOfGdp: number;
+  gdpUsd: number;
 };
 
 type SeriesPoint = {
@@ -209,6 +230,48 @@ async function loadPopulation(): Promise<PopulationYear[]> {
   return result;
 }
 
+async function loadPercentOfGdp(): Promise<PercentGdpYear[]> {
+  const text = await readFile(PERCENT_GDP_PATH, "utf8");
+  const { headers, rows } = parseCsv(text);
+  if (!headers.length) {
+    throw new Error("[milex] percent-of-GDP CSV missing headers");
+  }
+  const idxIso = headers.indexOf("iso3");
+  const idxCountry = headers.indexOf("country");
+  const idxYear = headers.indexOf("year");
+  const idxPercent = headers.indexOf("military_expenditure_percent_gdp");
+  const idxGdp = headers.indexOf("gdp_current_usd");
+  if (
+    idxIso === -1 ||
+    idxCountry === -1 ||
+    idxYear === -1 ||
+    idxPercent === -1 ||
+    idxGdp === -1
+  ) {
+    throw new Error("[milex] percent-of-GDP CSV missing required columns");
+  }
+  const result: PercentGdpYear[] = [];
+  for (const row of rows) {
+    const iso3 = (row[headers[idxIso]] ?? "").trim().toUpperCase();
+    if (!isCountryIso(iso3)) continue;
+    const country = (row[headers[idxCountry]] ?? "").trim();
+    const year = Number(row[headers[idxYear]]);
+    const percent = Number(row[headers[idxPercent]]);
+    const gdp = Number(row[headers[idxGdp]]);
+    if (!Number.isInteger(year) || year < START_YEAR) continue;
+    if (!Number.isFinite(percent)) continue;
+    if (!Number.isFinite(gdp) || gdp <= 0) continue;
+    result.push({
+      iso3,
+      country,
+      year,
+      percentOfGdp: percent,
+      gdpUsd: gdp,
+    });
+  }
+  return result;
+}
+
 function computeStd(values: number[], mean: number): number {
   if (values.length === 0) return 0;
   const variance =
@@ -225,6 +288,12 @@ export async function run(): Promise<SeriesPoint[]> {
   const population = await loadPopulation();
   console.log(`[milex] loaded ${population.length} country-year population rows`);
 
+  console.log("[milex] load SIPRI military expenditure (% of GDP)");
+  const percentOfGdp = await loadPercentOfGdp();
+  console.log(
+    `[milex] loaded ${percentOfGdp.length} country-year percent-of-GDP rows`,
+  );
+
   const popMap = new Map<string, number>();
   for (const entry of population) {
     popMap.set(`${entry.iso3}:${entry.year}`, entry.population);
@@ -232,7 +301,16 @@ export async function run(): Promise<SeriesPoint[]> {
 
   const countryNames = new Map<string, string>();
   const countrySeries = new Map<string, SeriesPoint[]>();
-  const globalTotals = new Map<number, { expenditure: number; population: number }>();
+  const globalTotals = new Map<
+    number,
+    { expenditure: number; population: number }
+  >();
+  const percentCountrySeries = new Map<string, SeriesPoint[]>();
+  const percentCountryNames = new Map<string, string>();
+  const percentTotals = new Map<
+    number,
+    { weightedPercentTimesGdp: number; gdp: number }
+  >();
 
   for (const entry of milex) {
     const pop = popMap.get(`${entry.iso3}:${entry.year}`);
@@ -254,6 +332,26 @@ export async function run(): Promise<SeriesPoint[]> {
     agg.expenditure += entry.expenditureUsd;
     agg.population += pop;
     globalTotals.set(entry.year, agg);
+  }
+
+  for (const entry of percentOfGdp) {
+    const percentValue = entry.percentOfGdp;
+    const rounded = roundN(percentValue, PERCENT_DECIMALS);
+    percentCountryNames.set(entry.iso3, entry.country);
+    let list = percentCountrySeries.get(entry.iso3);
+    if (!list) {
+      list = [];
+      percentCountrySeries.set(entry.iso3, list);
+    }
+    list.push({ year: entry.year, value: rounded });
+
+    const agg = percentTotals.get(entry.year) ?? {
+      weightedPercentTimesGdp: 0,
+      gdp: 0,
+    };
+    agg.weightedPercentTimesGdp += (percentValue / 100) * entry.gdpUsd;
+    agg.gdp += entry.gdpUsd;
+    percentTotals.set(entry.year, agg);
   }
 
   const perCountryOutput: Array<{
@@ -298,6 +396,22 @@ export async function run(): Promise<SeriesPoint[]> {
     throw new Error("[milex] global series empty");
   }
 
+  const percentGlobalSeries: SeriesPoint[] = [];
+  const percentYears = Array.from(percentTotals.keys()).sort((a, b) => a - b);
+  for (const year of percentYears) {
+    const totals = percentTotals.get(year)!;
+    if (totals.gdp <= 0 || totals.weightedPercentTimesGdp < 0) continue;
+    const value = roundN(
+      (totals.weightedPercentTimesGdp / totals.gdp) * 100,
+      PERCENT_DECIMALS,
+    );
+    percentGlobalSeries.push({ year, value });
+  }
+
+  if (percentGlobalSeries.length === 0) {
+    throw new Error("[milex] percent-of-GDP global series empty");
+  }
+
   const values = globalSeries.map((point) => point.value);
   const mean = values.reduce((acc, value) => acc + value, 0) / values.length;
   const std = computeStd(values, mean);
@@ -317,8 +431,50 @@ export async function run(): Promise<SeriesPoint[]> {
     );
   }
 
+  const percentValues = percentGlobalSeries.map((point) => point.value);
+  const percentMean =
+    percentValues.reduce((acc, value) => acc + value, 0) / percentValues.length;
+  const percentStd = computeStd(percentValues, percentMean);
+  const percentFirstYear = percentGlobalSeries[0].year;
+  const percentLastYear =
+    percentGlobalSeries[percentGlobalSeries.length - 1].year;
+  console.log(
+    `GAISUM military_expenditure_percent_gdp_global {rows:${percentGlobalSeries.length}, min_year:${percentFirstYear}, max_year:${percentLastYear}, mean:${percentMean.toFixed(PERCENT_DECIMALS)}, std:${percentStd.toFixed(PERCENT_DECIMALS)}}`,
+  );
+
+  const percentCountryOutput: Array<{
+    iso3: string;
+    country: string;
+    year: number;
+    value: number;
+  }> = [];
+  for (const [iso3, points] of percentCountrySeries) {
+    points.sort((a, b) => a.year - b.year);
+    for (const point of points) {
+      percentCountryOutput.push({
+        iso3,
+        country: percentCountryNames.get(iso3) ?? iso3,
+        year: point.year,
+        value: point.value,
+      });
+    }
+  }
+  percentCountryOutput.sort((a, b) =>
+    a.iso3 === b.iso3 ? a.year - b.year : a.iso3.localeCompare(b.iso3),
+  );
+  if (percentCountryOutput.length > 0) {
+    const years = percentCountryOutput.map((entry) => entry.year);
+    const minYear = Math.min(...years);
+    const maxYear = Math.max(...years);
+    console.log(
+      `GAISUM military_expenditure_percent_gdp_by_country {rows:${percentCountryOutput.length}, min_year:${minYear}, max_year:${maxYear}}`,
+    );
+  }
+
   await writeJson(OUTPUT_GLOBAL, globalSeries);
   await writeJson(OUTPUT_BY_COUNTRY, perCountryOutput);
+  await writeJson(OUTPUT_PERCENT_GLOBAL, percentGlobalSeries);
+  await writeJson(OUTPUT_PERCENT_BY_COUNTRY, percentCountryOutput);
 
   await upsertSource("sipri_milex", {
     name: "SIPRI Military Expenditure Database",

@@ -156,11 +156,38 @@
     "data_start_year": 1990,
     "notes": "Companion dataset to the Tier-1 global mean; rows emitted only when both expenditure and population are present."
   },
+  "military_expenditure_percent_gdp": {
+    "name": "Military expenditure (% of GDP) (global)",
+    "domain": "Safety & Care",
+    "unit": "% of GDP",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "GDP-weighted mean of SIPRI military expenditure share (MS.MIL.XPND.GD.ZS) using current GDP (NY.GDP.MKTP.CD); excludes aggregate ISO3 codes; rounded to 2 decimals.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Global Tier-1 companion to per-capita spending; relies on frozen data/raw/sipri_milex_percent_gdp.csv."
+  },
+  "military_expenditure_percent_gdp.by_country": {
+    "name": "Military expenditure (% of GDP) (by country)",
+    "domain": "Safety & Care",
+    "unit": "% of GDP",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "National SIPRI military expenditure share of GDP; ISO3-normalized; rows require both percent and GDP; rounded to 2 decimals.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Companion dataset for future country toggle; sourced from data/raw/sipri_milex_percent_gdp.csv."
+  },
   "sipri_milex": {
     "name": "SIPRI Military Expenditure Database",
     "publisher": "SIPRI",
     "license": "CC-BY",
     "url": "https://www.sipri.org/databases/milex",
-    "retrieved": "2025-10-08"
+    "retrieved": "2025-10-08",
+    "notes": "Frozen SIPRI via World Bank WDI indicators MS.MIL.XPND.CD (current USD) and MS.MIL.XPND.GD.ZS (% of GDP) with matching GDP denominators (NY.GDP.MKTP.CD)."
   }
 }

@@ -2,6 +2,7 @@ import { run as co2 } from './pipelines/co2.ts';
 import { run as life_expectancy } from './pipelines/life_expectancy.ts';
 import { run as u5_mortality } from './pipelines/u5_mortality.ts';
 import { run as battle_deaths } from './fetch_battle_deaths.ts';
+import { run as military_expenditure_per_capita } from './fetch_military_expenditure_per_capita.ts';
 
 export async function runAll() {
   const pipelines = [
@@ -10,6 +11,7 @@ export async function runAll() {
     // Under-5 mortality from WDI
     { name: 'u5_mortality', run: u5_mortality },
     { name: 'battle_deaths', run: battle_deaths },
+    { name: 'military_expenditure_per_capita', run: military_expenditure_per_capita },
   ];
   for (const p of pipelines) {
     console.log(`[fetch-all] start ${p.name}`);

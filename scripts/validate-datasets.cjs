@@ -75,6 +75,26 @@ for (const f of files) {
         prevYear = d.year
         prevTypeIdx = idx
       })
+    } else if (f.endsWith('.by_country.json')) {
+      data.forEach((d, i) => {
+        if (typeof d !== 'object' || d === null) throw new Error(`item ${i} not object`)
+        const keys = Object.keys(d)
+        if (
+          keys.length !== 4 ||
+          !('iso3' in d) ||
+          !('country' in d) ||
+          !('year' in d) ||
+          !('value' in d)
+        )
+          throw new Error(`item ${i} invalid keys`)
+        if (typeof d.iso3 !== 'string' || !/^[A-Z]{3}$/.test(d.iso3))
+          throw new Error(`item ${i} iso3 invalid`)
+        if (typeof d.country !== 'string' || !d.country.trim())
+          throw new Error(`item ${i} country invalid`)
+        if (!Number.isInteger(d.year)) throw new Error(`item ${i} year not integer`)
+        if (typeof d.value !== 'number' || Number.isNaN(d.value))
+          throw new Error(`item ${i} value not number`)
+      })
     } else {
       let prevYear = -Infinity
       data.forEach((d, i) => {

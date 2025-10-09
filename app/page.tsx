@@ -18,6 +18,7 @@ function unitFor(id: string): string {
 
 function precisionForUnit(unit: string): number {
   if (unit === 'deaths per 100k') return 3
+  if (unit === 'USD per person') return 1
   return 2
 }
 

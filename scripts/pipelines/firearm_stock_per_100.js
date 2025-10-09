@@ -117,6 +117,8 @@ async function run() {
 
   const vals = series.map(d=>d.value);
   const yrs = series.map(d=>d.year);
+  const roundCoverage = value => (value === null || value === undefined ? null : Math.round(value * 1000) / 1000);
+
   const gaisum = {
     metric: 'firearm_stock_per_100',
     rows: series.length,
@@ -124,11 +126,13 @@ async function run() {
     max_year: Math.max(...yrs),
     min_value: Math.min(...vals),
     max_value: Math.max(...vals),
-    coverage_min: coverageValues.length ? Math.min(...coverageValues) : null,
-    coverage_max: coverageValues.length ? Math.max(...coverageValues) : null,
-    coverage_mean: coverageValues.length
-      ? coverageValues.reduce((acc, val) => acc + val, 0) / coverageValues.length
-      : null,
+    coverage_min: roundCoverage(coverageValues.length ? Math.min(...coverageValues) : null),
+    coverage_max: roundCoverage(coverageValues.length ? Math.max(...coverageValues) : null),
+    coverage_mean: roundCoverage(
+      coverageValues.length
+        ? coverageValues.reduce((acc, val) => acc + val, 0) / coverageValues.length
+        : null,
+    ),
   };
   await mkdir(path.dirname(GAISUM_LOG), { recursive:true });
   await writeFile(GAISUM_LOG, JSON.stringify(gaisum, null, 2)+'\n', 'utf8');

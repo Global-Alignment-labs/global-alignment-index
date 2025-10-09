@@ -68,6 +68,25 @@
     "notes": "Global battle-related deaths per 100k (total; UCDP BRD v25.1, population denominator World Bank SP.POP.TOTL). Uses local consent-gated CSV v25.1."
   },
   {
+    "id": "homicide_rate",
+    "name": "Intentional homicide rate per 100 000",
+    "unit": "per 100,000 people",
+    "alignment_or_capability": "alignment",
+    "direction": "down",
+    "tier": 1,
+    "layer": "national",
+    "domain": "safety_and_care",
+    "precision": 3,
+    "source_ids": [
+      "unodc",
+      "who_gho"
+    ],
+    "source_url": "https://data.worldbank.org/indicator/VC.IHR.PSRC.P5",
+    "cadence": "annual",
+    "target": 0,
+    "notes": "Population-weighted global mean of national rates. Offline snapshot; see scripts/fetch_homicide_rate.ts."
+  },
+  {
     "id": "firearm_stock_per_100",
     "domain": "Safety & Care",
     "unit": "firearms per 100 residents",

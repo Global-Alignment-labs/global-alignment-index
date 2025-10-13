@@ -11,6 +11,7 @@ const DISPLAY_METRICS = METRICS.filter(m => !HIDDEN_METRIC_IDS.has(m.id))
 
 type Pt = { year: number; value: number }
 const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
+
 function unitFor(id: string): string {
   const metric = METRICS.find(m => m.id === id)
   return metric?.unit ?? ''
@@ -23,11 +24,15 @@ function precisionForUnit(unit: string): number {
 
 function formatValue(id: string, v: number): string {
   const u = unitFor(id)
+  const precisionOverrides: Record<string, number> = {
+    firearm_stock_per_100: 3,
+  }
   if (id === 'internet_use') return `${Math.round(v)}%`
-  const decimals = precisionForUnit(u)
+  const decimals = precisionOverrides[id] ?? precisionForUnit(u)
   const formatted = Number(v.toFixed(decimals))
   return u ? `${formatted} ${u}` : String(formatted)
 }
+
 async function load(id: string): Promise<Pt[]> {
   const url = `/data/${id}.json?v=${fetchVersion}`
   const res = await fetch(url, { cache: 'no-store' })
@@ -59,6 +64,7 @@ function getLatestNonMissingPoint(series: PtMaybe[]): PtMaybe | null {
 export default function Home() {
   const [data, setData] = useState<Record<string, Pt[]>>({})
   const [registry, setRegistry] = useState<Record<string, any>>({})
+
   useEffect(() => {
     DISPLAY_METRICS.forEach(async m => {
       const series = await load(m.id)
@@ -77,10 +83,10 @@ export default function Home() {
     const keys = Object.keys(data)
     if (!keys.length) return []
     const years = Array.from(new Set(keys.flatMap(k => data[k].map(p => p.year)))).sort()
-    const z = (arr:number[]) => {
-      const mean = arr.reduce((a,b)=>a+b,0)/arr.length
-      const sd = Math.sqrt(arr.reduce((a,b)=>a+(b-mean)**2,0)/arr.length) || 1
-      return arr.map(v => (v-mean)/sd)
+    const z = (arr: number[]) => {
+      const mean = arr.reduce((a, b) => a + b, 0) / arr.length
+      const sd = Math.sqrt(arr.reduce((a, b) => a + (b - mean) ** 2, 0) / arr.length) || 1
+      return arr.map(v => (v - mean) / sd)
     }
     const seriesZ: Record<string, Map<number, number>> = {}
     keys.forEach(k => {
@@ -89,21 +95,27 @@ export default function Home() {
       const zs = z(vals)
       seriesZ[k] = new Map(y.map((yy, i) => [yy, zs[i]]))
     })
-    return years.map(yy => {
-      const zs = keys.map(k => seriesZ[k].get(yy)).filter(v => v!==undefined) as number[]
-      if (!zs.length) return null
-      return { year: yy, value: Number((zs.reduce((a,b)=>a+b,0)/zs.length).toFixed(2)) }
-    }).filter(Boolean) as Pt[]
+    return years
+      .map(yy => {
+        const zs = keys.map(k => seriesZ[k].get(yy)).filter(v => v !== undefined) as number[]
+        if (!zs.length) return null
+        return { year: yy, value: Number((zs.reduce((a, b) => a + b, 0) / zs.length).toFixed(2)) }
+      })
+      .filter(Boolean) as Pt[]
   }, [data])
 
   return (
     <main className="mx-auto max-w-6xl p-6 space-y-8">
-        <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-tight">Global Alignment Index <span className="text-sm opacity-70">v0.1</span></h1>
-            <p className="opacity-70">Factual signals; no opinions. A simple aggregate line + domain charts (mock data for now).</p>
-          </div>
-        </header>
+      <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            Global Alignment Index <span className="text-sm opacity-70">v0.1</span>
+          </h1>
+          <p className="opacity-70">
+            Factual signals; no opinions. A simple aggregate line + domain charts (mock data for now).
+          </p>
+        </div>
+      </header>
 
       <section className="card p-4 shadow-sm">
         <h2 className="text-xl mb-2">Whole Alignment Trend (aggregate, mock)</h2>
@@ -118,7 +130,9 @@ export default function Home() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="text-sm opacity-70 mt-2">Method: per-year z‑score average of available series (placeholder).</p>
+        <p className="text-sm opacity-70 mt-2">
+          Method: per-year z-score average of available series (placeholder).
+        </p>
       </section>
 
       <section className="grid md:grid-cols-2 gap-6">
@@ -143,14 +157,14 @@ export default function Home() {
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="year" />
                         {mid === 'internet_use' ? (
-                          <YAxis domain={[0,100]} tickFormatter={v => formatValue(mid, v)} />
+                          <YAxis domain={[0, 100]} tickFormatter={v => formatValue(mid, v)} />
                         ) : mid ? (
                           <YAxis tickFormatter={v => formatValue(mid, v)} />
                         ) : (
                           <YAxis />
                         )}
                         {mid ? (
-                          <Tooltip formatter={(val:any) => formatValue(mid, Number(val))} />
+                          <Tooltip formatter={(val: any) => formatValue(mid, Number(val))} />
                         ) : (
                           <Tooltip />
                         )}

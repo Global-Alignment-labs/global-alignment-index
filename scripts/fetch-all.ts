@@ -13,6 +13,7 @@ export async function runAll() {
     { name: 'battle_deaths', run: battle_deaths },
     { name: 'firearm_stock_per_100', run: firearm_stock_per_100 },
   ];
+
   for (const p of pipelines) {
     console.log(`[fetch-all] start ${p.name}`);
     const data = await p.run();

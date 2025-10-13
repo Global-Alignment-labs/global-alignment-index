@@ -3,6 +3,14 @@
 ## 2025-10-10
 - data(firearm_stock_per_100): capture coverage diagnostics in GAISUM logging for pipeline and JS mirror.
 
+## 2025-10-08
+- data(homicide_rate): add Tier-1 homicide rate pipeline and dataset.
+- data(homicide_rate): switch to hybrid compute with WDI WLD fallback when coverage <95%.
+
+## 2025-09-18
+- data(battle_deaths): add UCDP battle-related deaths pipeline (total/by-type/interstate outputs) and register Tier-1 interstate metric; METHODS updated with source, mapping, and license notes.
+- docs(README): document the consent-gated UCDP download flow and local `data/raw` placement required before running the battle-deaths fetcher.
+
 ## 2025-08-31
 - data(firearm_stock_per_100): add SAS + WDI pipeline with offline cache and GAISUM logging.
 
@@ -22,5 +30,5 @@
 ## 2025-08-25 — v0.1 seed
 - Next.js scaffold + Tailwind + Recharts
 - Mock datasets for CO₂, life expectancy, internet use
-- Placeholder aggregate (z‑score average)
+- Placeholder aggregate (z-score average)
 - Docs: CONTEXT, METHODS, CHANGELOG

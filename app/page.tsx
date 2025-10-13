@@ -30,7 +30,9 @@ function formatValue(id: string, v: number): string {
   return u ? `${formatted} ${u}` : String(formatted)
 }
 async function load(id: string): Promise<Pt[]> {
-  const url = `/data/${id}.json?v=${fetchVersion}`
+  const metric = METRICS.find(m => m.id === id)
+  const dataPath = metric?.dataPath ?? id
+  const url = `/data/${dataPath}.json?v=${fetchVersion}`
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) return []
   return res.json()

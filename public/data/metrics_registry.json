@@ -88,7 +88,7 @@
   },
   {
     "id": "military_expenditure_per_capita",
-    "name": "Military expenditure per capita (USD)",
+    "name": "Military expenditure per capita (constant 2020 USD)",
     "unit": "USD per person",
     "alignment_or_capability": "capability",
     "direction": "up",
@@ -98,7 +98,7 @@
     "precision": 1,
     "cadence": "annual",
     "source_id": "sipri_milex",
-    "notes": "Population-weighted SIPRI military expenditure (current USD) using World Bank SP.POP.TOTL; round to 1 decimal."
+    "notes": "Population-weighted SIPRI military expenditure deflated to constant 2020 USD using World Bank NY.GDP.DEFL.ZS (WLD) and SP.POP.TOTL; round to 1 decimal."
   },
   {
     "id": "military_expenditure_percent_gdp",

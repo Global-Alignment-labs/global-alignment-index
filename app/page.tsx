@@ -17,8 +17,6 @@ function unitFor(id: string): string {
       return 'ppm'
     case 'life_expectancy':
       return 'years'
-    case 'homicide_rate':
-      return 'per 100,000 people'
     case 'firearm_stock_per_100':
       return 'firearms per 100 residents'
     default:
@@ -30,7 +28,6 @@ function formatValue(id: string, v: number): string {
   const u = unitFor(id)
   const precisionOverrides: Record<string, number> = {
     firearm_stock_per_100: 3,
-    homicide_rate: 3,
   }
   if (id === 'internet_use') return `${Math.round(v)}%`
   const precision = precisionOverrides[id] ?? 2

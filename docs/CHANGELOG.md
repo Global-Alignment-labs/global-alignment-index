@@ -5,6 +5,7 @@
 - data(homicide_rate): switch to hybrid compute with WDI WLD fallback when coverage <95%.
 - data(military_expenditure_per_capita): add SIPRI per-capita pipeline, GAISUM logs, and Tier-1 companion outputs.
 - data(military_expenditure_percent_gdp): extend SIPRI pipeline to emit GDP-share global & by-country series plus GAISUM logs and UI wiring.
+- data(military_expenditure_per_capita): deflate SIPRI totals with rebased World GDP deflator to publish constant 2020 USD series (global & by-country) and wire dashboard to the real series.
 
 ## 2025-09-18
 - data(battle_deaths): add UCDP battle-related deaths pipeline (total/by-type/interstate outputs) and register Tier-1 interstate metric; METHODS updated with source, mapping, and license notes.

@@ -143,6 +143,19 @@
     "data_start_year": 1990,
     "notes": "Source snapshot stored in data/raw/sipri_milex.csv; see scripts/fetch_military_expenditure_per_capita.ts."
   },
+  "military_expenditure_per_capita_constant_usd": {
+    "name": "Military expenditure per capita (constant 2020 USD)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Apply WLD GDP deflator rebased to 2020 (NY.GDP.MKTP.CD / NY.GDP.MKTP.KD) to SIPRI MS.MIL.XPND.CD before dividing by SP.POP.TOTL; round to 1 decimal.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Global Tier-1 constant-price series emitted from scripts/fetch_military_expenditure_per_capita.ts using data/raw/wld_gdp_deflator.csv."
+  },
   "military_expenditure_per_capita.by_country": {
     "name": "Military expenditure per capita (by country)",
     "domain": "Safety & Care",
@@ -155,6 +168,19 @@
     "updated_at": "2025-10-08",
     "data_start_year": 1990,
     "notes": "Companion dataset to the Tier-1 global mean; rows emitted only when both expenditure and population are present."
+  },
+  "military_expenditure_per_capita_constant_usd.by_country": {
+    "name": "Military expenditure per capita (constant 2020 USD, by country)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Country SIPRI MS.MIL.XPND.CD deflated with rebased WLD GDP deflator prior to dividing by SP.POP.TOTL; ISO3-normalized; round to 1 decimal.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Optional companion for future toggle; uses data/raw/wld_gdp_deflator.csv with frozen SIPRI inputs."
   },
   "military_expenditure_percent_gdp": {
     "name": "Military expenditure (% of GDP) (global)",
@@ -189,5 +215,12 @@
     "url": "https://www.sipri.org/databases/milex",
     "retrieved": "2025-10-08",
     "notes": "Frozen SIPRI via World Bank WDI indicators MS.MIL.XPND.CD (current USD) and MS.MIL.XPND.GD.ZS (% of GDP) with matching GDP denominators (NY.GDP.MKTP.CD)."
+  },
+  "wb_gdp_deflator_wld": {
+    "name": "World Bank GDP deflator (World, NY.GDP.MKTP.CD / NY.GDP.MKTP.KD)",
+    "publisher": "World Bank",
+    "license": "CC-BY 4.0",
+    "url": "https://data.worldbank.org/indicator/NY.GDP.DEFL.ZS?locations=WLD",
+    "retrieved": "2025-10-08"
   }
 }

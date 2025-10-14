@@ -20,7 +20,7 @@
     "license": "CC BY 4.0"
   },
   "co2_ppm": {
-    "name": "CO\u2082 (Global)",
+    "name": "CO₂ (Global)",
     "domain": "Climate & Environment",
     "unit": "ppm",
     "source_org": "NOAA Global Monitoring Laboratory",
@@ -58,12 +58,12 @@
     "unit": "deaths per 100k people",
     "source_org": "Uppsala Conflict Data Program (UCDP)",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
-    "license": "\u00a9 UCDP, academic & non-commercial use permitted",
+    "license": "© UCDP, academic & non-commercial use permitted",
     "cadence": "annual",
     "method": "Aggregate UCDP battle-related deaths by type_of_conflict using bd_best/best/best_estimate; join World Bank SP.POP.TOTL population; compute per 100k; enforce 1990-latest continuous coverage.",
     "updated_at": "2025-10-07",
     "data_start_year": 1990,
-    "notes": "Conflict-type mapping: 1\u2192interstate, 2\u2192intrastate, 3\u2192internationalized_intrastate, 4\u2192extrasystemic. Population denominator: World Bank WDI SP.POP.TOTL."
+    "notes": "Conflict-type mapping: 1→interstate, 2→intrastate, 3→internationalized_intrastate, 4→extrasystemic. Population denominator: World Bank WDI SP.POP.TOTL."
   },
   "battle_deaths_total": {
     "name": "Battle-related deaths (total)",
@@ -71,7 +71,7 @@
     "unit": "deaths per 100k people",
     "source_org": "Uppsala Conflict Data Program (UCDP)",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
-    "license": "\u00a9 UCDP, academic & non-commercial use permitted",
+    "license": "© UCDP, academic & non-commercial use permitted",
     "cadence": "annual",
     "method": "Sum all conflict types from UCDP battle-related deaths (bd_best/best/best_estimate) and divide by global population (World Bank WDI SP.POP.TOTL).",
     "updated_at": "2025-10-07",
@@ -84,9 +84,9 @@
     "unit": "deaths per 100k people",
     "source_org": "Uppsala Conflict Data Program (UCDP)",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
-    "license": "\u00a9 UCDP, academic & non-commercial use permitted",
+    "license": "© UCDP, academic & non-commercial use permitted",
     "cadence": "annual",
-    "method": "Per conflict type (1\u2192interstate, 2\u2192intrastate, 3\u2192internationalized, 4\u2192extrasystemic) deaths per 100k using World Bank SP.POP.TOTL; round to 3 decimals.",
+    "method": "Per conflict type (1→interstate, 2→intrastate, 3→internationalized, 4→extrasystemic) deaths per 100k using World Bank SP.POP.TOTL; round to 3 decimals.",
     "updated_at": "2025-10-07",
     "data_start_year": 1990,
     "notes": "Types listed: interstate, intrastate, internationalized_intrastate, extrasystemic. CSV v25.1 is consent-gated; local copy used."
@@ -97,7 +97,7 @@
     "unit": "deaths per 100k people",
     "source_org": "Uppsala Conflict Data Program (UCDP)",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
-    "license": "\u00a9 UCDP, academic & non-commercial use permitted",
+    "license": "© UCDP, academic & non-commercial use permitted",
     "cadence": "annual",
     "method": "Filter by conflict type code 1 (interstate) from UCDP battle-related deaths, join World Bank SP.POP.TOTL, round to 3 decimals.",
     "updated_at": "2025-10-07",
@@ -110,7 +110,7 @@
     "unit": "deaths per 100k people",
     "source_org": "Uppsala Conflict Data Program (UCDP)",
     "source_url": "https://ucdp.uu.se/downloads/battle-related-deaths/ucdp-brd-conflict-251.csv",
-    "license": "\u00a9 UCDP, academic & non-commercial use permitted",
+    "license": "© UCDP, academic & non-commercial use permitted",
     "cadence": "annual",
     "method": "Sum all UCDP battle-related deaths (codes 1-4) and divide by global population (World Bank SP.POP.TOTL); round to 3 decimals.",
     "updated_at": "2025-10-07",
@@ -129,5 +129,98 @@
     "updated_at": "2025-10-08",
     "data_start_year": 1990,
     "notes": "Coverage <95% in early years due to missing national submissions; see console WARNs from scripts/fetch_homicide_rate.ts."
+  },
+  "military_expenditure_per_capita": {
+    "name": "Military expenditure per capita (global)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Population-weighted mean of SIPRI military expenditure (current USD, MS.MIL.XPND.CD) divided by World Bank SP.POP.TOTL population; excludes aggregate ISO regions; values rounded to 1 decimal.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Source snapshot stored in data/raw/sipri_milex.csv; see scripts/fetch_military_expenditure_per_capita.ts."
+  },
+  "military_expenditure_per_capita_constant_usd": {
+    "name": "Military expenditure per capita (constant 2020 USD)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Apply WLD GDP deflator rebased to 2020 (NY.GDP.MKTP.CD / NY.GDP.MKTP.KD) to SIPRI MS.MIL.XPND.CD before dividing by SP.POP.TOTL; round to 1 decimal.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Global Tier-1 constant-price series emitted from scripts/fetch_military_expenditure_per_capita.ts using data/raw/wld_gdp_deflator.csv."
+  },
+  "military_expenditure_per_capita.by_country": {
+    "name": "Military expenditure per capita (by country)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Country-level SIPRI military expenditure (current USD) divided by national population; ISO3-normalized; values rounded to 1 decimal.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Companion dataset to the Tier-1 global mean; rows emitted only when both expenditure and population are present."
+  },
+  "military_expenditure_per_capita_constant_usd.by_country": {
+    "name": "Military expenditure per capita (constant 2020 USD, by country)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Country SIPRI MS.MIL.XPND.CD deflated with rebased WLD GDP deflator prior to dividing by SP.POP.TOTL; ISO3-normalized; round to 1 decimal.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Optional companion for future toggle; uses data/raw/wld_gdp_deflator.csv with frozen SIPRI inputs."
+  },
+  "military_expenditure_percent_gdp": {
+    "name": "Military expenditure (% of GDP) (global)",
+    "domain": "Safety & Care",
+    "unit": "% of GDP",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "GDP-weighted mean of SIPRI military expenditure share (MS.MIL.XPND.GD.ZS) using current GDP (NY.GDP.MKTP.CD); excludes aggregate ISO3 codes; rounded to 2 decimals.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Global Tier-1 companion to per-capita spending; relies on frozen data/raw/sipri_milex_percent_gdp.csv."
+  },
+  "military_expenditure_percent_gdp.by_country": {
+    "name": "Military expenditure (% of GDP) (by country)",
+    "domain": "Safety & Care",
+    "unit": "% of GDP",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://www.sipri.org/databases/milex",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "National SIPRI military expenditure share of GDP; ISO3-normalized; rows require both percent and GDP; rounded to 2 decimals.",
+    "updated_at": "2025-10-08",
+    "data_start_year": 1990,
+    "notes": "Companion dataset for future country toggle; sourced from data/raw/sipri_milex_percent_gdp.csv."
+  },
+  "sipri_milex": {
+    "name": "SIPRI Military Expenditure Database",
+    "publisher": "SIPRI",
+    "license": "CC-BY",
+    "url": "https://www.sipri.org/databases/milex",
+    "retrieved": "2025-10-08",
+    "notes": "Frozen SIPRI via World Bank WDI indicators MS.MIL.XPND.CD (current USD) and MS.MIL.XPND.GD.ZS (% of GDP) with matching GDP denominators (NY.GDP.MKTP.CD)."
+  },
+  "wb_gdp_deflator_wld": {
+    "name": "World Bank GDP deflator (World, NY.GDP.MKTP.CD / NY.GDP.MKTP.KD)",
+    "publisher": "World Bank",
+    "license": "CC-BY 4.0",
+    "url": "https://data.worldbank.org/indicator/NY.GDP.DEFL.ZS?locations=WLD",
+    "retrieved": "2025-10-08"
   }
 }

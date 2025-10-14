@@ -7,6 +7,7 @@ export type Metric = {
   unit: string
   direction: Direction
   source: string
+  dataPath?: string
 }
 
 export const METRICS: Metric[] = [
@@ -15,5 +16,14 @@ export const METRICS: Metric[] = [
   { id: 'internet_use', name: 'Individuals using the internet', domain: 'Education & Digital', unit: '%', direction: 'up_is_better', source: 'ITU' },
   { id: 'u5_mortality', name: 'Under-5 mortality', domain: 'Health & Wellbeing', unit: 'per 1,000 live births', direction: 'down_is_better', source: 'UN IGME / World Bank' },
   { id: 'battle_deaths', name: 'Battle-related deaths', domain: 'Safety & Conflict', unit: 'deaths per 100k', direction: 'down_is_better', source: 'UCDP' },
+  {
+    id: 'military_expenditure_per_capita',
+    name: 'Military expenditure per capita (constant 2020 USD)',
+    domain: 'Safety & Care',
+    unit: 'USD per person',
+    direction: 'up_is_better',
+    source: 'SIPRI',
+    dataPath: 'military_expenditure_per_capita_constant_usd',
+  },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
 ]

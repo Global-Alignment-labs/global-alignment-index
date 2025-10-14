@@ -18,6 +18,7 @@ function unitFor(id: string): string {
 
 function precisionForUnit(unit: string): number {
   if (unit === 'deaths per 100k') return 3
+  if (unit === 'USD per person') return 1
   return 2
 }
 
@@ -28,11 +29,39 @@ function formatValue(id: string, v: number): string {
   const formatted = Number(v.toFixed(decimals))
   return u ? `${formatted} ${u}` : String(formatted)
 }
+function buildDataUrl(path: string): string {
+  const hasJsonSuffix = path.endsWith('.json')
+  const withSuffix = hasJsonSuffix ? path : `${path}.json`
+  if (withSuffix.startsWith('/')) {
+    return `${withSuffix}?v=${fetchVersion}`
+  }
+  if (withSuffix.startsWith('data/')) {
+    return `/${withSuffix}?v=${fetchVersion}`
+  }
+  return `/data/${withSuffix}?v=${fetchVersion}`
+}
+
 async function load(id: string): Promise<Pt[]> {
-  const url = `/data/${id}.json?v=${fetchVersion}`
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) return []
-  return res.json()
+  const metric = METRICS.find(m => m.id === id)
+  const candidatePaths = metric?.dataPath
+    ? Array.from(new Set([metric.dataPath, id]))
+    : [id]
+
+  for (const path of candidatePaths) {
+    const url = buildDataUrl(path)
+    try {
+      const res = await fetch(url, { cache: 'no-store' })
+      if (!res.ok) {
+        if (res.status === 404) continue
+        return []
+      }
+      return res.json()
+    } catch (err) {
+      continue
+    }
+  }
+
+  return []
 }
 
 type PtMaybe = { year: number; value: number | null | undefined }

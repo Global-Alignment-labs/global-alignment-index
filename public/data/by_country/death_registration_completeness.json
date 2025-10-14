@@ -1,0 +1,3626 @@
+[
+  {
+    "iso3": "ALB",
+    "country": "Albania",
+    "year": 1992,
+    "value": 73
+  },
+  {
+    "iso3": "ALB",
+    "country": "Albania",
+    "year": 1997,
+    "value": 74.9
+  },
+  {
+    "iso3": "ALB",
+    "country": "Albania",
+    "year": 2002,
+    "value": 67.8
+  },
+  {
+    "iso3": "ALB",
+    "country": "Albania",
+    "year": 2009,
+    "value": 53
+  },
+  {
+    "iso3": "ALB",
+    "country": "Albania",
+    "year": 2010,
+    "value": 53
+  },
+  {
+    "iso3": "AND",
+    "country": "Andorra",
+    "year": 2010,
+    "value": 80
+  },
+  {
+    "iso3": "AND",
+    "country": "Andorra",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "ARE",
+    "country": "United Arab Emirates",
+    "year": 2006,
+    "value": 89.6
+  },
+  {
+    "iso3": "ARE",
+    "country": "United Arab Emirates",
+    "year": 2009,
+    "value": 87
+  },
+  {
+    "iso3": "ARE",
+    "country": "United Arab Emirates",
+    "year": 2010,
+    "value": 59
+  },
+  {
+    "iso3": "ARG",
+    "country": "Argentina",
+    "year": 1992,
+    "value": 99.9
+  },
+  {
+    "iso3": "ARG",
+    "country": "Argentina",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "ARG",
+    "country": "Argentina",
+    "year": 2002,
+    "value": 99.9
+  },
+  {
+    "iso3": "ARG",
+    "country": "Argentina",
+    "year": 2009,
+    "value": 99.2
+  },
+  {
+    "iso3": "ARG",
+    "country": "Argentina",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "ARG",
+    "country": "Argentina",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "ARM",
+    "country": "Armenia",
+    "year": 1992,
+    "value": 70.1
+  },
+  {
+    "iso3": "ARM",
+    "country": "Armenia",
+    "year": 1997,
+    "value": 79.7
+  },
+  {
+    "iso3": "ARM",
+    "country": "Armenia",
+    "year": 2002,
+    "value": 74.4
+  },
+  {
+    "iso3": "ARM",
+    "country": "Armenia",
+    "year": 2011,
+    "value": 76
+  },
+  {
+    "iso3": "ARM",
+    "country": "Armenia",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "ATG",
+    "country": "Antigua and Barbuda",
+    "year": 1992,
+    "value": 92.2
+  },
+  {
+    "iso3": "ATG",
+    "country": "Antigua and Barbuda",
+    "year": 1997,
+    "value": 87.7
+  },
+  {
+    "iso3": "ATG",
+    "country": "Antigua and Barbuda",
+    "year": 2002,
+    "value": 83.7
+  },
+  {
+    "iso3": "ATG",
+    "country": "Antigua and Barbuda",
+    "year": 2008,
+    "value": 80.2
+  },
+  {
+    "iso3": "ATG",
+    "country": "Antigua and Barbuda",
+    "year": 2012,
+    "value": 79
+  },
+  {
+    "iso3": "ATG",
+    "country": "Antigua and Barbuda",
+    "year": 2016,
+    "value": 83
+  },
+  {
+    "iso3": "AUS",
+    "country": "Australia",
+    "year": 1992,
+    "value": 97.5
+  },
+  {
+    "iso3": "AUS",
+    "country": "Australia",
+    "year": 1997,
+    "value": 96.6
+  },
+  {
+    "iso3": "AUS",
+    "country": "Australia",
+    "year": 2002,
+    "value": 99.4
+  },
+  {
+    "iso3": "AUS",
+    "country": "Australia",
+    "year": 2007,
+    "value": 99.1
+  },
+  {
+    "iso3": "AUS",
+    "country": "Australia",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "AUS",
+    "country": "Australia",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "AUT",
+    "country": "Austria",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "AUT",
+    "country": "Austria",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "AUT",
+    "country": "Austria",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "AUT",
+    "country": "Austria",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "AUT",
+    "country": "Austria",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "AUT",
+    "country": "Austria",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "AZE",
+    "country": "Azerbaijan",
+    "year": 1992,
+    "value": 67.2
+  },
+  {
+    "iso3": "AZE",
+    "country": "Azerbaijan",
+    "year": 1997,
+    "value": 67.5
+  },
+  {
+    "iso3": "AZE",
+    "country": "Azerbaijan",
+    "year": 2002,
+    "value": 69
+  },
+  {
+    "iso3": "AZE",
+    "country": "Azerbaijan",
+    "year": 2007,
+    "value": 93
+  },
+  {
+    "iso3": "BEL",
+    "country": "Belgium",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "BEL",
+    "country": "Belgium",
+    "year": 1997,
+    "value": 99.8
+  },
+  {
+    "iso3": "BEL",
+    "country": "Belgium",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "BEL",
+    "country": "Belgium",
+    "year": 2006,
+    "value": 100
+  },
+  {
+    "iso3": "BEL",
+    "country": "Belgium",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "BEL",
+    "country": "Belgium",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "year": 1992,
+    "value": 99.6
+  },
+  {
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "year": 2002,
+    "value": 99.9
+  },
+  {
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "BHR",
+    "country": "Bahrain",
+    "year": 1997,
+    "value": 88.1
+  },
+  {
+    "iso3": "BHR",
+    "country": "Bahrain",
+    "year": 2002,
+    "value": 94.6
+  },
+  {
+    "iso3": "BHR",
+    "country": "Bahrain",
+    "year": 2010,
+    "value": 88
+  },
+  {
+    "iso3": "BHR",
+    "country": "Bahrain",
+    "year": 2014,
+    "value": 96
+  },
+  {
+    "iso3": "BHS",
+    "country": "Bahamas, The",
+    "year": 1992,
+    "value": 99
+  },
+  {
+    "iso3": "BHS",
+    "country": "Bahamas, The",
+    "year": 1997,
+    "value": 95.9
+  },
+  {
+    "iso3": "BHS",
+    "country": "Bahamas, The",
+    "year": 2002,
+    "value": 93.9
+  },
+  {
+    "iso3": "BHS",
+    "country": "Bahamas, The",
+    "year": 2007,
+    "value": 89
+  },
+  {
+    "iso3": "BHS",
+    "country": "Bahamas, The",
+    "year": 2009,
+    "value": 93
+  },
+  {
+    "iso3": "BHS",
+    "country": "Bahamas, The",
+    "year": 2014,
+    "value": 89
+  },
+  {
+    "iso3": "BIH",
+    "country": "Bosnia and Herzegovina",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "BIH",
+    "country": "Bosnia and Herzegovina",
+    "year": 2011,
+    "value": 89
+  },
+  {
+    "iso3": "BIH",
+    "country": "Bosnia and Herzegovina",
+    "year": 2016,
+    "value": 95
+  },
+  {
+    "iso3": "BLR",
+    "country": "Belarus",
+    "year": 1992,
+    "value": 98.6
+  },
+  {
+    "iso3": "BLR",
+    "country": "Belarus",
+    "year": 1997,
+    "value": 98.2
+  },
+  {
+    "iso3": "BLR",
+    "country": "Belarus",
+    "year": 2002,
+    "value": 99.7
+  },
+  {
+    "iso3": "BLR",
+    "country": "Belarus",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "BLR",
+    "country": "Belarus",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "BLR",
+    "country": "Belarus",
+    "year": 2014,
+    "value": 100
+  },
+  {
+    "iso3": "BLZ",
+    "country": "Belize",
+    "year": 1992,
+    "value": 81.1
+  },
+  {
+    "iso3": "BLZ",
+    "country": "Belize",
+    "year": 1997,
+    "value": 93.6
+  },
+  {
+    "iso3": "BLZ",
+    "country": "Belize",
+    "year": 2002,
+    "value": 98.7
+  },
+  {
+    "iso3": "BLZ",
+    "country": "Belize",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "BLZ",
+    "country": "Belize",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "BLZ",
+    "country": "Belize",
+    "year": 2016,
+    "value": 89
+  },
+  {
+    "iso3": "BRA",
+    "country": "Brazil",
+    "year": 1992,
+    "value": 80.6
+  },
+  {
+    "iso3": "BRA",
+    "country": "Brazil",
+    "year": 1997,
+    "value": 82.8
+  },
+  {
+    "iso3": "BRA",
+    "country": "Brazil",
+    "year": 2002,
+    "value": 85.8
+  },
+  {
+    "iso3": "BRA",
+    "country": "Brazil",
+    "year": 2009,
+    "value": 93
+  },
+  {
+    "iso3": "BRA",
+    "country": "Brazil",
+    "year": 2011,
+    "value": 93
+  },
+  {
+    "iso3": "BRA",
+    "country": "Brazil",
+    "year": 2016,
+    "value": 99
+  },
+  {
+    "iso3": "BRB",
+    "country": "Barbados",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "BRB",
+    "country": "Barbados",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "BRB",
+    "country": "Barbados",
+    "year": 2002,
+    "value": 95.7
+  },
+  {
+    "iso3": "BRB",
+    "country": "Barbados",
+    "year": 2007,
+    "value": 100
+  },
+  {
+    "iso3": "BRB",
+    "country": "Barbados",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "BRB",
+    "country": "Barbados",
+    "year": 2013,
+    "value": 79
+  },
+  {
+    "iso3": "BRN",
+    "country": "Brunei Darussalam",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "BRN",
+    "country": "Brunei Darussalam",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "BRN",
+    "country": "Brunei Darussalam",
+    "year": 2010,
+    "value": 92.6
+  },
+  {
+    "iso3": "BRN",
+    "country": "Brunei Darussalam",
+    "year": 2011,
+    "value": 89
+  },
+  {
+    "iso3": "BRN",
+    "country": "Brunei Darussalam",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "CAN",
+    "country": "Canada",
+    "year": 1992,
+    "value": 99.3
+  },
+  {
+    "iso3": "CAN",
+    "country": "Canada",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "CAN",
+    "country": "Canada",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "CAN",
+    "country": "Canada",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "CAN",
+    "country": "Canada",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "CAN",
+    "country": "Canada",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 2002,
+    "value": 99.8
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "CHE",
+    "country": "Switzerland",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "CHL",
+    "country": "Chile",
+    "year": 1992,
+    "value": 93
+  },
+  {
+    "iso3": "CHL",
+    "country": "Chile",
+    "year": 1997,
+    "value": 94
+  },
+  {
+    "iso3": "CHL",
+    "country": "Chile",
+    "year": 2002,
+    "value": 96.6
+  },
+  {
+    "iso3": "CHL",
+    "country": "Chile",
+    "year": 2008,
+    "value": 97.7
+  },
+  {
+    "iso3": "CHL",
+    "country": "Chile",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "CHL",
+    "country": "Chile",
+    "year": 2016,
+    "value": 95
+  },
+  {
+    "iso3": "CHN",
+    "country": "China",
+    "year": 1992,
+    "value": 0
+  },
+  {
+    "iso3": "CHN",
+    "country": "China",
+    "year": 1997,
+    "value": 0
+  },
+  {
+    "iso3": "CHN",
+    "country": "China",
+    "year": 2002,
+    "value": 0
+  },
+  {
+    "iso3": "CHN",
+    "country": "China",
+    "year": 2009,
+    "value": 4
+  },
+  {
+    "iso3": "CHN",
+    "country": "China",
+    "year": 2015,
+    "value": 62
+  },
+  {
+    "iso3": "COL",
+    "country": "Colombia",
+    "year": 1992,
+    "value": 79.9
+  },
+  {
+    "iso3": "COL",
+    "country": "Colombia",
+    "year": 1997,
+    "value": 88.1
+  },
+  {
+    "iso3": "COL",
+    "country": "Colombia",
+    "year": 2002,
+    "value": 93.1
+  },
+  {
+    "iso3": "COL",
+    "country": "Colombia",
+    "year": 2008,
+    "value": 98.5
+  },
+  {
+    "iso3": "COL",
+    "country": "Colombia",
+    "year": 2010,
+    "value": 98
+  },
+  {
+    "iso3": "COL",
+    "country": "Colombia",
+    "year": 2015,
+    "value": 80
+  },
+  {
+    "iso3": "CPV",
+    "country": "Cabo Verde",
+    "year": 2012,
+    "value": 93
+  },
+  {
+    "iso3": "CRI",
+    "country": "Costa Rica",
+    "year": 1992,
+    "value": 91.5
+  },
+  {
+    "iso3": "CRI",
+    "country": "Costa Rica",
+    "year": 1997,
+    "value": 95.5
+  },
+  {
+    "iso3": "CRI",
+    "country": "Costa Rica",
+    "year": 2002,
+    "value": 93.2
+  },
+  {
+    "iso3": "CRI",
+    "country": "Costa Rica",
+    "year": 2010,
+    "value": 90.4
+  },
+  {
+    "iso3": "CRI",
+    "country": "Costa Rica",
+    "year": 2011,
+    "value": 91
+  },
+  {
+    "iso3": "CRI",
+    "country": "Costa Rica",
+    "year": 2014,
+    "value": 87
+  },
+  {
+    "iso3": "CUB",
+    "country": "Cuba",
+    "year": 1992,
+    "value": 95.5
+  },
+  {
+    "iso3": "CUB",
+    "country": "Cuba",
+    "year": 1997,
+    "value": 98.5
+  },
+  {
+    "iso3": "CUB",
+    "country": "Cuba",
+    "year": 2002,
+    "value": 96.1
+  },
+  {
+    "iso3": "CUB",
+    "country": "Cuba",
+    "year": 2009,
+    "value": 99.8
+  },
+  {
+    "iso3": "CUB",
+    "country": "Cuba",
+    "year": 2011,
+    "value": 98
+  },
+  {
+    "iso3": "CUB",
+    "country": "Cuba",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "CYP",
+    "country": "Cyprus",
+    "year": 1997,
+    "value": 78.2
+  },
+  {
+    "iso3": "CYP",
+    "country": "Cyprus",
+    "year": 2002,
+    "value": 82.8
+  },
+  {
+    "iso3": "CYP",
+    "country": "Cyprus",
+    "year": 2010,
+    "value": 85.3
+  },
+  {
+    "iso3": "CYP",
+    "country": "Cyprus",
+    "year": 2011,
+    "value": 86
+  },
+  {
+    "iso3": "CYP",
+    "country": "Cyprus",
+    "year": 2016,
+    "value": 68
+  },
+  {
+    "iso3": "CZE",
+    "country": "Czechia",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "CZE",
+    "country": "Czechia",
+    "year": 1997,
+    "value": 99.2
+  },
+  {
+    "iso3": "CZE",
+    "country": "Czechia",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "CZE",
+    "country": "Czechia",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "CZE",
+    "country": "Czechia",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "DEU",
+    "country": "Germany",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "DEU",
+    "country": "Germany",
+    "year": 1997,
+    "value": 99.6
+  },
+  {
+    "iso3": "DEU",
+    "country": "Germany",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "DEU",
+    "country": "Germany",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "DEU",
+    "country": "Germany",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "DMA",
+    "country": "Dominica",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "DMA",
+    "country": "Dominica",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "DMA",
+    "country": "Dominica",
+    "year": 2002,
+    "value": 99.3
+  },
+  {
+    "iso3": "DMA",
+    "country": "Dominica",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "DMA",
+    "country": "Dominica",
+    "year": 2012,
+    "value": 100
+  },
+  {
+    "iso3": "DMA",
+    "country": "Dominica",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "DNK",
+    "country": "Denmark",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "DNK",
+    "country": "Denmark",
+    "year": 1997,
+    "value": 99.5
+  },
+  {
+    "iso3": "DNK",
+    "country": "Denmark",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "DNK",
+    "country": "Denmark",
+    "year": 2010,
+    "value": 98.5
+  },
+  {
+    "iso3": "DNK",
+    "country": "Denmark",
+    "year": 2011,
+    "value": 98
+  },
+  {
+    "iso3": "DNK",
+    "country": "Denmark",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "DOM",
+    "country": "Dominican Republic",
+    "year": 1992,
+    "value": 54.1
+  },
+  {
+    "iso3": "DOM",
+    "country": "Dominican Republic",
+    "year": 1997,
+    "value": 55.9
+  },
+  {
+    "iso3": "DOM",
+    "country": "Dominican Republic",
+    "year": 2002,
+    "value": 54.7
+  },
+  {
+    "iso3": "DOM",
+    "country": "Dominican Republic",
+    "year": 2005,
+    "value": 58.6
+  },
+  {
+    "iso3": "DOM",
+    "country": "Dominican Republic",
+    "year": 2010,
+    "value": 56.9
+  },
+  {
+    "iso3": "DOM",
+    "country": "Dominican Republic",
+    "year": 2013,
+    "value": 58
+  },
+  {
+    "iso3": "ECU",
+    "country": "Ecuador",
+    "year": 1992,
+    "value": 70.6
+  },
+  {
+    "iso3": "ECU",
+    "country": "Ecuador",
+    "year": 1997,
+    "value": 71.1
+  },
+  {
+    "iso3": "ECU",
+    "country": "Ecuador",
+    "year": 2002,
+    "value": 72.4
+  },
+  {
+    "iso3": "ECU",
+    "country": "Ecuador",
+    "year": 2009,
+    "value": 85.3
+  },
+  {
+    "iso3": "ECU",
+    "country": "Ecuador",
+    "year": 2011,
+    "value": 80
+  },
+  {
+    "iso3": "ECU",
+    "country": "Ecuador",
+    "year": 2016,
+    "value": 82
+  },
+  {
+    "iso3": "EGY",
+    "country": "Egypt, Arab Rep.",
+    "year": 1992,
+    "value": 76.3
+  },
+  {
+    "iso3": "EGY",
+    "country": "Egypt, Arab Rep.",
+    "year": 2002,
+    "value": 87.7
+  },
+  {
+    "iso3": "EGY",
+    "country": "Egypt, Arab Rep.",
+    "year": 2010,
+    "value": 95
+  },
+  {
+    "iso3": "EGY",
+    "country": "Egypt, Arab Rep.",
+    "year": 2015,
+    "value": 94
+  },
+  {
+    "iso3": "ESP",
+    "country": "Spain",
+    "year": 1992,
+    "value": 98.9
+  },
+  {
+    "iso3": "ESP",
+    "country": "Spain",
+    "year": 1997,
+    "value": 99.7
+  },
+  {
+    "iso3": "ESP",
+    "country": "Spain",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "ESP",
+    "country": "Spain",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "ESP",
+    "country": "Spain",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "ESP",
+    "country": "Spain",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "EST",
+    "country": "Estonia",
+    "year": 1992,
+    "value": 99.9
+  },
+  {
+    "iso3": "EST",
+    "country": "Estonia",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "EST",
+    "country": "Estonia",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "EST",
+    "country": "Estonia",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "EST",
+    "country": "Estonia",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "FIN",
+    "country": "Finland",
+    "year": 1992,
+    "value": 99.8
+  },
+  {
+    "iso3": "FIN",
+    "country": "Finland",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "FIN",
+    "country": "Finland",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "FIN",
+    "country": "Finland",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "FIN",
+    "country": "Finland",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "FIN",
+    "country": "Finland",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "FJI",
+    "country": "Fiji",
+    "year": 1997,
+    "value": 71.4
+  },
+  {
+    "iso3": "FJI",
+    "country": "Fiji",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "FJI",
+    "country": "Fiji",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "FJI",
+    "country": "Fiji",
+    "year": 2012,
+    "value": 100
+  },
+  {
+    "iso3": "FRA",
+    "country": "France",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "FRA",
+    "country": "France",
+    "year": 1997,
+    "value": 99.3
+  },
+  {
+    "iso3": "FRA",
+    "country": "France",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "FRA",
+    "country": "France",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "FRA",
+    "country": "France",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "FRA",
+    "country": "France",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "GBR",
+    "country": "United Kingdom",
+    "year": 1992,
+    "value": 99.8
+  },
+  {
+    "iso3": "GBR",
+    "country": "United Kingdom",
+    "year": 1997,
+    "value": 98.8
+  },
+  {
+    "iso3": "GBR",
+    "country": "United Kingdom",
+    "year": 2002,
+    "value": 99.6
+  },
+  {
+    "iso3": "GBR",
+    "country": "United Kingdom",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "GBR",
+    "country": "United Kingdom",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "GBR",
+    "country": "United Kingdom",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "GEO",
+    "country": "Georgia",
+    "year": 1992,
+    "value": 80.5
+  },
+  {
+    "iso3": "GEO",
+    "country": "Georgia",
+    "year": 1997,
+    "value": 81
+  },
+  {
+    "iso3": "GEO",
+    "country": "Georgia",
+    "year": 2002,
+    "value": 80.8
+  },
+  {
+    "iso3": "GEO",
+    "country": "Georgia",
+    "year": 2010,
+    "value": 86.8
+  },
+  {
+    "iso3": "GEO",
+    "country": "Georgia",
+    "year": 2011,
+    "value": 98
+  },
+  {
+    "iso3": "GEO",
+    "country": "Georgia",
+    "year": 2015,
+    "value": 90
+  },
+  {
+    "iso3": "GRC",
+    "country": "Greece",
+    "year": 1992,
+    "value": 97.6
+  },
+  {
+    "iso3": "GRC",
+    "country": "Greece",
+    "year": 1997,
+    "value": 95.1
+  },
+  {
+    "iso3": "GRC",
+    "country": "Greece",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "GRC",
+    "country": "Greece",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "GRC",
+    "country": "Greece",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "GRC",
+    "country": "Greece",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "GRD",
+    "country": "Grenada",
+    "year": 1992,
+    "value": 74.5
+  },
+  {
+    "iso3": "GRD",
+    "country": "Grenada",
+    "year": 1997,
+    "value": 74
+  },
+  {
+    "iso3": "GRD",
+    "country": "Grenada",
+    "year": 2002,
+    "value": 73.2
+  },
+  {
+    "iso3": "GRD",
+    "country": "Grenada",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "GRD",
+    "country": "Grenada",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "GRD",
+    "country": "Grenada",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "GTM",
+    "country": "Guatemala",
+    "year": 1992,
+    "value": 94.4
+  },
+  {
+    "iso3": "GTM",
+    "country": "Guatemala",
+    "year": 1997,
+    "value": 92.5
+  },
+  {
+    "iso3": "GTM",
+    "country": "Guatemala",
+    "year": 2002,
+    "value": 90.9
+  },
+  {
+    "iso3": "GTM",
+    "country": "Guatemala",
+    "year": 2008,
+    "value": 85.3
+  },
+  {
+    "iso3": "GTM",
+    "country": "Guatemala",
+    "year": 2011,
+    "value": 92
+  },
+  {
+    "iso3": "GTM",
+    "country": "Guatemala",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "GUY",
+    "country": "Guyana",
+    "year": 1992,
+    "value": 57.2
+  },
+  {
+    "iso3": "GUY",
+    "country": "Guyana",
+    "year": 1997,
+    "value": 59.4
+  },
+  {
+    "iso3": "GUY",
+    "country": "Guyana",
+    "year": 2002,
+    "value": 60.2
+  },
+  {
+    "iso3": "GUY",
+    "country": "Guyana",
+    "year": 2008,
+    "value": 73.5
+  },
+  {
+    "iso3": "GUY",
+    "country": "Guyana",
+    "year": 2010,
+    "value": 81
+  },
+  {
+    "iso3": "GUY",
+    "country": "Guyana",
+    "year": 2014,
+    "value": 90
+  },
+  {
+    "iso3": "HND",
+    "country": "Honduras",
+    "year": 1992,
+    "value": 53.9
+  },
+  {
+    "iso3": "HND",
+    "country": "Honduras",
+    "year": 2012,
+    "value": 17
+  },
+  {
+    "iso3": "HND",
+    "country": "Honduras",
+    "year": 2013,
+    "value": 14
+  },
+  {
+    "iso3": "HRV",
+    "country": "Croatia",
+    "year": 1992,
+    "value": 98.4
+  },
+  {
+    "iso3": "HRV",
+    "country": "Croatia",
+    "year": 1997,
+    "value": 94.9
+  },
+  {
+    "iso3": "HRV",
+    "country": "Croatia",
+    "year": 2002,
+    "value": 97.3
+  },
+  {
+    "iso3": "HRV",
+    "country": "Croatia",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "HRV",
+    "country": "Croatia",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "HTI",
+    "country": "Haiti",
+    "year": 1997,
+    "value": 7.1
+  },
+  {
+    "iso3": "HTI",
+    "country": "Haiti",
+    "year": 2002,
+    "value": 9.5
+  },
+  {
+    "iso3": "HUN",
+    "country": "Hungary",
+    "year": 1992,
+    "value": 99.9
+  },
+  {
+    "iso3": "HUN",
+    "country": "Hungary",
+    "year": 1997,
+    "value": 98.3
+  },
+  {
+    "iso3": "HUN",
+    "country": "Hungary",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "HUN",
+    "country": "Hungary",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "HUN",
+    "country": "Hungary",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "IND",
+    "country": "India",
+    "year": 2007,
+    "value": 8
+  },
+  {
+    "iso3": "IND",
+    "country": "India",
+    "year": 2011,
+    "value": 10
+  },
+  {
+    "iso3": "IRL",
+    "country": "Ireland",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "IRL",
+    "country": "Ireland",
+    "year": 1997,
+    "value": 99.4
+  },
+  {
+    "iso3": "IRL",
+    "country": "Ireland",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "IRL",
+    "country": "Ireland",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "IRL",
+    "country": "Ireland",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "IRN",
+    "country": "Iran, Islamic Rep.",
+    "year": 2006,
+    "value": 68.3
+  },
+  {
+    "iso3": "IRN",
+    "country": "Iran, Islamic Rep.",
+    "year": 2016,
+    "value": 90
+  },
+  {
+    "iso3": "IRQ",
+    "country": "Iraq",
+    "year": 2008,
+    "value": 65
+  },
+  {
+    "iso3": "IRQ",
+    "country": "Iraq",
+    "year": 2016,
+    "value": 65
+  },
+  {
+    "iso3": "ISL",
+    "country": "Iceland",
+    "year": 1992,
+    "value": 98.6
+  },
+  {
+    "iso3": "ISL",
+    "country": "Iceland",
+    "year": 1997,
+    "value": 99
+  },
+  {
+    "iso3": "ISL",
+    "country": "Iceland",
+    "year": 2002,
+    "value": 98.9
+  },
+  {
+    "iso3": "ISL",
+    "country": "Iceland",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "ISL",
+    "country": "Iceland",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "ISR",
+    "country": "Israel",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "ISR",
+    "country": "Israel",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "ISR",
+    "country": "Israel",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "ISR",
+    "country": "Israel",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "ISR",
+    "country": "Israel",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "ISR",
+    "country": "Israel",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "ITA",
+    "country": "Italy",
+    "year": 1992,
+    "value": 95.2
+  },
+  {
+    "iso3": "ITA",
+    "country": "Italy",
+    "year": 1997,
+    "value": 98.1
+  },
+  {
+    "iso3": "ITA",
+    "country": "Italy",
+    "year": 2002,
+    "value": 97.5
+  },
+  {
+    "iso3": "ITA",
+    "country": "Italy",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "ITA",
+    "country": "Italy",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "ITA",
+    "country": "Italy",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "JAM",
+    "country": "Jamaica",
+    "year": 1992,
+    "value": 79.6
+  },
+  {
+    "iso3": "JAM",
+    "country": "Jamaica",
+    "year": 2006,
+    "value": 71
+  },
+  {
+    "iso3": "JAM",
+    "country": "Jamaica",
+    "year": 2014,
+    "value": 94
+  },
+  {
+    "iso3": "JOR",
+    "country": "Jordan",
+    "year": 2009,
+    "value": 65
+  },
+  {
+    "iso3": "JOR",
+    "country": "Jordan",
+    "year": 2015,
+    "value": 56
+  },
+  {
+    "iso3": "JPN",
+    "country": "Japan",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "JPN",
+    "country": "Japan",
+    "year": 1997,
+    "value": 99.5
+  },
+  {
+    "iso3": "JPN",
+    "country": "Japan",
+    "year": 2002,
+    "value": 99.2
+  },
+  {
+    "iso3": "JPN",
+    "country": "Japan",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "JPN",
+    "country": "Japan",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "JPN",
+    "country": "Japan",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "KAZ",
+    "country": "Kazakhstan",
+    "year": 1992,
+    "value": 84.9
+  },
+  {
+    "iso3": "KAZ",
+    "country": "Kazakhstan",
+    "year": 1997,
+    "value": 85.4
+  },
+  {
+    "iso3": "KAZ",
+    "country": "Kazakhstan",
+    "year": 2002,
+    "value": 85.2
+  },
+  {
+    "iso3": "KAZ",
+    "country": "Kazakhstan",
+    "year": 2009,
+    "value": 91.6
+  },
+  {
+    "iso3": "KAZ",
+    "country": "Kazakhstan",
+    "year": 2012,
+    "value": 91
+  },
+  {
+    "iso3": "KAZ",
+    "country": "Kazakhstan",
+    "year": 2017,
+    "value": 87
+  },
+  {
+    "iso3": "KGZ",
+    "country": "Kyrgyz Republic",
+    "year": 1992,
+    "value": 80.5
+  },
+  {
+    "iso3": "KGZ",
+    "country": "Kyrgyz Republic",
+    "year": 1997,
+    "value": 84.7
+  },
+  {
+    "iso3": "KGZ",
+    "country": "Kyrgyz Republic",
+    "year": 2002,
+    "value": 83.9
+  },
+  {
+    "iso3": "KGZ",
+    "country": "Kyrgyz Republic",
+    "year": 2009,
+    "value": 97.6
+  },
+  {
+    "iso3": "KGZ",
+    "country": "Kyrgyz Republic",
+    "year": 2012,
+    "value": 96
+  },
+  {
+    "iso3": "KGZ",
+    "country": "Kyrgyz Republic",
+    "year": 2016,
+    "value": 91
+  },
+  {
+    "iso3": "KIR",
+    "country": "Kiribati",
+    "year": 1992,
+    "value": 80.8
+  },
+  {
+    "iso3": "KIR",
+    "country": "Kiribati",
+    "year": 1997,
+    "value": 76.9
+  },
+  {
+    "iso3": "KIR",
+    "country": "Kiribati",
+    "year": 2002,
+    "value": 87
+  },
+  {
+    "iso3": "KNA",
+    "country": "St. Kitts and Nevis",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "KNA",
+    "country": "St. Kitts and Nevis",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "KNA",
+    "country": "St. Kitts and Nevis",
+    "year": 2002,
+    "value": 86.2
+  },
+  {
+    "iso3": "KNA",
+    "country": "St. Kitts and Nevis",
+    "year": 2009,
+    "value": 82.3
+  },
+  {
+    "iso3": "KNA",
+    "country": "St. Kitts and Nevis",
+    "year": 2011,
+    "value": 79
+  },
+  {
+    "iso3": "KNA",
+    "country": "St. Kitts and Nevis",
+    "year": 2013,
+    "value": 88
+  },
+  {
+    "iso3": "KOR",
+    "country": "Korea, Rep.",
+    "year": 1992,
+    "value": 85.3
+  },
+  {
+    "iso3": "KOR",
+    "country": "Korea, Rep.",
+    "year": 1997,
+    "value": 98.5
+  },
+  {
+    "iso3": "KOR",
+    "country": "Korea, Rep.",
+    "year": 2002,
+    "value": 98.5
+  },
+  {
+    "iso3": "KOR",
+    "country": "Korea, Rep.",
+    "year": 2010,
+    "value": 99
+  },
+  {
+    "iso3": "KOR",
+    "country": "Korea, Rep.",
+    "year": 2011,
+    "value": 99
+  },
+  {
+    "iso3": "KOR",
+    "country": "Korea, Rep.",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "KWT",
+    "country": "Kuwait",
+    "year": 1992,
+    "value": 88.2
+  },
+  {
+    "iso3": "KWT",
+    "country": "Kuwait",
+    "year": 1997,
+    "value": 99
+  },
+  {
+    "iso3": "KWT",
+    "country": "Kuwait",
+    "year": 2002,
+    "value": 99.4
+  },
+  {
+    "iso3": "KWT",
+    "country": "Kuwait",
+    "year": 2010,
+    "value": 95.9
+  },
+  {
+    "iso3": "KWT",
+    "country": "Kuwait",
+    "year": 2011,
+    "value": 95
+  },
+  {
+    "iso3": "KWT",
+    "country": "Kuwait",
+    "year": 2014,
+    "value": 59
+  },
+  {
+    "iso3": "LCA",
+    "country": "St. Lucia",
+    "year": 1992,
+    "value": 84.1
+  },
+  {
+    "iso3": "LCA",
+    "country": "St. Lucia",
+    "year": 1997,
+    "value": 79.8
+  },
+  {
+    "iso3": "LCA",
+    "country": "St. Lucia",
+    "year": 2002,
+    "value": 95.9
+  },
+  {
+    "iso3": "LCA",
+    "country": "St. Lucia",
+    "year": 2008,
+    "value": 89.9
+  },
+  {
+    "iso3": "LCA",
+    "country": "St. Lucia",
+    "year": 2011,
+    "value": 85
+  },
+  {
+    "iso3": "LCA",
+    "country": "St. Lucia",
+    "year": 2014,
+    "value": 97
+  },
+  {
+    "iso3": "LKA",
+    "country": "Sri Lanka",
+    "year": 1992,
+    "value": 75.5
+  },
+  {
+    "iso3": "LKA",
+    "country": "Sri Lanka",
+    "year": 1997,
+    "value": 73.5
+  },
+  {
+    "iso3": "LKA",
+    "country": "Sri Lanka",
+    "year": 2002,
+    "value": 72.3
+  },
+  {
+    "iso3": "LKA",
+    "country": "Sri Lanka",
+    "year": 2006,
+    "value": 81.9
+  },
+  {
+    "iso3": "LTU",
+    "country": "Lithuania",
+    "year": 1992,
+    "value": 99.3
+  },
+  {
+    "iso3": "LTU",
+    "country": "Lithuania",
+    "year": 1997,
+    "value": 98.9
+  },
+  {
+    "iso3": "LTU",
+    "country": "Lithuania",
+    "year": 2002,
+    "value": 99.8
+  },
+  {
+    "iso3": "LTU",
+    "country": "Lithuania",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "LTU",
+    "country": "Lithuania",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "LTU",
+    "country": "Lithuania",
+    "year": 2017,
+    "value": 99
+  },
+  {
+    "iso3": "LUX",
+    "country": "Luxembourg",
+    "year": 1992,
+    "value": 99.8
+  },
+  {
+    "iso3": "LUX",
+    "country": "Luxembourg",
+    "year": 1997,
+    "value": 99.8
+  },
+  {
+    "iso3": "LUX",
+    "country": "Luxembourg",
+    "year": 2002,
+    "value": 99.3
+  },
+  {
+    "iso3": "LUX",
+    "country": "Luxembourg",
+    "year": 2010,
+    "value": 99.7
+  },
+  {
+    "iso3": "LUX",
+    "country": "Luxembourg",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "LUX",
+    "country": "Luxembourg",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "LVA",
+    "country": "Latvia",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "LVA",
+    "country": "Latvia",
+    "year": 1997,
+    "value": 99.5
+  },
+  {
+    "iso3": "LVA",
+    "country": "Latvia",
+    "year": 2002,
+    "value": 98.9
+  },
+  {
+    "iso3": "LVA",
+    "country": "Latvia",
+    "year": 2010,
+    "value": 99.7
+  },
+  {
+    "iso3": "LVA",
+    "country": "Latvia",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "LVA",
+    "country": "Latvia",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "MAR",
+    "country": "Morocco",
+    "year": 2008,
+    "value": 26.8
+  },
+  {
+    "iso3": "MAR",
+    "country": "Morocco",
+    "year": 2010,
+    "value": 25
+  },
+  {
+    "iso3": "MAR",
+    "country": "Morocco",
+    "year": 2011,
+    "value": 24.3
+  },
+  {
+    "iso3": "MAR",
+    "country": "Morocco",
+    "year": 2014,
+    "value": 29
+  },
+  {
+    "iso3": "MCO",
+    "country": "Monaco",
+    "year": 2010,
+    "value": 80
+  },
+  {
+    "iso3": "MCO",
+    "country": "Monaco",
+    "year": 2011,
+    "value": 80
+  },
+  {
+    "iso3": "MCO",
+    "country": "Monaco",
+    "year": 2012,
+    "value": 100
+  },
+  {
+    "iso3": "MDA",
+    "country": "Moldova",
+    "year": 1992,
+    "value": 98.5
+  },
+  {
+    "iso3": "MDA",
+    "country": "Moldova",
+    "year": 1997,
+    "value": 92
+  },
+  {
+    "iso3": "MDA",
+    "country": "Moldova",
+    "year": 2002,
+    "value": 87.6
+  },
+  {
+    "iso3": "MDA",
+    "country": "Moldova",
+    "year": 2011,
+    "value": 91.4
+  },
+  {
+    "iso3": "MDA",
+    "country": "Moldova",
+    "year": 2012,
+    "value": 90
+  },
+  {
+    "iso3": "MDA",
+    "country": "Moldova",
+    "year": 2017,
+    "value": 80
+  },
+  {
+    "iso3": "MDV",
+    "country": "Maldives",
+    "year": 2002,
+    "value": 73.3
+  },
+  {
+    "iso3": "MDV",
+    "country": "Maldives",
+    "year": 2008,
+    "value": 80.7
+  },
+  {
+    "iso3": "MDV",
+    "country": "Maldives",
+    "year": 2011,
+    "value": 84
+  },
+  {
+    "iso3": "MDV",
+    "country": "Maldives",
+    "year": 2015,
+    "value": 91
+  },
+  {
+    "iso3": "MEX",
+    "country": "Mexico",
+    "year": 1992,
+    "value": 90.1
+  },
+  {
+    "iso3": "MEX",
+    "country": "Mexico",
+    "year": 1997,
+    "value": 92.8
+  },
+  {
+    "iso3": "MEX",
+    "country": "Mexico",
+    "year": 2002,
+    "value": 94.2
+  },
+  {
+    "iso3": "MEX",
+    "country": "Mexico",
+    "year": 2009,
+    "value": 93.9
+  },
+  {
+    "iso3": "MEX",
+    "country": "Mexico",
+    "year": 2011,
+    "value": 99
+  },
+  {
+    "iso3": "MEX",
+    "country": "Mexico",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "MKD",
+    "country": "North Macedonia",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "MKD",
+    "country": "North Macedonia",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "MKD",
+    "country": "North Macedonia",
+    "year": 2013,
+    "value": 100
+  },
+  {
+    "iso3": "MLT",
+    "country": "Malta",
+    "year": 1992,
+    "value": 96.4
+  },
+  {
+    "iso3": "MLT",
+    "country": "Malta",
+    "year": 1997,
+    "value": 97.5
+  },
+  {
+    "iso3": "MLT",
+    "country": "Malta",
+    "year": 2002,
+    "value": 98.8
+  },
+  {
+    "iso3": "MLT",
+    "country": "Malta",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "MLT",
+    "country": "Malta",
+    "year": 2011,
+    "value": 99.9
+  },
+  {
+    "iso3": "MLT",
+    "country": "Malta",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "MNE",
+    "country": "Montenegro",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "MNE",
+    "country": "Montenegro",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "MNE",
+    "country": "Montenegro",
+    "year": 2009,
+    "value": 94
+  },
+  {
+    "iso3": "MNG",
+    "country": "Mongolia",
+    "year": 1992,
+    "value": 91.1
+  },
+  {
+    "iso3": "MNG",
+    "country": "Mongolia",
+    "year": 2010,
+    "value": 88.7
+  },
+  {
+    "iso3": "MNG",
+    "country": "Mongolia",
+    "year": 2012,
+    "value": 92
+  },
+  {
+    "iso3": "MNG",
+    "country": "Mongolia",
+    "year": 2016,
+    "value": 84
+  },
+  {
+    "iso3": "MUS",
+    "country": "Mauritius",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "MUS",
+    "country": "Mauritius",
+    "year": 1997,
+    "value": 99.7
+  },
+  {
+    "iso3": "MUS",
+    "country": "Mauritius",
+    "year": 2002,
+    "value": 99.9
+  },
+  {
+    "iso3": "MUS",
+    "country": "Mauritius",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "MUS",
+    "country": "Mauritius",
+    "year": 2012,
+    "value": 100
+  },
+  {
+    "iso3": "MUS",
+    "country": "Mauritius",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "MYS",
+    "country": "Malaysia",
+    "year": 1997,
+    "value": 41.9
+  },
+  {
+    "iso3": "MYS",
+    "country": "Malaysia",
+    "year": 2002,
+    "value": 49.6
+  },
+  {
+    "iso3": "MYS",
+    "country": "Malaysia",
+    "year": 2007,
+    "value": 55.4
+  },
+  {
+    "iso3": "MYS",
+    "country": "Malaysia",
+    "year": 2008,
+    "value": 56
+  },
+  {
+    "iso3": "MYS",
+    "country": "Malaysia",
+    "year": 2014,
+    "value": 52
+  },
+  {
+    "iso3": "NIC",
+    "country": "Nicaragua",
+    "year": 1992,
+    "value": 54.4
+  },
+  {
+    "iso3": "NIC",
+    "country": "Nicaragua",
+    "year": 1997,
+    "value": 61.4
+  },
+  {
+    "iso3": "NIC",
+    "country": "Nicaragua",
+    "year": 2002,
+    "value": 64.2
+  },
+  {
+    "iso3": "NIC",
+    "country": "Nicaragua",
+    "year": 2010,
+    "value": 67.6
+  },
+  {
+    "iso3": "NIC",
+    "country": "Nicaragua",
+    "year": 2011,
+    "value": 68
+  },
+  {
+    "iso3": "NIC",
+    "country": "Nicaragua",
+    "year": 2017,
+    "value": 79
+  },
+  {
+    "iso3": "NLD",
+    "country": "Netherlands",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "NLD",
+    "country": "Netherlands",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "NLD",
+    "country": "Netherlands",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "NLD",
+    "country": "Netherlands",
+    "year": 2010,
+    "value": 99.8
+  },
+  {
+    "iso3": "NLD",
+    "country": "Netherlands",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "NLD",
+    "country": "Netherlands",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "NOR",
+    "country": "Norway",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "NOR",
+    "country": "Norway",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "NOR",
+    "country": "Norway",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "NOR",
+    "country": "Norway",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "NOR",
+    "country": "Norway",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "year": 1992,
+    "value": 98.7
+  },
+  {
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "year": 1997,
+    "value": 98.3
+  },
+  {
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "year": 2002,
+    "value": 99.8
+  },
+  {
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "year": 2014,
+    "value": 100
+  },
+  {
+    "iso3": "OMN",
+    "country": "Oman",
+    "year": 2010,
+    "value": 87
+  },
+  {
+    "iso3": "OMN",
+    "country": "Oman",
+    "year": 2014,
+    "value": 74
+  },
+  {
+    "iso3": "PAN",
+    "country": "Panama",
+    "year": 1997,
+    "value": 82.7
+  },
+  {
+    "iso3": "PAN",
+    "country": "Panama",
+    "year": 2002,
+    "value": 88.6
+  },
+  {
+    "iso3": "PAN",
+    "country": "Panama",
+    "year": 2008,
+    "value": 90.3
+  },
+  {
+    "iso3": "PAN",
+    "country": "Panama",
+    "year": 2011,
+    "value": 90
+  },
+  {
+    "iso3": "PAN",
+    "country": "Panama",
+    "year": 2016,
+    "value": 92
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 1992,
+    "value": 57.7
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 1997,
+    "value": 63.5
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 2002,
+    "value": 63
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 2007,
+    "value": 65.5
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 2009,
+    "value": 66.8
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 2011,
+    "value": 69
+  },
+  {
+    "iso3": "PER",
+    "country": "Peru",
+    "year": 2015,
+    "value": 57
+  },
+  {
+    "iso3": "PHL",
+    "country": "Philippines",
+    "year": 1992,
+    "value": 77.6
+  },
+  {
+    "iso3": "PHL",
+    "country": "Philippines",
+    "year": 1997,
+    "value": 88
+  },
+  {
+    "iso3": "PHL",
+    "country": "Philippines",
+    "year": 2002,
+    "value": 91.9
+  },
+  {
+    "iso3": "PHL",
+    "country": "Philippines",
+    "year": 2008,
+    "value": 90
+  },
+  {
+    "iso3": "PHL",
+    "country": "Philippines",
+    "year": 2011,
+    "value": 89
+  },
+  {
+    "iso3": "PLW",
+    "country": "Palau",
+    "year": 2013,
+    "value": 95
+  },
+  {
+    "iso3": "POL",
+    "country": "Poland",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "POL",
+    "country": "Poland",
+    "year": 1997,
+    "value": 99.6
+  },
+  {
+    "iso3": "POL",
+    "country": "Poland",
+    "year": 2002,
+    "value": 99.4
+  },
+  {
+    "iso3": "POL",
+    "country": "Poland",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "POL",
+    "country": "Poland",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "POL",
+    "country": "Poland",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "PRT",
+    "country": "Portugal",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "PRT",
+    "country": "Portugal",
+    "year": 1997,
+    "value": 99.7
+  },
+  {
+    "iso3": "PRT",
+    "country": "Portugal",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "PRT",
+    "country": "Portugal",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "PRT",
+    "country": "Portugal",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "PRT",
+    "country": "Portugal",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "PRY",
+    "country": "Paraguay",
+    "year": 1992,
+    "value": 74.4
+  },
+  {
+    "iso3": "PRY",
+    "country": "Paraguay",
+    "year": 1997,
+    "value": 75
+  },
+  {
+    "iso3": "PRY",
+    "country": "Paraguay",
+    "year": 2002,
+    "value": 77.4
+  },
+  {
+    "iso3": "PRY",
+    "country": "Paraguay",
+    "year": 2009,
+    "value": 81.8
+  },
+  {
+    "iso3": "PRY",
+    "country": "Paraguay",
+    "year": 2011,
+    "value": 81
+  },
+  {
+    "iso3": "PRY",
+    "country": "Paraguay",
+    "year": 2016,
+    "value": 88
+  },
+  {
+    "iso3": "QAT",
+    "country": "Qatar",
+    "year": 1997,
+    "value": 97.1
+  },
+  {
+    "iso3": "QAT",
+    "country": "Qatar",
+    "year": 2002,
+    "value": 86.6
+  },
+  {
+    "iso3": "QAT",
+    "country": "Qatar",
+    "year": 2010,
+    "value": 81.7
+  },
+  {
+    "iso3": "QAT",
+    "country": "Qatar",
+    "year": 2011,
+    "value": 77
+  },
+  {
+    "iso3": "QAT",
+    "country": "Qatar",
+    "year": 2017,
+    "value": 50
+  },
+  {
+    "iso3": "ROU",
+    "country": "Romania",
+    "year": 1992,
+    "value": 99.8
+  },
+  {
+    "iso3": "ROU",
+    "country": "Romania",
+    "year": 1997,
+    "value": 99
+  },
+  {
+    "iso3": "ROU",
+    "country": "Romania",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "ROU",
+    "country": "Romania",
+    "year": 2010,
+    "value": 99.6
+  },
+  {
+    "iso3": "ROU",
+    "country": "Romania",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "ROU",
+    "country": "Romania",
+    "year": 2017,
+    "value": 100
+  },
+  {
+    "iso3": "RUS",
+    "country": "Russian Federation",
+    "year": 1992,
+    "value": 99.8
+  },
+  {
+    "iso3": "RUS",
+    "country": "Russian Federation",
+    "year": 1997,
+    "value": 99.4
+  },
+  {
+    "iso3": "RUS",
+    "country": "Russian Federation",
+    "year": 2002,
+    "value": 99.9
+  },
+  {
+    "iso3": "RUS",
+    "country": "Russian Federation",
+    "year": 2009,
+    "value": 99.3
+  },
+  {
+    "iso3": "RUS",
+    "country": "Russian Federation",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "RUS",
+    "country": "Russian Federation",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "SAU",
+    "country": "Saudi Arabia",
+    "year": 2009,
+    "value": 50.6
+  },
+  {
+    "iso3": "SAU",
+    "country": "Saudi Arabia",
+    "year": 2012,
+    "value": 42
+  },
+  {
+    "iso3": "SGP",
+    "country": "Singapore",
+    "year": 1992,
+    "value": 94
+  },
+  {
+    "iso3": "SGP",
+    "country": "Singapore",
+    "year": 1997,
+    "value": 85.3
+  },
+  {
+    "iso3": "SGP",
+    "country": "Singapore",
+    "year": 2002,
+    "value": 78.5
+  },
+  {
+    "iso3": "SGP",
+    "country": "Singapore",
+    "year": 2010,
+    "value": 74.5
+  },
+  {
+    "iso3": "SGP",
+    "country": "Singapore",
+    "year": 2011,
+    "value": 74
+  },
+  {
+    "iso3": "SGP",
+    "country": "Singapore",
+    "year": 2016,
+    "value": 66
+  },
+  {
+    "iso3": "SLV",
+    "country": "El Salvador",
+    "year": 1992,
+    "value": 60.8
+  },
+  {
+    "iso3": "SLV",
+    "country": "El Salvador",
+    "year": 1997,
+    "value": 70.6
+  },
+  {
+    "iso3": "SLV",
+    "country": "El Salvador",
+    "year": 2002,
+    "value": 72.3
+  },
+  {
+    "iso3": "SLV",
+    "country": "El Salvador",
+    "year": 2008,
+    "value": 77.1
+  },
+  {
+    "iso3": "SLV",
+    "country": "El Salvador",
+    "year": 2011,
+    "value": 78
+  },
+  {
+    "iso3": "SLV",
+    "country": "El Salvador",
+    "year": 2014,
+    "value": 93
+  },
+  {
+    "iso3": "SMR",
+    "country": "San Marino",
+    "year": 1997,
+    "value": 82.4
+  },
+  {
+    "iso3": "SMR",
+    "country": "San Marino",
+    "year": 2002,
+    "value": 81.4
+  },
+  {
+    "iso3": "SMR",
+    "country": "San Marino",
+    "year": 2007,
+    "value": 80
+  },
+  {
+    "iso3": "SMR",
+    "country": "San Marino",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "SRB",
+    "country": "Serbia",
+    "year": 1997,
+    "value": 83.9
+  },
+  {
+    "iso3": "SRB",
+    "country": "Serbia",
+    "year": 2002,
+    "value": 84.5
+  },
+  {
+    "iso3": "SRB",
+    "country": "Serbia",
+    "year": 2011,
+    "value": 90
+  },
+  {
+    "iso3": "SRB",
+    "country": "Serbia",
+    "year": 2016,
+    "value": 94
+  },
+  {
+    "iso3": "SUR",
+    "country": "Suriname",
+    "year": 1992,
+    "value": 67.7
+  },
+  {
+    "iso3": "SUR",
+    "country": "Suriname",
+    "year": 1997,
+    "value": 64.4
+  },
+  {
+    "iso3": "SUR",
+    "country": "Suriname",
+    "year": 2002,
+    "value": 82
+  },
+  {
+    "iso3": "SUR",
+    "country": "Suriname",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "SUR",
+    "country": "Suriname",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "SUR",
+    "country": "Suriname",
+    "year": 2014,
+    "value": 80
+  },
+  {
+    "iso3": "SVK",
+    "country": "Slovak Republic",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "SVK",
+    "country": "Slovak Republic",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "SVK",
+    "country": "Slovak Republic",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "SVK",
+    "country": "Slovak Republic",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "SVK",
+    "country": "Slovak Republic",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "SVK",
+    "country": "Slovak Republic",
+    "year": 2014,
+    "value": 100
+  },
+  {
+    "iso3": "SVN",
+    "country": "Slovenia",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "SVN",
+    "country": "Slovenia",
+    "year": 1997,
+    "value": 98.7
+  },
+  {
+    "iso3": "SVN",
+    "country": "Slovenia",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "SVN",
+    "country": "Slovenia",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "SVN",
+    "country": "Slovenia",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "SVN",
+    "country": "Slovenia",
+    "year": 2015,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 1997,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "SWE",
+    "country": "Sweden",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "SYC",
+    "country": "Seychelles",
+    "year": 2002,
+    "value": 98.8
+  },
+  {
+    "iso3": "SYC",
+    "country": "Seychelles",
+    "year": 2011,
+    "value": 100
+  },
+  {
+    "iso3": "SYC",
+    "country": "Seychelles",
+    "year": 2015,
+    "value": 91
+  },
+  {
+    "iso3": "SYR",
+    "country": "Syrian Arab Republic",
+    "year": 2009,
+    "value": 92.5
+  },
+  {
+    "iso3": "SYR",
+    "country": "Syrian Arab Republic",
+    "year": 2010,
+    "value": 83
+  },
+  {
+    "iso3": "THA",
+    "country": "Thailand",
+    "year": 1992,
+    "value": 64.6
+  },
+  {
+    "iso3": "THA",
+    "country": "Thailand",
+    "year": 1997,
+    "value": 69.5
+  },
+  {
+    "iso3": "THA",
+    "country": "Thailand",
+    "year": 2002,
+    "value": 71.7
+  },
+  {
+    "iso3": "THA",
+    "country": "Thailand",
+    "year": 2006,
+    "value": 84.9
+  },
+  {
+    "iso3": "THA",
+    "country": "Thailand",
+    "year": 2016,
+    "value": 87
+  },
+  {
+    "iso3": "TJK",
+    "country": "Tajikistan",
+    "year": 1992,
+    "value": 67.6
+  },
+  {
+    "iso3": "TJK",
+    "country": "Tajikistan",
+    "year": 1997,
+    "value": 57.3
+  },
+  {
+    "iso3": "TJK",
+    "country": "Tajikistan",
+    "year": 2002,
+    "value": 59.8
+  },
+  {
+    "iso3": "TJK",
+    "country": "Tajikistan",
+    "year": 2005,
+    "value": 67.6
+  },
+  {
+    "iso3": "TJK",
+    "country": "Tajikistan",
+    "year": 2016,
+    "value": 87
+  },
+  {
+    "iso3": "TKM",
+    "country": "Turkmenistan",
+    "year": 1992,
+    "value": 74.4
+  },
+  {
+    "iso3": "TKM",
+    "country": "Turkmenistan",
+    "year": 1997,
+    "value": 79.6
+  },
+  {
+    "iso3": "TKM",
+    "country": "Turkmenistan",
+    "year": 2015,
+    "value": 85
+  },
+  {
+    "iso3": "TTO",
+    "country": "Trinidad and Tobago",
+    "year": 1992,
+    "value": 97.4
+  },
+  {
+    "iso3": "TTO",
+    "country": "Trinidad and Tobago",
+    "year": 1997,
+    "value": 99.7
+  },
+  {
+    "iso3": "TTO",
+    "country": "Trinidad and Tobago",
+    "year": 2002,
+    "value": 99.1
+  },
+  {
+    "iso3": "TTO",
+    "country": "Trinidad and Tobago",
+    "year": 2007,
+    "value": 86.1
+  },
+  {
+    "iso3": "TTO",
+    "country": "Trinidad and Tobago",
+    "year": 2008,
+    "value": 85
+  },
+  {
+    "iso3": "TTO",
+    "country": "Trinidad and Tobago",
+    "year": 2012,
+    "value": 83
+  },
+  {
+    "iso3": "TUN",
+    "country": "Tunisia",
+    "year": 2009,
+    "value": 37
+  },
+  {
+    "iso3": "TUN",
+    "country": "Tunisia",
+    "year": 2013,
+    "value": 29
+  },
+  {
+    "iso3": "TUR",
+    "country": "Turkiye",
+    "year": 1992,
+    "value": 37
+  },
+  {
+    "iso3": "TUR",
+    "country": "Turkiye",
+    "year": 1997,
+    "value": 43.1
+  },
+  {
+    "iso3": "TUR",
+    "country": "Turkiye",
+    "year": 2002,
+    "value": 47.3
+  },
+  {
+    "iso3": "TUR",
+    "country": "Turkiye",
+    "year": 2007,
+    "value": 71.4
+  },
+  {
+    "iso3": "TUR",
+    "country": "Turkiye",
+    "year": 2012,
+    "value": 78
+  },
+  {
+    "iso3": "TUR",
+    "country": "Turkiye",
+    "year": 2016,
+    "value": 92
+  },
+  {
+    "iso3": "UKR",
+    "country": "Ukraine",
+    "year": 1992,
+    "value": 100
+  },
+  {
+    "iso3": "UKR",
+    "country": "Ukraine",
+    "year": 1997,
+    "value": 99.8
+  },
+  {
+    "iso3": "UKR",
+    "country": "Ukraine",
+    "year": 2002,
+    "value": 100
+  },
+  {
+    "iso3": "UKR",
+    "country": "Ukraine",
+    "year": 2011,
+    "value": 99
+  },
+  {
+    "iso3": "UKR",
+    "country": "Ukraine",
+    "year": 2017,
+    "value": 92
+  },
+  {
+    "iso3": "URY",
+    "country": "Uruguay",
+    "year": 1992,
+    "value": 96.3
+  },
+  {
+    "iso3": "URY",
+    "country": "Uruguay",
+    "year": 1997,
+    "value": 99.9
+  },
+  {
+    "iso3": "URY",
+    "country": "Uruguay",
+    "year": 2002,
+    "value": 99.8
+  },
+  {
+    "iso3": "URY",
+    "country": "Uruguay",
+    "year": 2008,
+    "value": 99.1
+  },
+  {
+    "iso3": "URY",
+    "country": "Uruguay",
+    "year": 2009,
+    "value": 99
+  },
+  {
+    "iso3": "URY",
+    "country": "Uruguay",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "USA",
+    "country": "United States",
+    "year": 1992,
+    "value": 98.4
+  },
+  {
+    "iso3": "USA",
+    "country": "United States",
+    "year": 1997,
+    "value": 98
+  },
+  {
+    "iso3": "USA",
+    "country": "United States",
+    "year": 2002,
+    "value": 97.4
+  },
+  {
+    "iso3": "USA",
+    "country": "United States",
+    "year": 2009,
+    "value": 98
+  },
+  {
+    "iso3": "USA",
+    "country": "United States",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "UZB",
+    "country": "Uzbekistan",
+    "year": 1992,
+    "value": 83
+  },
+  {
+    "iso3": "UZB",
+    "country": "Uzbekistan",
+    "year": 1997,
+    "value": 78.8
+  },
+  {
+    "iso3": "UZB",
+    "country": "Uzbekistan",
+    "year": 2002,
+    "value": 78.4
+  },
+  {
+    "iso3": "UZB",
+    "country": "Uzbekistan",
+    "year": 2005,
+    "value": 80.8
+  },
+  {
+    "iso3": "UZB",
+    "country": "Uzbekistan",
+    "year": 2016,
+    "value": 93
+  },
+  {
+    "iso3": "VCT",
+    "country": "St. Vincent and the Grenadines",
+    "year": 2009,
+    "value": 100
+  },
+  {
+    "iso3": "VCT",
+    "country": "St. Vincent and the Grenadines",
+    "year": 2010,
+    "value": 100
+  },
+  {
+    "iso3": "VCT",
+    "country": "St. Vincent and the Grenadines",
+    "year": 2012,
+    "value": 100
+  },
+  {
+    "iso3": "VCT",
+    "country": "St. Vincent and the Grenadines",
+    "year": 2016,
+    "value": 100
+  },
+  {
+    "iso3": "VEN",
+    "country": "Venezuela, RB",
+    "year": 1992,
+    "value": 95.5
+  },
+  {
+    "iso3": "VEN",
+    "country": "Venezuela, RB",
+    "year": 1997,
+    "value": 96.2
+  },
+  {
+    "iso3": "VEN",
+    "country": "Venezuela, RB",
+    "year": 2002,
+    "value": 95.9
+  },
+  {
+    "iso3": "VEN",
+    "country": "Venezuela, RB",
+    "year": 2008,
+    "value": 100
+  },
+  {
+    "iso3": "VEN",
+    "country": "Venezuela, RB",
+    "year": 2013,
+    "value": 89
+  },
+  {
+    "iso3": "ZAF",
+    "country": "South Africa",
+    "year": 1992,
+    "value": 0
+  },
+  {
+    "iso3": "ZAF",
+    "country": "South Africa",
+    "year": 1997,
+    "value": 0
+  },
+  {
+    "iso3": "ZAF",
+    "country": "South Africa",
+    "year": 2002,
+    "value": 70.4
+  },
+  {
+    "iso3": "ZAF",
+    "country": "South Africa",
+    "year": 2008,
+    "value": 92.3
+  },
+  {
+    "iso3": "ZAF",
+    "country": "South Africa",
+    "year": 2009,
+    "value": 91
+  },
+  {
+    "iso3": "ZAF",
+    "country": "South Africa",
+    "year": 2015,
+    "value": 92
+  },
+  {
+    "iso3": "ZWE",
+    "country": "Zimbabwe",
+    "year": 1992,
+    "value": 0
+  }
+]

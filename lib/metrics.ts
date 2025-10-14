@@ -15,6 +15,14 @@ export const METRICS: Metric[] = [
   { id: 'internet_use', name: 'Individuals using the internet', domain: 'Education & Digital', unit: '%', direction: 'up_is_better', source: 'ITU' },
   { id: 'u5_mortality', name: 'Under-5 mortality', domain: 'Health & Wellbeing', unit: 'per 1,000 live births', direction: 'down_is_better', source: 'UN IGME / World Bank' },
   { id: 'battle_deaths', name: 'Battle-related deaths', domain: 'Safety & Conflict', unit: 'deaths per 100k', direction: 'down_is_better', source: 'UCDP' },
+  {
+    id: 'death_registration_completeness',
+    name: 'Death registration completeness (%)',
+    domain: 'Truth & Clarity',
+    unit: '%',
+    direction: 'up_is_better',
+    source: 'World Bank WDI',
+  },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
   { id: 'firearm_stock_per_100', name: 'Firearm stock per 100 residents', domain: 'Safety & Care', unit: 'firearms per 100 residents', direction: 'up_is_better', source: 'Small Arms Survey; World Bank' },
 ]

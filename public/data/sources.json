@@ -141,5 +141,21 @@
     "method": "Join SAS civilian firearm stock with WDI SP.POP.TOTL; population-weight global per-100 mean; skip coverage <30%; round to 3 decimals.",
     "updated_at": "2025-08-31",
     "data_start_year": 1990
+  },
+  "death_registration_completeness": {
+    "id": "wdi_sp_reg_dths_zs",
+    "name": "World Bank WDI — Completeness of death registration (%)",
+    "code": "SP.REG.DTHS.ZS",
+    "domain": "truth_and_clarity",
+    "description": "Share of deaths registered with civil registration systems. Population-weighted global mean across countries.",
+    "url": "https://data.worldbank.org/indicator/SP.REG.DTHS.ZS",
+    "publisher": "World Bank (WHO/UN DESA CRVS underlying)",
+    "years": {
+      "min": 1992,
+      "max": 2017
+    },
+    "license": "CC BY 4.0",
+    "method": "Clamp national SP.REG.DTHS.ZS values to [0,100], join WDI SP.POP.TOTL populations, compute population-weighted annual global mean, round to 1 decimal.",
+    "last_fetched": "2025-10-14"
   }
 }

@@ -23,7 +23,7 @@ export const METRICS: Metric[] = [
     unit: 'USD per person',
     direction: 'up_is_better',
     source: 'SIPRI',
-    dataPath: 'military_expenditure_per_capita_constant_usd',
+    dataPath: '/data/military_expenditure_per_capita_constant_usd.json',
   },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
 ]

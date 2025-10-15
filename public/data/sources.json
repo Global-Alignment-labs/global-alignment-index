@@ -9,7 +9,7 @@
     "cadence": "annual",
     "method": "Use World Bank annual series as provided; include only numeric values; round to 2 decimals.",
     "updated_at": "2025-08-29",
-    "data_start_year": 1960"
+    "data_start_year": 1960
   },
   "internet_use": {
     "name": "Individuals using the internet",

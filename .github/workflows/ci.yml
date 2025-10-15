@@ -39,75 +39,19 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci --include=dev --no-audit --no-fund
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
       - name: Run shutdown ETL (fixture via tsx)
         run: npm run run:internet-shutdown
         env:
           STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
-      - name: Print GAISUM log
-        run: cat scripts/logs/internet_shutdown_days.gaisum.json
-      - name: Validate GAISUM expectations
+      - name: QA (read GAISUM via tsx)
         id: qa
-        run: |
-          node -e "
-          const fs = require('fs');
-          const path = 'scripts/logs/internet_shutdown_days.gaisum.json';
-          const datasetPath = 'public/data/internet_shutdown_days.json';
-          if (!fs.existsSync(path)) {
-            throw new Error('GAISUM log not found at ' + path);
-          }
-          const gaisum = JSON.parse(fs.readFileSync(path, 'utf8'));
-          const series = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
-          const shares = gaisum.notes?.per_year_pop_share_affected || {};
-          const qualifyingShareYears = Object.values(shares).filter((value) => typeof value === 'number' && value >= 0.05).length;
-          const isFixture = Boolean(process.env.STOP_FIXTURE_PATH);
-          const coverageOk = typeof gaisum.coverage_countries === 'number'
-            ? isFixture
-              ? gaisum.coverage_countries >= 2
-              : gaisum.coverage_countries > 40
-            : false;
-          const rowsOk = typeof gaisum.rows === 'number'
-            ? isFixture
-              ? gaisum.rows >= 10
-              : gaisum.rows > 1000
-            : false;
-          const checks = {
-            minYear: gaisum.min_year === 2016,
-            maxYear: typeof gaisum.max_year === 'number' && gaisum.max_year >= 2023,
-            valueRange: Array.isArray(series) && series.every((row) => row.value >= 0 && row.value <= 366),
-            coverage: coverageOk,
-            rows: rowsOk,
-            approx: gaisum.notes && typeof gaisum.notes.approx_duration_events === 'number',
-            popShare: qualifyingShareYears >= 3,
-          };
-          const labels = [
-            ['min_year = 2016', checks.minYear],
-            ['max_year ≥ 2023', checks.maxYear],
-            ['values ∈ [0, 366]; typical 15–30', checks.valueRange],
-            ['trend up from 2016, plateau ≈2021+', null],
-            [isFixture ? 'coverage_countries ≥ 2 (fixture)' : 'coverage_countries > 40', checks.coverage],
-            [
-              isFixture ? 'rows ≥ 10 (fixture); approx_duration_events present' : 'rows > 1000; approx_duration_events present',
-              checks.rows && checks.approx,
-            ],
-            ['pop share affected ≥5% in ≥3 years', checks.popShare],
-            ['Spot sanity: India 2019 ↑, Myanmar 2021 ↑, Ethiopia 2020–21 ↑', null],
-          ];
-          const commentLines = ['**Internet Shutdown Days — QA**'];
-          for (const [label, result] of labels) {
-            const mark = result === null ? '[ ]' : result ? '[x]' : '[ ]';
-            commentLines.push(`- ${mark} ${label}`);
-          }
-          commentLines.push('', '<details><summary>GAISUM</summary>', '', '```json', JSON.stringify(gaisum, null, 2), '```', '', '</details>');
-          const body = commentLines.join('\n');
-          if (process.env.GITHUB_OUTPUT) {
-            fs.appendFileSync(process.env.GITHUB_OUTPUT, `comment<<EOF\n${body}\nEOF\n`);
-          }
-          const failed = Object.entries(checks).filter(([, ok]) => ok === false);
-          if (failed.length) {
-            console.error('QA checks failed:', failed.map(([key]) => key).join(', '));
-            process.exit(1);
-          }
-          "
+        run: npx tsx scripts/qa/internet_shutdown_days_qa.ts
+        env:
+          STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
       - name: Post QA checklist
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7

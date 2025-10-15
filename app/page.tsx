@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
-import { METRICS } from '@/lib/metrics'
+import { METRICS, type Metric } from '@/lib/metrics'
 import { computeRelative } from '@/lib/relative'
 import SourcesFooter from '@/components/SourcesFooter'
 
@@ -26,6 +26,7 @@ function formatValue(id: string, v: number): string {
   const u = unitFor(id)
   const precisionOverrides: Record<string, number> = {
     firearm_stock_per_100: 3,
+    military_expenditure_per_capita: 1,
   }
   if (id === 'internet_use') return `${Math.round(v)}%`
   const decimals = precisionOverrides[id] ?? precisionForUnit(u)
@@ -33,8 +34,9 @@ function formatValue(id: string, v: number): string {
   return u ? `${formatted} ${u}` : String(formatted)
 }
 
-async function load(id: string): Promise<Pt[]> {
-  const url = `/data/${id}.json?v=${fetchVersion}`
+async function load(metric: Metric): Promise<Pt[]> {
+  const base = metric.dataPath ?? `/data/${metric.id}.json`
+  const url = `${base}${base.includes('?') ? '&' : '?'}v=${fetchVersion}`
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) return []
   return res.json()
@@ -67,7 +69,7 @@ export default function Home() {
 
   useEffect(() => {
     DISPLAY_METRICS.forEach(async m => {
-      const series = await load(m.id)
+      const series = await load(m)
       setData(prev => ({ ...prev, [m.id]: series }))
     })
     ;(async () => {

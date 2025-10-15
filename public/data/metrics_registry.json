@@ -84,6 +84,23 @@
     "notes": "Population-weighted global mean of national rates. Offline snapshot; see scripts/fetch_homicide_rate.ts."
   },
   {
+    "id": "military_expenditure_per_capita",
+    "name": "Military expenditure per capita (constant 2020 USD)",
+    "unit": "USD per person",
+    "alignment_or_capability": "capability",
+    "direction": "up",
+    "tier": 1,
+    "layer": "global",
+    "domain": "Safety & Care",
+    "domain_key": "safety_and_care",
+    "precision": 1,
+    "source_ids": ["sipri_milex", "wb_population_total", "wb_gdp_deflator_wld"],
+    "source_url": "https://data.worldbank.org/indicator/MS.MIL.XPND.CD",
+    "cadence": "annual",
+    "target": null,
+    "notes": "World Bank WDI MS.MIL.XPND.CD (SIPRI) global totals divided by WDI SP.POP.TOTL; rebase to constant 2020 USD using GDP deflator derived from NY.GDP.MKTP.CD and NY.GDP.MKTP.KD; round to 1 decimal."
+  },
+  {
     "id": "firearm_stock_per_100",
     "domain": "Safety & Care",
     "unit": "firearms per 100 residents",

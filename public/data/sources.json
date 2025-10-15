@@ -141,5 +141,53 @@
     "method": "Join SAS civilian firearm stock with WDI SP.POP.TOTL; population-weight global per-100 mean; skip coverage <30%; round to 3 decimals.",
     "updated_at": "2025-08-31",
     "data_start_year": 1990
+  },
+  "sipri_milex": {
+    "name": "SIPRI military expenditure (current USD)",
+    "domain": "Safety & Care",
+    "unit": "current USD",
+    "source_org": "Stockholm International Peace Research Institute (SIPRI) via World Bank WDI",
+    "source_url": "https://data.worldbank.org/indicator/MS.MIL.XPND.CD",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "World Bank WDI indicator MS.MIL.XPND.CD; ingest WLD aggregate (1977 onward) and supporting national rows.",
+    "updated_at": "2025-10-15",
+    "data_start_year": 1977
+  },
+  "military_expenditure_per_capita_constant_usd": {
+    "name": "Military expenditure per capita (constant 2020 USD)",
+    "domain": "Safety & Care",
+    "unit": "USD per person",
+    "source_org": "SIPRI via World Bank WDI",
+    "source_url": "https://data.worldbank.org/indicator/MS.MIL.XPND.CD",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Divide WDI MS.MIL.XPND.CD WLD totals by WDI SP.POP.TOTL; rebase to constant 2020 USD using GDP deflator derived from NY.GDP.MKTP.CD / NY.GDP.MKTP.KD; round to 1 decimal.",
+    "updated_at": "2025-10-15",
+    "data_start_year": 1977
+  },
+  "wb_population_total": {
+    "name": "World population (total)",
+    "domain": "Safety & Care",
+    "unit": "people",
+    "source_org": "World Bank WDI",
+    "source_url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "World Bank WDI SP.POP.TOTL (WLD aggregate, 1960 onward).",
+    "updated_at": "2025-10-15",
+    "data_start_year": 1960
+  },
+  "wb_gdp_deflator_wld": {
+    "name": "World GDP deflator (rebased to 2020 = 100)",
+    "domain": "Economic & Finance",
+    "unit": "index (2020 = 100)",
+    "source_org": "World Bank WDI",
+    "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Derive WLD deflator as 100 × nominal GDP (NY.GDP.MKTP.CD) / real GDP (NY.GDP.MKTP.KD); rebase series so 2020 = 100.",
+    "updated_at": "2025-10-15",
+    "data_start_year": 1960
   }
 }

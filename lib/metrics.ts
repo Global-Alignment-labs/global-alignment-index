@@ -7,6 +7,7 @@ export type Metric = {
   unit: string
   direction: Direction
   source: string
+  dataPath?: string
 }
 
 export const METRICS: Metric[] = [
@@ -24,5 +25,14 @@ export const METRICS: Metric[] = [
     source: 'World Bank WDI',
   },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
+  {
+    id: 'military_expenditure_per_capita',
+    name: 'Military expenditure per capita (constant 2020 USD)',
+    domain: 'Safety & Care',
+    unit: 'USD per person',
+    direction: 'up_is_better',
+    source: 'SIPRI via World Bank WDI',
+    dataPath: '/data/military_expenditure_per_capita_constant_usd.json',
+  },
   { id: 'firearm_stock_per_100', name: 'Firearm stock per 100 residents', domain: 'Safety & Care', unit: 'firearms per 100 residents', direction: 'up_is_better', source: 'Small Arms Survey; World Bank' },
 ]

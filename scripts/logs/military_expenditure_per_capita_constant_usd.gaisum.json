@@ -1,0 +1,10 @@
+{
+  "id": "military_expenditure_per_capita_constant_usd",
+  "rows": 47,
+  "min_year": 1977,
+  "max_year": 2023,
+  "min_value": 169.1,
+  "max_value": 269.8,
+  "rebased_from": 2019,
+  "rebased_to": 2020
+}

@@ -1,0 +1,24 @@
+{
+  "id": "internet_shutdown_days",
+  "rows": 405,
+  "min_year": 2016,
+  "max_year": 2024,
+  "coverage_countries": 45,
+  "mean_days_world": 30.5,
+  "notes": {
+    "approx_duration_events": 0,
+    "dropped_no_iso": 0,
+    "dropped_no_population": 0,
+    "per_year_pop_share_affected": {
+      "2016": 0.8718,
+      "2017": 0.8713,
+      "2018": 0.8708,
+      "2019": 0.8701,
+      "2020": 0.8693,
+      "2021": 0.8686,
+      "2022": 0.8676,
+      "2023": 0.8665,
+      "2024": 0.8655
+    }
+  }
+}

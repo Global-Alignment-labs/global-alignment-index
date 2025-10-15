@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 import { METRICS, type Metric } from '@/lib/metrics'
 import { computeRelative } from '@/lib/relative'
@@ -8,6 +9,9 @@ import SourcesFooter from '@/components/SourcesFooter'
 // Temporarily hide metrics that are not part of the MVP dashboard view.
 const HIDDEN_METRIC_IDS = new Set(['internet_use'])
 const DISPLAY_METRICS = METRICS.filter(m => !HIDDEN_METRIC_IDS.has(m.id))
+const TRUTH_AND_CLARITY_METRIC_IDS = new Set(['internet_shutdown_days'])
+const TRUTH_AND_CLARITY_METRICS = DISPLAY_METRICS.filter(m => TRUTH_AND_CLARITY_METRIC_IDS.has(m.id))
+const OTHER_METRICS = DISPLAY_METRICS.filter(m => !TRUTH_AND_CLARITY_METRIC_IDS.has(m.id))
 
 type Pt = { year: number; value: number }
 const fetchVersion = process.env.NEXT_PUBLIC_COMMIT_SHA ?? Date.now().toString()
@@ -27,6 +31,7 @@ function formatValue(id: string, v: number): string {
   const precisionOverrides: Record<string, number> = {
     firearm_stock_per_100: 3,
     military_expenditure_per_capita: 1,
+    internet_shutdown_days: 1,
   }
   if (id === 'internet_use') return `${Math.round(v)}%`
   const decimals = precisionOverrides[id] ?? precisionForUnit(u)
@@ -106,6 +111,84 @@ export default function Home() {
       .filter(Boolean) as Pt[]
   }, [data])
 
+  const renderMetricCard = (m: Metric) => {
+    const k = m.id
+    const raw = data[k] || []
+    const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
+    const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
+    const mid = metricIds.length === 1 ? metricIds[0] : undefined
+
+    return (
+      <div key={k} className="card p-4 shadow-sm">
+        {(() => {
+          const base = m.name ?? k
+          const titled = k === 'u5_mortality' ? `${base} (per 1,000 live births)` : base
+          return <h3 className="text-lg font-medium">{titled}</h3>
+        })()}
+        {m.subtitle ? <p className="text-sm opacity-70 mt-1">{m.subtitle}</p> : null}
+        <div className="w-full h-56 mt-3">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={series}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" />
+              {mid === 'internet_use' ? (
+                <YAxis domain={[0, 100]} tickFormatter={v => formatValue(mid, v)} />
+              ) : mid ? (
+                <YAxis tickFormatter={v => formatValue(mid, v)} />
+              ) : (
+                <YAxis />
+              )}
+              {mid ? (
+                <Tooltip formatter={(val: any) => formatValue(mid, Number(val))} />
+              ) : (
+                <Tooltip />
+              )}
+              {mid ? (
+                <Line type="monotone" dataKey={mid} dot={false} />
+              ) : (
+                metricIds.map(id => <Line key={id} type="monotone" dataKey={id} dot={false} />)
+              )}
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <p className="text-sm opacity-70 mt-2">{m.domain}</p>
+        {(() => {
+          const reg = registry[k]
+          const latest = getLatestNonMissingPoint(raw)
+          const latestValue = latest?.value
+          const latestYear = latest?.year
+          const canShowLatest = Number.isFinite(latestValue)
+          if (reg && canShowLatest && latestYear !== undefined) {
+            const rel = computeRelative(latestValue as number, {
+              direction: reg.direction,
+              reference_min: reg.reference_min,
+              reference_max: reg.reference_max,
+              target: reg.target,
+            })
+            return (
+              <p className="text-sm mt-1">
+                Latest ({latestYear}): {formatValue(k, latestValue as number)} · Relative: {Math.round(rel)}%
+              </p>
+            )
+          }
+          if (reg && !canShowLatest) {
+            return <p className="text-sm mt-1">Latest: No recent data</p>
+          }
+          return null
+        })()}
+        {m.detailPath ? (
+          <Link
+            href={m.detailPath}
+            className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline mt-3"
+          >
+            <span>View metric</span>
+            <span aria-hidden>→</span>
+          </Link>
+        ) : null}
+      </div>
+    )
+  }
+
   return (
     <main className="mx-auto max-w-6xl p-6 space-y-8">
       <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
@@ -137,80 +220,25 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="grid md:grid-cols-2 gap-6">
-        {DISPLAY_METRICS.map(m => {
-          const k = m.id
-          const raw = data[k] || []
-          return (
-            <div key={k} className="card p-4 shadow-sm">
-              {(() => {
-                const base = m.name ?? k
-                const titled = k === 'u5_mortality' ? `${base} (per 1,000 live births)` : base
-                return <h3 className="text-lg font-medium">{titled}</h3>
-              })()}
-              <div className="w-full h-56 mt-2">
-                <ResponsiveContainer width="100%" height="100%">
-                  {(() => {
-                    const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
-                    const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
-                    const mid = metricIds.length === 1 ? metricIds[0] : undefined
-                    return (
-                      <LineChart data={series}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="year" />
-                        {mid === 'internet_use' ? (
-                          <YAxis domain={[0, 100]} tickFormatter={v => formatValue(mid, v)} />
-                        ) : mid ? (
-                          <YAxis tickFormatter={v => formatValue(mid, v)} />
-                        ) : (
-                          <YAxis />
-                        )}
-                        {mid ? (
-                          <Tooltip formatter={(val: any) => formatValue(mid, Number(val))} />
-                        ) : (
-                          <Tooltip />
-                        )}
-                        {mid ? (
-                          <Line type="monotone" dataKey={mid} dot={false} />
-                        ) : (
-                          metricIds.map(id => (
-                            <Line key={id} type="monotone" dataKey={id} dot={false} />
-                          ))
-                        )}
-                      </LineChart>
-                    )
-                  })()}
-                </ResponsiveContainer>
-              </div>
-              <p className="text-sm opacity-70 mt-2">{m.domain}</p>
-              {(() => {
-                const reg = registry[k]
-                const latest = getLatestNonMissingPoint(raw)
-                const latestValue = latest?.value
-                const latestYear = latest?.year
-                const canShowLatest = Number.isFinite(latestValue)
-                if (reg && canShowLatest && latestYear !== undefined) {
-                  const rel = computeRelative(latestValue as number, {
-                    direction: reg.direction,
-                    reference_min: reg.reference_min,
-                    reference_max: reg.reference_max,
-                    target: reg.target,
-                  })
-                  return (
-                    <p className="text-sm mt-1">
-                      Latest ({latestYear}): {formatValue(k, latestValue as number)} · Relative: {Math.round(rel)}%
-                    </p>
-                  )
-                }
-                if (reg && !canShowLatest) {
-                  return <p className="text-sm mt-1">Latest: No recent data</p>
-                }
-                return null
-              })()}
-            </div>
-          )
-        })}
-      </section>
+      {TRUTH_AND_CLARITY_METRICS.length ? (
+        <section className="space-y-4">
+          <header>
+            <h2 className="text-xl font-semibold">Truth &amp; Clarity</h2>
+            <p className="text-sm opacity-70">
+              Population-weighted view of information openness; lower values mean fewer shutdown days.
+            </p>
+          </header>
+          <div className="grid md:grid-cols-2 gap-6">
+            {TRUTH_AND_CLARITY_METRICS.map(m => renderMetricCard(m))}
+          </div>
+        </section>
+      ) : null}
+
+      {OTHER_METRICS.length ? (
+        <section className="grid md:grid-cols-2 gap-6">
+          {OTHER_METRICS.map(m => renderMetricCard(m))}
+        </section>
+      ) : null}
 
       <footer className="text-sm opacity-70 py-10">
         <p>Sources: NOAA, WHO, World Bank, ITU (real datasets to be wired). This is a v0.1 prototype.</p>

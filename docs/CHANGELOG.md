@@ -1,6 +1,8 @@
 # Changelog
 
 ## 2025-10-17
+- ui(internet_shutdown_days): add Truth & Clarity dashboard card, metric detail route, and direction badge copy.
+- ops(internet_shutdown_days): add manual STOP bake workflow to commit baked JSON + GAISUM outputs.
 - data(internet_shutdown_days): add STOP fixture-driven CI, per-year population share diagnostics, and scripts typecheck scope.
 
 ## 2025-10-16

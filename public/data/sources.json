@@ -198,9 +198,37 @@
     "description": "Share of deaths registered with civil registration systems. Population-weighted global mean across countries.",
     "url": "https://data.worldbank.org/indicator/SP.REG.DTHS.ZS",
     "publisher": "World Bank (WHO/UN DESA CRVS underlying)",
-    "years": { "min": 1992, "max": 2017 },
+    "years": {
+      "min": 1992,
+      "max": 2017
+    },
     "license": "CC BY 4.0",
     "method": "Clamp national SP.REG.DTHS.ZS values to [0,100], join WDI SP.POP.TOTL populations, compute population-weighted annual global mean, round to 1 decimal.",
     "last_fetched": "2025-10-14"
+  },
+  "accessnow_keepiton_stop": {
+    "name": "#KeepItOn Shutdown Tracker (STOP)",
+    "domain": "Truth & Clarity",
+    "unit": "shutdown days",
+    "source_org": "Access Now",
+    "source_url": "https://stop.accessnow.org/wp-content/uploads/keepiton/STOP_2016-2024.csv",
+    "license": "© Access Now, used under fair-use for research",
+    "cadence": "event",
+    "method": "Ingest Access Now STOP shutdown events (2016→latest), normalize times to UTC, split by calendar year, merge overlapping country-year intervals, and compute population-weighted shutdown days.",
+    "updated_at": "2025-10-15",
+    "data_start_year": 2016,
+    "notes": "Scope includes all STOP-verified shutdown types (mobile, regional, national)."
+  },
+  "wdi_sp_pop_totl": {
+    "name": "World Bank Population (SP.POP.TOTL)",
+    "domain": "Demographics",
+    "unit": "people",
+    "source_org": "World Bank",
+    "source_url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Use ISO3 country populations to construct annual population weights for the shutdown aggregation.",
+    "updated_at": "2025-10-15",
+    "data_start_year": 1960
   }
 }

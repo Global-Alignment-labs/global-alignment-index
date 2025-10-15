@@ -9,7 +9,7 @@
     "cadence": "annual",
     "method": "Use World Bank annual series as provided; include only numeric values; round to 2 decimals.",
     "updated_at": "2025-08-29",
-    "data_start_year": 1960
+    "data_start_year": 1960"
   },
   "internet_use": {
     "name": "Individuals using the internet",
@@ -183,11 +183,24 @@
     "domain": "Economic & Finance",
     "unit": "index (2020 = 100)",
     "source_org": "World Bank WDI",
-    "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+    "source_url": "https://data.worldbank.org/indicator/NY.GDP.DEFL.ZS",
     "license": "CC BY 4.0",
     "cadence": "annual",
     "method": "Derive WLD deflator as 100 × nominal GDP (NY.GDP.MKTP.CD) / real GDP (NY.GDP.MKTP.KD); rebase series so 2020 = 100.",
     "updated_at": "2025-10-15",
     "data_start_year": 1960
+  },
+  "death_registration_completeness": {
+    "id": "wdi_sp_reg_dths_zs",
+    "name": "World Bank WDI — Completeness of death registration (%)",
+    "code": "SP.REG.DTHS.ZS",
+    "domain": "truth_and_clarity",
+    "description": "Share of deaths registered with civil registration systems. Population-weighted global mean across countries.",
+    "url": "https://data.worldbank.org/indicator/SP.REG.DTHS.ZS",
+    "publisher": "World Bank (WHO/UN DESA CRVS underlying)",
+    "years": { "min": 1992, "max": 2017 },
+    "license": "CC BY 4.0",
+    "method": "Clamp national SP.REG.DTHS.ZS values to [0,100], join WDI SP.POP.TOTL populations, compute population-weighted annual global mean, round to 1 decimal.",
+    "last_fetched": "2025-10-14"
   }
 }

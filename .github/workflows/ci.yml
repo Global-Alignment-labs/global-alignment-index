@@ -5,9 +5,15 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CI: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,7 +21,125 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm install --no-audit --no-fund
-      - run: npm run typecheck || true
+      - run: npm run lint
+      - run: npm run typecheck
       - run: npm run build
       - run: node scripts/validate-datasets.cjs
       - run: npm run validate:sources
+
+  internet_shutdown_days:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      CI: true
+      STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm install --no-audit --no-fund
+      - name: Run internet shutdown pipeline
+        run: node --experimental-strip-types scripts/fetch_internet_shutdown_days.ts
+      - name: Print GAISUM log
+        run: cat scripts/logs/internet_shutdown_days.gaisum.json
+      - name: Validate GAISUM expectations
+        id: qa
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = 'scripts/logs/internet_shutdown_days.gaisum.json';
+          const datasetPath = 'public/data/internet_shutdown_days.json';
+          if (!fs.existsSync(path)) {
+            throw new Error('GAISUM log not found at ' + path);
+          }
+          const gaisum = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const series = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
+          const shares = gaisum.notes?.per_year_pop_share_affected || {};
+          const qualifyingShareYears = Object.values(shares).filter((value) => typeof value === 'number' && value >= 0.05).length;
+          const isFixture = Boolean(process.env.STOP_FIXTURE_PATH);
+          const coverageOk = typeof gaisum.coverage_countries === 'number'
+            ? isFixture
+              ? gaisum.coverage_countries >= 2
+              : gaisum.coverage_countries > 40
+            : false;
+          const rowsOk = typeof gaisum.rows === 'number'
+            ? isFixture
+              ? gaisum.rows >= 10
+              : gaisum.rows > 1000
+            : false;
+          const checks = {
+            minYear: gaisum.min_year === 2016,
+            maxYear: typeof gaisum.max_year === 'number' && gaisum.max_year >= 2023,
+            valueRange: Array.isArray(series) && series.every((row) => row.value >= 0 && row.value <= 366),
+            coverage: coverageOk,
+            rows: rowsOk,
+            approx: gaisum.notes && typeof gaisum.notes.approx_duration_events === 'number',
+            popShare: qualifyingShareYears >= 3,
+          };
+          const labels = [
+            ['min_year = 2016', checks.minYear],
+            ['max_year ≥ 2023', checks.maxYear],
+            ['values ∈ [0, 366]; typical 15–30', checks.valueRange],
+            ['trend up from 2016, plateau ≈2021+', null],
+            [isFixture ? 'coverage_countries ≥ 2 (fixture)' : 'coverage_countries > 40', checks.coverage],
+            [
+              isFixture ? 'rows ≥ 10 (fixture); approx_duration_events present' : 'rows > 1000; approx_duration_events present',
+              checks.rows && checks.approx,
+            ],
+            ['pop share affected ≥5% in ≥3 years', checks.popShare],
+            ['Spot sanity: India 2019 ↑, Myanmar 2021 ↑, Ethiopia 2020–21 ↑', null],
+          ];
+          const commentLines = ['**Internet Shutdown Days — QA**'];
+          for (const [label, result] of labels) {
+            const mark = result === null ? '[ ]' : result ? '[x]' : '[ ]';
+            commentLines.push(`- ${mark} ${label}`);
+          }
+          commentLines.push('', '<details><summary>GAISUM</summary>', '', '```json', JSON.stringify(gaisum, null, 2), '```', '', '</details>');
+          const body = commentLines.join('\n');
+          if (process.env.GITHUB_OUTPUT) {
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `comment<<EOF\n${body}\nEOF\n`);
+          }
+          const failed = Object.entries(checks).filter(([, ok]) => ok === false);
+          if (failed.length) {
+            console.error('QA checks failed:', failed.map(([key]) => key).join(', '));
+            process.exit(1);
+          }
+          "
+      - name: Post QA checklist
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        env:
+          QA_COMMENT: ${{ steps.qa.outputs.comment }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const body = process.env.QA_COMMENT;
+            if (!body) {
+              core.info('No QA comment body produced. Skipping.');
+              return;
+            }
+            const marker = '**Internet Shutdown Days — QA**';
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const existing = comments.find((comment) => comment.user?.type === 'Bot' && comment.body?.startsWith(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

@@ -116,6 +116,16 @@
     "precision": 3
   },
   {
+    "id": "internet_shutdown_days",
+    "name": "Internet shutdown days (per year)",
+    "direction": "up",
+    "tier": 1,
+    "layer": "national",
+    "alignment_or_capability": "capability",
+    "domain": "truth_and_clarity",
+    "precision": 1
+  },
+  {
     "id": "death_registration_completeness",
     "name": "Death registration completeness (%) Test",
     "direction": "up",

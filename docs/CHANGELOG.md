@@ -1,5 +1,11 @@
 # Changelog
 
+## 2025-10-17
+- data(internet_shutdown_days): add STOP fixture-driven CI, per-year population share diagnostics, and scripts typecheck scope.
+
+## 2025-10-16
+- data(internet_shutdown_days): add STOP + WDI pipeline with GAISUM diagnostics, CI QA automation, and documentation updates.
+
 ## 2025-10-14
 - data(death_registration_completeness): add Tier-1 Truth & Clarity pipeline for WDI SP.REG.DTHS.ZS with population-weighted global mean, GAISUM logging, registry/source wiring, and dashboard exposure.
 

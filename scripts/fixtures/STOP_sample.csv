@@ -1,0 +1,15 @@
+country,start_date,end_date,start_time,end_time,scope
+India,2016-04-01,2016-04-02,07:00,19:00,Regional shutdown
+Myanmar,2017-02-10,2017-02-12,,,Mobile data suspension
+India,2018-12-30,2019-01-02,06:00,18:00,Mobile data shutdown
+Myanmar,2018-05-01,2018-05-03,08:00,20:00,Regional disruption
+Ethiopia,2019-01-01,2019-01-05,07:30,21:15,National shutdown
+India,2019-08-04,2019-08-20,,,Curfew communications block
+Myanmar,2019-06-20,2019-06-28,05:45,22:00,Mobile data suspension
+India,2020-01-15,2020-01-16,09:00,17:00,Regional shutdown
+Myanmar,2020-02-01,2020-02-10,,,Social media restriction
+Ethiopia,2020-11-04,2021-01-15,00:00,23:00,Conflict-related blackout
+India,2021-03-15,2021-03-15,,,Platform blocking
+Ethiopia,2021-05-01,2021-05-03,06:30,18:45,Regional outage
+Ethiopia,2022-09-01,2022-09-05,06:00,22:30,Regional outage
+India,2023-12-20,2024-01-03,05:00,23:00,Holiday disruption

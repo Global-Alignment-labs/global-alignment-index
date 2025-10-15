@@ -34,3 +34,11 @@
 - Conflict-type mapping enforced in code: `1 → interstate`, `2 → intrastate`, `3 → internationalized_intrastate`, `4 → extrasystemic`; unknown codes fail fast.
 - Method: fetch the UCDP conflict-level CSV, resolve deaths column preference (`bd_best` (v25.1) then `best`, `best_estimate`), sum conflict-type codes 1–4 by year, inner-join with global population for the continuous 1990 → latest overlapping year range, drop/ warn on extra years, compute deaths per 100,000 people, and round to three decimals.
 - Outputs: Tier-1 total series (global battle-related deaths per 100k) plus companion by-type breakdowns (interstate, intrastate, internationalized intrastate, extrasystemic) and an interstate-only series for future UI toggles; all outputs validated for non-negativity, continuity, and per-type sum ≈ total (≤0.02 tolerance).
+
+- **Internet shutdown days (per year) — Truth & Clarity (Access Now + WDI)**
+  - Source: Access Now #KeepItOn Shutdown Tracker Optimization Project (STOP).
+  - Inclusion: all STOP-verified shutdown types (national, regional, mobile, platform, and other intentional disruptions) because any intentional disruption reflects informational coercion we seek to measure.
+  - Method: normalize event timestamps to UTC, split shutdowns at year boundaries, merge overlapping country-year intervals, and weight by World Bank SP.POP.TOTL populations before summing the global mean; approximations flagged when times are missing.
+  - Rounding: 1 decimal (round half away from zero via JavaScript `Math.round`).
+  - Data window: 2016 → last completed calendar year (events still in progress truncated at the cutoff year).
+  - CI note: automated checks rely on a small STOP fixture to exercise parsing and interval logic; production runs point to the full STOP bundle covering 2016 through the latest completed year.

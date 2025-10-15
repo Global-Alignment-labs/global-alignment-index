@@ -230,5 +230,25 @@
     "method": "Use ISO3 country populations to construct annual population weights for the shutdown aggregation.",
     "updated_at": "2025-10-15",
     "data_start_year": 1960
+  },
+  "internet_shutdown_days": {
+    "name": "Internet shutdown days (population-weighted, annual)",
+    "domain": "Truth & Clarity",
+    "unit": "days",
+    "source_org": "Global Alignment Index",
+    "source_url": "/public/data/internet_shutdown_days.json",
+    "license": "CC BY 4.0",
+    "cadence": "annual",
+    "method": "Derived metric: Access Now STOP events normalized to UTC, split by year, merged per country-year, and weighted by World Bank population (SP.POP.TOTL). Values rounded to 1 decimal.",
+    "updated_at": "2025-10-15",
+    "data_start_year": 2016,
+    "inputs": [
+      "accessnow_keepiton_stop",
+      "wdi_sp_pop_totl"
+    ],
+    "produces": [
+      "public/data/internet_shutdown_days.json"
+    ],
+    "type": "derived"
   }
 }

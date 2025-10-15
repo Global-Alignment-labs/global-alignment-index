@@ -993,6 +993,23 @@ async function run(): Promise<void> {
     data_start_year: 1960,
   });
 
+  await upsertSource(METRIC_ID, {
+    name: "Internet shutdown days (population-weighted, annual)",
+    domain: "Truth & Clarity",
+    unit: "days",
+    source_org: "Global Alignment Index",
+    source_url: "/public/data/internet_shutdown_days.json",
+    license: "CC BY 4.0",
+    cadence: "annual",
+    method:
+      "Derived metric: Access Now STOP events normalized to UTC, split by year, merged per country-year, and weighted by World Bank population (SP.POP.TOTL). Values rounded to 1 decimal.",
+    updated_at: new Date().toISOString().slice(0, 10),
+    data_start_year: 2016,
+    inputs: [STOP_SOURCE_ID, POP_SOURCE_ID],
+    produces: ["public/data/internet_shutdown_days.json"],
+    type: "derived",
+  });
+
   console.log(`[internet-shutdown] wrote ${OUTPUT_SERIES_PATH}`);
   console.log(`[internet-shutdown] wrote GAISUM log ${GAISUM_LOG_PATH}`);
 }

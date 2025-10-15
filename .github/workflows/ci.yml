@@ -41,7 +41,7 @@ jobs:
           cache: 'npm'
       - run: npm install --no-audit --no-fund
       - name: Run internet shutdown pipeline
-        run: node --experimental-strip-types scripts/fetch_internet_shutdown_days.ts
+        run: node scripts/fetch_internet_shutdown_days.ts
       - name: Print GAISUM log
         run: cat scripts/logs/internet_shutdown_days.gaisum.json
       - name: Validate GAISUM expectations

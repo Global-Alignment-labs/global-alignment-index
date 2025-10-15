@@ -100,7 +100,7 @@
   },
   {
     "id": "death_registration_completeness",
-    "name": "Death registration completeness (%)",
+    "name": "Death registration completeness (%) Test",
     "direction": "up",
     "tier": 1,
     "layer": "national",

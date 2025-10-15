@@ -17,7 +17,7 @@ export const METRICS: Metric[] = [
   { id: 'battle_deaths', name: 'Battle-related deaths', domain: 'Safety & Conflict', unit: 'deaths per 100k', direction: 'down_is_better', source: 'UCDP' },
   {
     id: 'death_registration_completeness',
-    name: 'Death registration completeness (%)',
+    name: 'Death registration completeness (%) Test',
     domain: 'Truth & Clarity',
     unit: '%',
     direction: 'up_is_better',

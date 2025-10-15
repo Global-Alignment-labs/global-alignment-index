@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm install --no-audit --no-fund
+      - run: npm ci --include=dev --no-audit --no-fund
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run build
@@ -32,16 +32,17 @@ jobs:
     needs: build
     env:
       CI: true
-      STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm install --no-audit --no-fund
-      - name: Run internet shutdown pipeline
-        run: node scripts/fetch_internet_shutdown_days.ts
+      - run: npm ci --include=dev --no-audit --no-fund
+      - name: Run shutdown ETL (fixture via tsx)
+        run: npm run run:internet-shutdown
+        env:
+          STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
       - name: Print GAISUM log
         run: cat scripts/logs/internet_shutdown_days.gaisum.json
       - name: Validate GAISUM expectations

@@ -97,5 +97,15 @@
     "source_url": "https://www.smallarmssurvey.org/database/global-firearms-holdings",
     "notes": "Population-weighted global mean of civilian firearm stock per 100 residents using SAS holdings + WDI SP.POP.TOTL; round to 3 decimals.",
     "precision": 3
+  },
+  {
+    "id": "death_registration_completeness",
+    "name": "Death registration completeness (%) Test",
+    "direction": "up",
+    "tier": 1,
+    "layer": "national",
+    "alignment_or_capability": "alignment",
+    "domain": "truth_and_clarity",
+    "precision": 1
   }
 ]

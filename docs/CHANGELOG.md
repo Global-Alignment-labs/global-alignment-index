@@ -1,5 +1,8 @@
 # Changelog
 
+## 2025-10-14
+- data(death_registration_completeness): add Tier-1 Truth & Clarity pipeline for WDI SP.REG.DTHS.ZS with population-weighted global mean, GAISUM logging, registry/source wiring, and dashboard exposure.
+
 ## 2025-10-10
 - data(firearm_stock_per_100): capture coverage diagnostics in GAISUM logging for pipeline and JS mirror.
 

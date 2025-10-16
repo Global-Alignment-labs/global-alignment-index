@@ -9,7 +9,7 @@ import SourcesFooter from '@/components/SourcesFooter'
 // Temporarily hide metrics that are not part of the MVP dashboard view.
 const HIDDEN_METRIC_IDS = new Set(['internet_use'])
 const DISPLAY_METRICS = METRICS.filter(m => !HIDDEN_METRIC_IDS.has(m.id))
-const TRUTH_AND_CLARITY_METRIC_IDS = new Set(['internet_shutdown_days'])
+const TRUTH_AND_CLARITY_METRIC_IDS = new Set(['internet_shutdown_days', 'scientific_coauthorship_share'])
 const TRUTH_AND_CLARITY_METRICS = DISPLAY_METRICS.filter(m => TRUTH_AND_CLARITY_METRIC_IDS.has(m.id))
 const OTHER_METRICS = DISPLAY_METRICS.filter(m => !TRUTH_AND_CLARITY_METRIC_IDS.has(m.id))
 
@@ -32,11 +32,12 @@ function formatValue(id: string, v: number): string {
     firearm_stock_per_100: 3,
     military_expenditure_per_capita: 1,
     internet_shutdown_days: 1,
+    scientific_coauthorship_share: 1,
   }
   if (id === 'internet_use') return `${Math.round(v)}%`
   const decimals = precisionOverrides[id] ?? precisionForUnit(u)
-  const formatted = Number(v.toFixed(decimals))
-  return u ? `${formatted} ${u}` : String(formatted)
+  const formatted = v.toFixed(decimals)
+  return u ? `${formatted} ${u}` : formatted
 }
 
 async function load(metric: Metric): Promise<Pt[]> {
@@ -151,7 +152,20 @@ export default function Home() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="text-sm opacity-70 mt-2">{m.domain}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+          <span className="opacity-70">{m.domain}</span>
+          {(() => {
+            const dir = registry[k]?.direction as string | undefined
+            if (!dir) return null
+            const label = dir === 'up' ? '↑ better' : dir === 'down' ? '↓ better' : null
+            if (!label) return null
+            return (
+              <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-slate-700">
+                {label}
+              </span>
+            )
+          })()}
+        </div>
         {(() => {
           const reg = registry[k]
           const latest = getLatestNonMissingPoint(raw)

@@ -8,6 +8,8 @@ export type Metric = {
   direction: Direction
   source: string
   dataPath?: string
+  subtitle?: string
+  detailPath?: string
 }
 
 export const METRICS: Metric[] = [
@@ -23,6 +25,17 @@ export const METRICS: Metric[] = [
     unit: '%',
     direction: 'up_is_better',
     source: 'World Bank WDI',
+  },
+  {
+    id: 'internet_shutdown_days',
+    name: 'Internet shutdown days',
+    domain: 'Truth & Clarity',
+    unit: 'days',
+    direction: 'down_is_better',
+    source: 'Access Now #KeepItOn / World Bank',
+    dataPath: '/data/internet_shutdown_days.json',
+    subtitle: 'Population-weighted average shutdown days per year',
+    detailPath: '/metrics/internet-shutdown-days',
   },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
   {

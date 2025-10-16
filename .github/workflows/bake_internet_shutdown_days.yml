@@ -1,0 +1,37 @@
+name: Bake Internet Shutdown Days
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bake:
+    name: Bake internet shutdown days
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Bake real STOP bundle
+        env:
+          STOP_BUNDLE_URL: https://stop.accessnow.org/wp-content/uploads/keepiton/STOP_2016-2024.csv
+        run: npm run run:internet-shutdown
+      - name: Verify outputs
+        run: |
+          test -f public/data/internet_shutdown_days.json
+          test -f scripts/logs/internet_shutdown_days.gaisum.json
+          cat scripts/logs/internet_shutdown_days.gaisum.json
+      - name: Commit baked data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "data: bake Internet shutdown days (Access Now STOP 2016–2024)"
+          file_pattern: |
+            public/data/internet_shutdown_days.json
+            scripts/logs/internet_shutdown_days.gaisum.json

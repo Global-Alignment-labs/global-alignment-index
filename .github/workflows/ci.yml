@@ -5,17 +5,86 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CI: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm install --no-audit --no-fund
-      - run: npm run typecheck || true
+      - run: npm ci --include=dev --no-audit --no-fund
+      - run: npm run lint
+      - run: npm run typecheck
       - run: npm run build
       - run: node scripts/validate-datasets.cjs
       - run: npm run validate:sources
+
+  internet_shutdown_days:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci --include=dev --no-audit --no-fund
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Run shutdown ETL (fixture via tsx)
+        run: npm run run:internet-shutdown
+        env:
+          STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
+      - name: QA (read GAISUM via tsx)
+        id: qa
+        run: npx tsx scripts/qa/internet_shutdown_days_qa.ts
+        env:
+          STOP_FIXTURE_PATH: scripts/fixtures/STOP_sample.csv
+      - name: Post QA checklist
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        env:
+          QA_COMMENT: ${{ steps.qa.outputs.comment }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const body = process.env.QA_COMMENT;
+            if (!body) {
+              core.info('No QA comment body produced. Skipping.');
+              return;
+            }
+            const marker = '**Internet Shutdown Days — QA**';
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const existing = comments.find((comment) => comment.user?.type === 'Bot' && comment.body?.startsWith(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

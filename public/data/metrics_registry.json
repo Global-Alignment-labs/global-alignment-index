@@ -134,5 +134,17 @@
     "alignment_or_capability": "alignment",
     "domain": "truth_and_clarity",
     "precision": 1
+  },
+  {
+    "id": "scientific_coauthorship_share",
+    "name": "Scientific co-authorship share (%)",
+    "direction": "up",
+    "tier": 1,
+    "layer": "international",
+    "alignment_or_capability": "alignment",
+    "domain": "truth_and_clarity",
+    "precision": 1,
+    "reference_min": 9.0,
+    "reference_max": 21.0
   }
 ]

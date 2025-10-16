@@ -250,5 +250,18 @@
       "public/data/internet_shutdown_days.json"
     ],
     "type": "derived"
+  },
+  "scientific_coauthorship_share": {
+    "name": "Scientific co-authorship share (%)",
+    "domain": "Truth & Clarity",
+    "unit": "% of articles",
+    "source_org": "OpenAlex",
+    "source_url": "https://api.openalex.org/works",
+    "license": "CC0 1.0",
+    "cadence": "annual",
+    "method": "OpenAlex Works (journal-article | proceedings-article via type_crossref), published outlets only, non-paratext. Denominator = works with ≥1 affiliation country (countries_distinct_count:>0). Numerator = works with ≥2 distinct affiliation countries (countries_distinct_count:>1). Grouped by publication_year; share rounded to 1 decimal.",
+    "notes": "Filters: type_crossref:journal-article|proceedings-article, primary_location.is_published:true, primary_location.source.has_issn:true, is_paratext:false. Rate-limit aware with backoff. Dataset capped to latest complete year by continuity check; current cap = 2023.",
+    "updated_at": "2025-10-16",
+    "data_start_year": 1990
   }
 }

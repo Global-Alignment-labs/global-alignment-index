@@ -7,6 +7,10 @@
 
 ## 2025-10-16
 - data(internet_shutdown_days): add STOP + WDI pipeline with GAISUM diagnostics, CI QA automation, and documentation updates.
+- data(scientific_coauthorship_share): add Tier-1 OpenAlex pipeline for international co-authorship share with GAISUM logging, registry/source wiring, and dataset publication.
+- methods(scientific_coauthorship_share): document OpenAlex scope, continuity cap to 2023, and diagnostics.
+- ui(scientific_coauthorship_share): add Truth & Clarity dashboard card + metric detail route with latest-complete footnote.
+- ui(scientific_coauthorship_share): fix dashboard relative fallback and normalize direction badges.
 
 ## 2025-10-14
 - data(death_registration_completeness): add Tier-1 Truth & Clarity pipeline for WDI SP.REG.DTHS.ZS with population-weighted global mean, GAISUM logging, registry/source wiring, and dashboard exposure.

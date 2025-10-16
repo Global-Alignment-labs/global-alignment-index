@@ -9,7 +9,7 @@ import SourcesFooter from '@/components/SourcesFooter'
 // Temporarily hide metrics that are not part of the MVP dashboard view.
 const HIDDEN_METRIC_IDS = new Set(['internet_use'])
 const DISPLAY_METRICS = METRICS.filter(m => !HIDDEN_METRIC_IDS.has(m.id))
-const TRUTH_AND_CLARITY_METRIC_IDS = new Set(['internet_shutdown_days'])
+const TRUTH_AND_CLARITY_METRIC_IDS = new Set(['internet_shutdown_days', 'scientific_coauthorship_share'])
 const TRUTH_AND_CLARITY_METRICS = DISPLAY_METRICS.filter(m => TRUTH_AND_CLARITY_METRIC_IDS.has(m.id))
 const OTHER_METRICS = DISPLAY_METRICS.filter(m => !TRUTH_AND_CLARITY_METRIC_IDS.has(m.id))
 
@@ -32,11 +32,12 @@ function formatValue(id: string, v: number): string {
     firearm_stock_per_100: 3,
     military_expenditure_per_capita: 1,
     internet_shutdown_days: 1,
+    scientific_coauthorship_share: 1,
   }
   if (id === 'internet_use') return `${Math.round(v)}%`
   const decimals = precisionOverrides[id] ?? precisionForUnit(u)
-  const formatted = Number(v.toFixed(decimals))
-  return u ? `${formatted} ${u}` : String(formatted)
+  const formatted = v.toFixed(decimals)
+  return u ? `${formatted} ${u}` : formatted
 }
 
 async function load(metric: Metric): Promise<Pt[]> {
@@ -114,6 +115,7 @@ export default function Home() {
   const renderMetricCard = (m: Metric) => {
     const k = m.id
     const raw = data[k] || []
+    const reg = registry[k]
     const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
     const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
     const mid = metricIds.length === 1 ? metricIds[0] : undefined
@@ -151,19 +153,38 @@ export default function Home() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="text-sm opacity-70 mt-2">{m.domain}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+          <span className="opacity-70">{m.domain}</span>
+          {(() => {
+            const dirKey = reg?.direction as string | undefined
+            const dirNorm = dirKey?.startsWith('up') ? 'up' : dirKey?.startsWith('down') ? 'down' : undefined
+            const label = dirNorm === 'up' ? '↑ better' : dirNorm === 'down' ? '↓ better' : null
+            if (!label) return null
+            return (
+              <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-slate-700">
+                {label}
+              </span>
+            )
+          })()}
+        </div>
         {(() => {
-          const reg = registry[k]
           const latest = getLatestNonMissingPoint(raw)
           const latestValue = latest?.value
           const latestYear = latest?.year
           const canShowLatest = Number.isFinite(latestValue)
           if (reg && canShowLatest && latestYear !== undefined) {
+            const rawVals = raw
+              .map(d => Number(d?.value))
+              .filter(v => Number.isFinite(v)) as number[]
+            const fallbackMin = rawVals.length ? Math.min(...rawVals) : (latestValue as number)
+            const fallbackMax = rawVals.length ? Math.max(...rawVals) : (latestValue as number)
+            const dirKey = (reg?.direction ?? 'up') as string
+            const dirNorm = dirKey.startsWith('down') ? 'down' : 'up'
             const rel = computeRelative(latestValue as number, {
-              direction: reg.direction,
-              reference_min: reg.reference_min,
-              reference_max: reg.reference_max,
-              target: reg.target,
+              direction: dirNorm,
+              reference_min: reg?.reference_min ?? fallbackMin,
+              reference_max: reg?.reference_max ?? fallbackMax,
+              target: reg?.target,
             })
             return (
               <p className="text-sm mt-1">

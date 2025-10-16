@@ -37,6 +37,17 @@ export const METRICS: Metric[] = [
     subtitle: 'Population-weighted average shutdown days per year',
     detailPath: '/metrics/internet-shutdown-days',
   },
+  {
+    id: 'scientific_coauthorship_share',
+    name: 'Scientific co-authorship share (%)',
+    domain: 'Truth & Clarity',
+    unit: '% of articles',
+    direction: 'up_is_better',
+    source: 'OpenAlex Works API',
+    dataPath: '/data/scientific_coauthorship_share.json',
+    subtitle: 'Share of articles with ≥2 affiliation countries',
+    detailPath: '/metrics/scientific-coauthorship-share',
+  },
   { id: 'homicide_rate', name: 'Intentional homicide rate per 100 000', domain: 'Safety & Care', unit: 'per 100,000 people', direction: 'down_is_better', source: 'UNODC & WHO via WDI' },
   {
     id: 'military_expenditure_per_capita',

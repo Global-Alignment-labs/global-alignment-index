@@ -115,6 +115,7 @@ export default function Home() {
   const renderMetricCard = (m: Metric) => {
     const k = m.id
     const raw = data[k] || []
+    const reg = registry[k]
     const series = prepSeriesForPlot(raw).map(p => ({ year: p.year, [k]: p.value }))
     const metricIds = Object.keys(series[0] ?? {}).filter(id => id !== 'year')
     const mid = metricIds.length === 1 ? metricIds[0] : undefined
@@ -155,9 +156,9 @@ export default function Home() {
         <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
           <span className="opacity-70">{m.domain}</span>
           {(() => {
-            const dir = registry[k]?.direction as string | undefined
-            if (!dir) return null
-            const label = dir === 'up' ? '↑ better' : dir === 'down' ? '↓ better' : null
+            const dirKey = reg?.direction as string | undefined
+            const dirNorm = dirKey?.startsWith('up') ? 'up' : dirKey?.startsWith('down') ? 'down' : undefined
+            const label = dirNorm === 'up' ? '↑ better' : dirNorm === 'down' ? '↓ better' : null
             if (!label) return null
             return (
               <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-slate-700">
@@ -167,17 +168,23 @@ export default function Home() {
           })()}
         </div>
         {(() => {
-          const reg = registry[k]
           const latest = getLatestNonMissingPoint(raw)
           const latestValue = latest?.value
           const latestYear = latest?.year
           const canShowLatest = Number.isFinite(latestValue)
           if (reg && canShowLatest && latestYear !== undefined) {
+            const rawVals = raw
+              .map(d => Number(d?.value))
+              .filter(v => Number.isFinite(v)) as number[]
+            const fallbackMin = rawVals.length ? Math.min(...rawVals) : (latestValue as number)
+            const fallbackMax = rawVals.length ? Math.max(...rawVals) : (latestValue as number)
+            const dirKey = (reg?.direction ?? 'up') as string
+            const dirNorm = dirKey.startsWith('down') ? 'down' : 'up'
             const rel = computeRelative(latestValue as number, {
-              direction: reg.direction,
-              reference_min: reg.reference_min,
-              reference_max: reg.reference_max,
-              target: reg.target,
+              direction: dirNorm,
+              reference_min: reg?.reference_min ?? fallbackMin,
+              reference_max: reg?.reference_max ?? fallbackMax,
+              target: reg?.target,
             })
             return (
               <p className="text-sm mt-1">

@@ -143,6 +143,8 @@
     "layer": "international",
     "alignment_or_capability": "alignment",
     "domain": "truth_and_clarity",
-    "precision": 1
+    "precision": 1,
+    "reference_min": 9.0,
+    "reference_max": 21.0
   }
 ]

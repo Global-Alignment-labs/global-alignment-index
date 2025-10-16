@@ -42,3 +42,10 @@
   - Rounding: 1 decimal (round half away from zero via JavaScript `Math.round`).
   - Data window: 2016 → last completed calendar year (events still in progress truncated at the cutoff year).
   - CI note: automated checks rely on a small STOP fixture to exercise parsing and interval logic; production runs point to the full STOP bundle covering 2016 through the latest completed year.
+
+**Scientific co-authorship share (%) — Global (OpenAlex)**
+- Scope: journal/proceedings articles (type_crossref), published, non-paratext.
+- Definition: share of works with ≥2 distinct affiliation countries among works with ≥1 country.
+- Method: OpenAlex /works group_by=publication_year for totals (countries_distinct_count:>0) and international (countries_distinct_count:>1). Share = (international / total) × 100; round to one decimal place.
+- Data window: 1990 → latest *complete* year, detected via continuity check (drop a tail year when its total is <95% of the prior year, up to two passes).
+- Notes: Levels may be conservative relative to Scopus S&E “articles+reviews.” GAISUM logs capture filters_applied, diagnostics (key-year shares/counts), and the completeness cap year.
